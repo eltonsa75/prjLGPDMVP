@@ -1,0 +1,17 @@
+.espacoSuperior {
+    margin-top: 50px;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+}
+
+.fa{
+    font-size: 35px;
+    color: red;
+    padding: 5px;
+}
+
+.align-top {
+    vertical-align: middle!important;
+}
+
