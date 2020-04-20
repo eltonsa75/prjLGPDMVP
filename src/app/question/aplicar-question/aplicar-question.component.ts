@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AplicarQuestionComponent implements OnInit {
 
+  title = "QUESTIONÁRIOS ASSESSMENT - LGPD ";
+
   constructor() { }
 
   ngOnInit() {

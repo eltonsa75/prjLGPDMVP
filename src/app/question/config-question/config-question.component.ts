@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfigQuestionComponent implements OnInit {
 
+  title = "Configurações de Questionario";
+
   constructor() { }
 
   ngOnInit() {

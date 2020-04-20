@@ -1,0 +1,28 @@
+<div *ngIf="questionEmAndamento; else fimQuestionario">
+    <app-entrevistafuncional (encerrarQuestion)="encerrarQuestion($event)"></app-entrevistafuncional>
+</div>
+
+<ng-template #fimQuestionario>
+    <div *ngIf="questionEncerrado === 'Inicializar'; else inicioQuestion" class="container mt-5" style="margin-top: 50px;">
+        <div class="row">
+            <div class="col text-center">
+                <h3 style="color: red">Inicializar o Questionário!</h3>
+                <button class="btn btn-primary" (click)="reiniciarQuestion()">Reiniciar Questionário</button>
+            </div>
+        </div>
+    </div>    
+</ng-template>
+
+<ng-template #inicioQuestion>
+    <div class="container mt-5" style="margin-top: 50px;">
+        <div class="row">
+            <div class="col text-center">
+                <h3 style="color: blue">Questionario Finalizado!</h3>
+                <button class="btn btn-success" [routerLink]="['/question/AplicarQuestion']">Próximo Questionário</button>
+            </div>
+        </div>
+    </div> 
+</ng-template>
+
+
+

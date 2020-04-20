@@ -1,200 +1,52 @@
-<div class="container lead text-center mt-3 font-weight-bold">
-    ASSESSMENT LGPD
-</div>
+<h3 class="text-center mt-5 text-primary">
+    {{title}}
+</h3>
 
-<div class="container">
-    
-    <fieldset class="border border-primary rounded mt-3 p-2">
-        <legend class="w-auto border-bottom text-primary"><h5>&nbsp;Questionário de Entrevista - Funcional&nbsp;</h5></legend>
-       <div class="container">
-        <form>
-            <legend class="text-primary"><h6><i class="fa fa-pencil-square"></i>&nbsp;01 - Dados do Cliente</h6></legend>
-            <div class="row">
-                <div class="col-sm-8">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="empresa" name="empresa" placeholder="Empresa">
-                      </div>  
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="setor" name="setor" placeholder="Setor">
-                      </div>  
-                </div>
+<div class="container mt-5">
+    <div class="jumbotron">
+      <app-progresso [progresso]="progresso"></app-progresso>
+        <h1 class="display-5">{{titulo}}</h1>
+        <p class="lead">{{ rodadaQuestion.funcional }}</p>
+        <hr class="my-4">
+        <div class="custom-control custom-radio">
+            <input type="radio" id="radio" name="customRadio" class="custom-control-input" (input)="RespSim($event)">
+            <label class="custom-control-label" for="radio">Sim</label>
+          </div>
+          <p class="my-4">
+          <div class="container" id="div1" style="display: none;"> 
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="idTem" name="rdTem" class="custom-control-input">
+              <label class="custom-control-label" for="idTem">Tem</label>
             </div>
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="diretoria" name="diretoria" placeholder="Diretoria">
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="area" name="area" placeholder="Área">
-                    </div>
-                </div> 
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="depto" name="depto" placeholder="Depto">
-                    </div>
-                </div>             
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="idNaoTem" name="rdTem" class="custom-control-input">
+              <label class="custom-control-label" for="idNaoTem">Não Tem</label>
             </div>
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="diretoria" name="localidade" placeholder="Localidade:">
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <select class="custom-select mr-sm-2" id="cidade" name="cidade">
-                            <option selected>Cidade:</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                          </select>
-                    </div>
-                </div> 
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <select class="custom-select mr-sm-2" id="estado" name="estado">
-                            <option selected>Estado</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                          </select>
-                    </div>
-                </div>             
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="idVisto" name="rdVisto" class="custom-control-input">
+              <label class="custom-control-label" for="idVisto">Visto</label>
             </div>
-            <legend class="text-primary"><h6><i class="fa fa-pencil-square"></i>&nbsp;02 - Dados do Entrevistador</h6></legend>
-            <div class="row">
-                <div class="col-sm-8">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="empresa" name="empresa" placeholder="Empresa:">
-                      </div>  
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome:">
-                      </div>  
-                </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="idNaoVisto" name="rdVisto" class="custom-control-input">
+              <label class="custom-control-label" for="idNaoVisto">Não Visto</label>
             </div>
-
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="funcao" name="funcao" placeholder="Função:">
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="email" name="email" placeholder="E-mail:">
-                    </div>
-                </div> 
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="celular" name="celular" placeholder="Tel.Cel:">
-                    </div>
-                </div>             
+            <hr class="my-4">
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Obs:</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
-
-            <legend class="text-primary"><h6><i class="fa fa-pencil-square"></i>&nbsp;03 - Dados do Entrevistado Cliente</h6></legend>
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Função:">
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="cargo" name="cargo" placeholder="Cargo:">
-                    </div>
-                </div> 
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="email" name="email" placeholder="E-mail:">
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="celular" name="celular" placeholder="Tel.Cel:">
-                    </div>
-                </div>             
-            </div>
-
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Função:">
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="cargo" name="cargo" placeholder="Cargo:">
-                    </div>
-                </div> 
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="email" name="email" placeholder="E-mail:">
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="celular" name="celular" placeholder="Tel.Cel:">
-                    </div>
-                </div>             
-            </div>
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Função:">
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="cargo" name="cargo" placeholder="Cargo:">
-                    </div>
-                </div> 
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="email" name="email" placeholder="E-mail:">
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="celular" name="celular" placeholder="Tel.Cel:">
-                    </div>
-                </div>             
-            </div>
-            <legend class="text-primary"><h6><i class="fa fa-pencil-square"></i>&nbsp;04 - Entrevista</h6></legend>
-            <div class="row">
-                <div class="col-sm-2">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="item" name="item" placeholder="Item:">
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="assunto" name="assunto" placeholder="Assunto:">
-                    </div>
-                </div> 
-                <div class="col-sm-2">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="hinicio" name="hinicio" placeholder="Horário Inicio:">
-                    </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="hfinal" name="hfinal" placeholder="Horário Final:">
-                    </div>
-                </div>  
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="consideracoes" name="consideracoes" placeholder="Considerações Iniciais:">
-                    </div>
-                </div>            
-            </div>
-            <button type="button" class="btn btn-primary">Gravar</button>                   
-          </form>
+          </div>
+     
+          <div class="custom-control custom-radio">
+            <input type="radio" id="naoRadio2" name="customRadio" class="custom-control-input" (input)="RespNao($event)">
+            <label class="custom-control-label" for="naoRadio2">Não</label>
+          </div> 
+          <hr class="my-4 mb-5">      
+        <div class="row">
+            <div class="col-6 text-left"><button type="button" class="btn btn-primary btn-lg" (click)="voltarQuestion()">Voltar</button></div>
+            <div class="col-6 text-right"><button type="button" class="btn btn-danger btn-lg" (click)="avancarQuestion()">Avançar</button></div>
+          </div>
        </div>
-    </fieldset>
 </div>
+
+
