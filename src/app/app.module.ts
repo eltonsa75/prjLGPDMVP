@@ -1,4 +1,7 @@
-import { FormsModule } from '@angular/forms';
+
+//import { FormsModule } from '@angular/forms';
+
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,6 +17,8 @@ import * as $ from 'jquery';
 import { AuthService } from './question/login/auth.service';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +30,7 @@ import { AuthService } from './question/login/auth.service';
   imports: [ 
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+   ReactiveFormsModule
     
   ],
   providers: [AuthService],

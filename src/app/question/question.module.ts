@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 import { QuestionRoutingModule } from './question-routing.module';
 import { CadUsuarioComponent } from './cad-usuario/cad-usuario.component';
 import { CadPerfilComponent } from './cad-perfil/cad-perfil.component';
-import { ConfigQuestionComponent } from './config-question/config-question.component';
+
 import { AplicarQuestionComponent } from './aplicar-question/aplicar-question.component';
 import { AnaliseGapComponent } from './analise-gap/analise-gap.component';
 import { TabAuxiliaresComponent } from './tab-auxiliares/tab-auxiliares.component';
+
 
 import { EntrevistafuncionalComponent } from './aplicar-question/contextualizacao/entrevistafuncional/entrevistafuncional.component';
 import { DocumentalfuncionalComponent } from './aplicar-question/contextualizacao/documentalfuncional/documentalfuncional.component';
@@ -20,13 +22,15 @@ import { ProgressoComponent } from './aplicar-question/contextualizacao/entrevis
 import { PainelComponent } from './aplicar-question/contextualizacao/painel/painel.component';
 import { LoginComponent } from './login/login.component';
 import { PrincipalComponent } from './principal/principal.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AplicarEntrevistaComponent } from './aplicar-entrevista/aplicar-entrevista.component';
+import { EntrevistaComponent } from './entrevista/entrevista.component';
 
 
 @NgModule({
-  declarations: [
+  declarations: [  
    CadUsuarioComponent,
    CadPerfilComponent,
-   ConfigQuestionComponent,
    AplicarQuestionComponent, 
    AnaliseGapComponent, 
    TabAuxiliaresComponent,
@@ -40,13 +44,16 @@ import { PrincipalComponent } from './principal/principal.component';
    PainelComponent,
    LoginComponent,
    PrincipalComponent,
-   
+   AplicarEntrevistaComponent,
+   EntrevistaComponent,
   ],
    
   imports: [
     CommonModule,
     QuestionRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ]
 })
 export class QuestionModule { }

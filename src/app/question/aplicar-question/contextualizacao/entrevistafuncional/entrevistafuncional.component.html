@@ -3,49 +3,47 @@
 </h3>
 
 <div class="container mt-5">
+  <div *ngIf="question !== undefined">
+  <div class="container mt-5">
     <div class="jumbotron">
       <app-progresso [progresso]="progresso"></app-progresso>
-        <h1 class="display-5">{{titulo}}</h1>
-        <p class="lead">{{ rodadaQuestion.funcional }}</p>
+        <h6 class="display-5">{{titulo}}</h6><br/>
+        <p class="lead">{{ numeroQuestion }} {{ question.question_enunciation}}</p>
         <hr class="my-4">
-        <div class="custom-control custom-radio">
-            <input type="radio" id="radio" name="customRadio" class="custom-control-input" (input)="RespSim($event)">
-            <label class="custom-control-label" for="radio">Sim</label>
-          </div>
-          <p class="my-4">
-          <div class="container" id="div1" style="display: none;"> 
+        <form>
+          <div [formGroup]="respForm">
             <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" id="idTem" name="rdTem" class="custom-control-input">
-              <label class="custom-control-label" for="idTem">Tem</label>
+              <input type="radio" id="sim" formControlName="radioAnswer" value="1" class="custom-control-input">
+              <label class="custom-control-label" for="sim">Sim</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline" >
+              <input type="radio" id="nao" formControlName="radioAnswer" value="0"  class="custom-control-input">
+              <label class="custom-control-label" for="nao">Não</label>
             </div>
             <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" id="idNaoTem" name="rdTem" class="custom-control-input">
-              <label class="custom-control-label" for="idNaoTem">Não Tem</label>
+              <input type="radio" id="naoSeAplica" formControlName="radioAnswer" value="2" class="custom-control-input">
+              <label class="custom-control-label" for="naoSeAplica">Não se aplica</label>
             </div>
-            <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" id="idVisto" name="rdVisto" class="custom-control-input">
-              <label class="custom-control-label" for="idVisto">Visto</label>
-            </div>
-            <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" id="idNaoVisto" name="rdVisto" class="custom-control-input">
-              <label class="custom-control-label" for="idNaoVisto">Não Visto</label>
-            </div>
-            <hr class="my-4">
+            <hr class="my-2">
             <div class="form-group">
-              <label for="exampleFormControlTextarea1">Obs:</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <label for="Textarea1">Observação:</label>
+              <textarea class="form-control" id="Textarea1" rows="2"  formControlName="txtObservations"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="Textarea2">Comentários:</label>
+              <textarea class="form-control" id="Textarea2" rows="2" formControlName="txtComments"></textarea>
             </div>
           </div>
-     
-          <div class="custom-control custom-radio">
-            <input type="radio" id="naoRadio2" name="customRadio" class="custom-control-input" (input)="RespNao($event)">
-            <label class="custom-control-label" for="naoRadio2">Não</label>
-          </div> 
-          <hr class="my-4 mb-5">      
-        <div class="row">
-            <div class="col-6 text-left"><button type="button" class="btn btn-primary btn-lg" (click)="voltarQuestion()">Voltar</button></div>
-            <div class="col-6 text-right"><button type="button" class="btn btn-danger btn-lg" (click)="avancarQuestion()">Avançar</button></div>
+        
+    
+          <hr class="my-4 mb-3">      
+          <div class="d-flex justify-content-center">
+            <div class="col-4 text-center"><button type="button" class="btn btn-danger btn-lg" (click)="voltarQuestion()" [disabled]="question.if_back === ''">Voltar</button></div>
+            <div class="col-4 text-center"><button type="submit" class="btn btn-success btn-lg"(click)="save()">Salvar</button></div>
+            <div class="col-4 text-center"><button type="button" class="btn btn-primary btn-lg" (click)="avancarQuestion()">Avançar</button></div>
           </div>
+        </form>
+       </div>
        </div>
 </div>
 

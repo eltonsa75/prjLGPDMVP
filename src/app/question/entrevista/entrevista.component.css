@@ -8,3 +8,6 @@
     text-shadow: 2px 2px #ccc;
   }
 
+  .select {
+    text-align-last: center;
+}

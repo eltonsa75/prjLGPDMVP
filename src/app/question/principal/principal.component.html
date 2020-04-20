@@ -1,93 +1,172 @@
 <div class="container">
     <div class="container mt-5">
         <p class="lead text-center h1 CorTitulo">
-           Tela de Acesso
+            {{title}}           
           </p>
+    <hr>
     </div>
     
     <div class="container mt-5">
         <div class="row">
-            <div class="col-sm mb-3">
-                <div class="d-flex justify-content-around">
-                    <div class="card text-center" style="width: 18rem; background-color: #003769;">
-                        <div class="card-body">
-                            <h5 class="card-title"><i class="fa fa-user-plus" aria-hidden="true" style="font-size: 50px; color: red;"></i>
-                                <p class="text-white">Cadastro Usuário</p>
-                            </h5>
-                            <a class="btn btn-danger" [routerLink]="['/question/aplicar']">Acessar</a>
-                        </div>
-                    </div>
+    <!-- Begin Bloco 1 -->
+
+    <div class="col-sm mb-3">
+        <div class="d-flex justify-content-around">
+            <div class="card text-center" style="width: 18rem; background-color: #003769;">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fa fa-building" aria-hidden="true" style="font-size: 50px; color:#9EBAFF;"></i>
+                        <p class="text-white">Empresa Master</p>
+                    </h5>
+                    <a class="btn btn-danger disabled" [routerLink]="['/question/AplicarQuestion']">Acessar</a>
                 </div>
             </div>
-    
+        </div>
+    </div>
+
             <div class="col-sm mb-3">
                 <div class="d-flex justify-content-around">
                     <div class="card text-center" style="width: 18rem; background-color: #003769;">
                         <div class="card-body">
                             <h5 class="card-title"><i class="fa fa-users" aria-hidden="true" style="font-size: 50px; color: rgb(14, 243, 14);"></i>
-                                <p class="text-white">Cadastro Perfil</p>
+                                <p class="text-white">Perfil</p>
                             </h5>
-                            <a class="btn btn-danger" [routerLink]="['/question/perfil']">Acessar</a>
+                            <a class="btn btn-danger disabled" [routerLink]="['/question/perfil']">Acessar</a>
                         </div>
                     </div>
                 </div>
-            </div>
-    
+            </div> 
+
             <div class="col-sm mb-3">
                 <div class="d-flex justify-content-around">
                     <div class="card text-center" style="width: 18rem; background-color: #003769;">
                         <div class="card-body">
-                            <h5 class="card-title"><i class="fa fa-cogs" aria-hidden="true" style="font-size: 50px; color: rgb(206, 201, 201);"></i>
-                                <p class="text-white">Configurar Questionário</p>
+                            <h5 class="card-title"><i class="fa fa-user-plus" aria-hidden="true" style="font-size: 50px; color: red;"></i>
+                                <p class="text-white">Usuário</p>
                             </h5>
-                            <a class="btn btn-danger" [routerLink]="['/question/ConfigQuestion']">Acessar</a>
+                            <a class="btn btn-danger disabled" [routerLink]="['/question/aplicar']">Acessar</a>
                         </div>
                     </div>
                 </div>
             </div>
-    
-            <div class="container">&nbsp;&nbsp;</div>
-    
+
+              <!-- Begin Bloco 2 -->
+
+    <div class="col-sm mb-3">
+        <div class="d-flex justify-content-around">
+            <div class="card text-center" style="width: 18rem; background-color: #003769;">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fa fa-user-plus" aria-hidden="true" style="font-size: 50px; color: yellow;"></i>
+                        <p class="text-white">Cliente</p>
+                    </h5>
+                    <a class="btn btn-danger disabled" [routerLink]="['/question/TabAuxiliar']">Acessar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
             <div class="col-sm mb-3">
                 <div class="d-flex justify-content-around">
                     <div class="card text-center" style="width: 18rem; background-color: #003769;">
                         <div class="card-body">
-                            <h5 class="card-title"><i class="fa fa-files-o" aria-hidden="true" style="font-size: 50px; color: white;"></i>
+                            <h5 class="card-title"><i class="fa fa-file-text" aria-hidden="true" style="font-size: 50px; color: white;"></i>
                                 <p class="text-white">Aplicar Questionários</p>
                             </h5>
                             <a class="btn btn-danger" [routerLink]="['/question/AplicarQuestion']">Acessar</a>
                         </div>
                     </div>
                 </div>
-            </div>
-    
+            </div> 
+
             <div class="col-sm mb-3">
                 <div class="d-flex justify-content-around">
                     <div class="card text-center" style="width: 18rem; background-color: #003769;">
                         <div class="card-body">
-                            <h5 class="card-title"><i class="fa fa-signal" aria-hidden="true" style="font-size: 50px; color:yellow;"></i>
-                                <p class="text-white">Analise de GAP</p>
+                            <h5 class="card-title"><i class="fa fa-pencil" aria-hidden="true" style="font-size: 50px; color: green;"></i>
+                                <p class="text-white">Entrevista</p>
                             </h5>
-                            <a class="btn btn-danger" [routerLink]="['/question/AnaliseGap']">Acessar</a>
+                            <a class="btn btn-danger" [routerLink]="['/question/Aplicar-Entrevista']">Acessar</a>
                         </div>
                     </div>
                 </div>
             </div>
-    
+
+
+                        <!-- Begin Bloco 3 -->
+
+    <div class="col-sm mb-3">
+        <div class="d-flex justify-content-around">
+            <div class="card text-center" style="width: 18rem; background-color: #003769;">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fa fa-files-o" aria-hidden="true" style="font-size: 50px; color: green;"></i>
+                        <p class="text-white">Aplicar Análise Documental</p>
+                    </h5>
+                    <a class="btn btn-danger disabled" [routerLink]="['/question/TabAuxiliar']">Acessar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+            <div class="col-sm mb-3">
+                <div class="d-flex justify-content-around">
+                    <div class="card text-center" style="width: 18rem; background-color: #003769;">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fa fa-files-o" aria-hidden="true" style="font-size: 50px; color: green;"></i>
+                                <p class="text-white">Análise Documental</p>
+                            </h5>
+                            <a class="btn btn-danger disabled" [routerLink]="['/question/AplicarQuestion']">Acessar</a>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+
             <div class="col-sm mb-3">
                 <div class="d-flex justify-content-around">
                     <div class="card text-center" style="width: 18rem; background-color: #003769;">
                         <div class="card-body">
                             <h5 class="card-title"><i class="fa fa-table" aria-hidden="true" style="font-size: 50px; color:white;"></i>
-                                <p class="text-white">Tabelas Auxiliares</p>
+                                <p class="text-white">Gerais</p>
                             </h5>
-                            <a class="btn btn-danger" [routerLink]="['/question/TabAuxiliar']">Acessar</a>
+                            <a class="btn btn-danger disabled" [routerLink]="['/question/TabAuxiliar']">Acessar</a>
                         </div>
                     </div>
                 </div>
             </div>
+       
+          
+           
+
+                    <div class="col-sm mb-3">
+                        <div class="d-flex justify-content-around">
+                            <div class="card text-center" style="width: 18rem; background-color: #003769;">
+                                <div class="card-body">
+                                    <h5 class="card-title"><i class="fa fa-cogs" aria-hidden="true" style="font-size: 50px; color: rgb(206, 201, 201);"></i>
+                                        <p class="text-white">Configurar Questionário</p>
+                                    </h5>
+                                    <a class="btn btn-danger disabled" [routerLink]="['/question/ConfigQuestion']" role="button" aria-disabled="true">Acessar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm mb-3">
+                        <div class="d-flex justify-content-around">
+                            <div class="card text-center" style="width: 18rem; background-color: #003769;">
+                                <div class="card-body">
+                                    <h5 class="card-title"><i class="fa fa-signal" aria-hidden="true" style="font-size: 50px; color:yellow;"></i>
+                                        <p class="text-white">Consolidação</p>
+                                    </h5>
+                                    <a class="btn btn-danger disabled" [routerLink]="['/question/AnaliseGap']" role="button" aria-disabled="true">Acessar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="col-sm mb-3">
+                     
+                    </div>   
     
         </div>
+        <div class="container">&nbsp;&nbsp;</div>
     </div>
     
 </div>

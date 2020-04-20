@@ -1,3 +1,5 @@
+import { EntrevistaComponent } from './entrevista/entrevista.component';
+import { AplicarEntrevistaComponent } from './aplicar-entrevista/aplicar-entrevista.component';
 import { PrincipalComponent } from './principal/principal.component';
 import { LoginComponent } from './login/login.component';
 import { PainelComponent } from './aplicar-question/contextualizacao/painel/painel.component';
@@ -8,7 +10,7 @@ import { DocumentalfuncionalComponent } from './aplicar-question/contextualizaca
 import { TabAuxiliaresComponent } from './tab-auxiliares/tab-auxiliares.component';
 import { AnaliseGapComponent } from './analise-gap/analise-gap.component';
 import { AplicarQuestionComponent } from './aplicar-question/aplicar-question.component';
-import { ConfigQuestionComponent } from './config-question/config-question.component';
+
 import { CadUsuarioComponent } from './cad-usuario/cad-usuario.component';
 
 
@@ -24,7 +26,8 @@ const routes: Routes = [
   { path: 'menu', component: PrincipalComponent},
   { path: 'usuario', component: CadUsuarioComponent},
   { path: 'perfil', component: CadPerfilComponent},
-  { path: 'ConfigQuestion', component: ConfigQuestionComponent},
+  { path: 'Aplicar-Entrevista', component: AplicarEntrevistaComponent},
+  { path: 'Entrevista', component: EntrevistaComponent},
   { path: 'AplicarQuestion', component: AplicarQuestionComponent},
   { path: 'AnaliseGap', component: AnaliseGapComponent},
   { path: 'TabAuxiliar', component: TabAuxiliaresComponent},

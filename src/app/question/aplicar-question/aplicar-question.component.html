@@ -1,4 +1,4 @@
-<div class="lead text-center mt-5">
+<div class="lead text-center mt-5 text-primary">
   {{title}}
 </div>
 <div class="container mt-2">
@@ -8,22 +8,23 @@
         <h5 class="mb-0 text-center">
           <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
             aria-controls="collapseOne">
-            ASSESSMENT - Contextualização
+            ENTREVISTA - FUNCIONAL
           </button>
         </h5>
       </div>
       <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
         <div class="card-body">
           <div class="container">
-            <div class="row">
-              <div class="col-sm text-center">
-                <a [routerLink]="['/question/painelentrevista']"><img src="/assets/img/icon.svg">Entrevista Funcional LGPD</a>
-              </div>
-              <div class="col-sm text-center">
-                <a [routerLink]="['/question/documentalfuncional']"><img src="/assets/img/icon.svg">Técnico</a>
+            <div>
+              <div class="row">
+                <div class="col-sm text-center">
+                  <a [routerLink]="['/question/painelentrevista']"><img src="/assets/img/icon.svg">Contextualização</a>
+                </div>
+                <div class="col-sm text-center">
+                  <a [routerLink]="['/question/painelentrevista']"><img src="/assets/img/icon.svg">Ciclo - 1</a>
+                </div>
               </div>
             </div>
-          </div>
         </div>
       </div>
     </div>
@@ -35,7 +36,7 @@
     <div class="card-header" id="headingTwo">
       <h5 class="mb-0 text-center">
         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          ASSESSMENT - Ciclo de Vida - Geração, Coleta ou Produção       
+         DOCUMENTAL    
         </button>
       </h5>
     </div>
@@ -43,8 +44,8 @@
       <div class="card-body">
           <div class="flex-row text-center">
               <div class="p-2">
-                  <a [routerLink]="['/question/CicloUmEntrevistaFuncional']" style="padding-right: 14px;"><img src="/assets/img/icon.svg" style="padding-bottom: 10px;">Entrevista Funcional LGPD</a>
-                  <a [routerLink]="['/question/CicloUmEntrevistaTecnica']" style="padding-right: 28px;"><img src="/assets/img/icon.svg" style="padding-bottom: 10px;">Entrevista Técnica LGPD</a>
+                  <a [routerLink]="['/question/CicloUmEntrevistaFuncional']" style="padding-right: 14px;"><img src="/assets/img/icon.svg" style="padding-bottom: 10px;">Funcional</a>
+                  <a [routerLink]="['/question/CicloUmEntrevistaTecnica']" style="padding-right: 28px;"><img src="/assets/img/icon.svg" style="padding-bottom: 10px;">Técnica</a>
               </div>
           </div>                  
       </div>
@@ -74,115 +75,9 @@
   </div>
 </div>
 
-<div class="container mt-2">
-  <div class="card mb-2">
-    <div class="card-header" id="headingFour">
-      <h5 class="mb-0 text-center">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-          ASSESSMENT - Ciclo de Vida - Utilização ou Processamento      
-        </button>
-      </h5>
-    </div>
-  <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
-      <div class="card-body">
-        <div class="flex-row text-center">
-          <div class="p-2">
-              <a [routerLink]="['/question/CicloUmEntrevistaFuncional']" style="padding-right: 14px;"><img src="/assets/img/icon.svg" style="padding-bottom: 10px;">Entrevista Funcional LGPD</a>
-              <a [routerLink]="['/question/CicloUmEntrevistaTecnica']" style="padding-right: 28px;"><img src="/assets/img/icon.svg" style="padding-bottom: 10px;">Entrevista Técnica LGPD</a>
-          </div>
-      </div>                    
-      </div>
-  </div>
-  </div>
-</div>
 
-<div class="container mt-2">
-  <div class="card mb-2">
-    <div class="card-header" id="headingFive">
-      <h5 class="mb-0 text-center">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-          ASSESSMENT - Ciclo de Vida - Transferência ou Distribuição      
-        </button>
-      </h5>
-    </div>
-  <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
-      <div class="card-body">
-        <div class="flex-row text-center">
-          <div class="p-2">
-              <a [routerLink]="['/question/CicloUmEntrevistaFuncional']" style="padding-right: 14px;"><img src="/assets/img/icon.svg" style="padding-bottom: 10px;">Entrevista Funcional LGPD</a>
-              <a [routerLink]="['/question/CicloUmEntrevistaTecnica']" style="padding-right: 28px;"><img src="/assets/img/icon.svg" style="padding-bottom: 10px;">Entrevista Técnica LGPD</a>
-          </div>
-      </div>                   
-      </div>
-  </div>
-  </div>
-</div>
 
-<div class="container mt-2">
-  <div class="card mb-2">
-    <div class="card-header" id="headingSix">
-      <h5 class="mb-0 text-center">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-          ASSESSMENT - Ciclo de Vida - Armazenamento ou Guarda      
-        </button>
-      </h5>
-    </div>
-  <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
-      <div class="card-body">
-        <div class="flex-row text-center">
-          <div class="p-2">
-              <a [routerLink]="['/question/CicloUmEntrevistaFuncional']" style="padding-right: 14px;"><img src="/assets/img/icon.svg" style="padding-bottom: 10px;">Entrevista Funcional LGPD</a>
-              <a [routerLink]="['/question/CicloUmEntrevistaTecnica']" style="padding-right: 28px;"><img src="/assets/img/icon.svg" style="padding-bottom: 10px;">Entrevista Técnica LGPD</a>
-          </div>
-      </div>                   
-      </div>
-  </div>
-  </div>
-</div>
 
-<div class="container mt-2">
-  <div class="card mb-2">
-    <div class="card-header" id="headingSeven">
-      <h5 class="mb-0 text-center">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-          ASSESSMENT - Ciclo de Vida  - Eliminação ou Arquivamento      
-        </button>
-      </h5>
-    </div>
-  <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
-      <div class="card-body">
-        <div class="flex-row text-center">
-          <div class="p-2">
-              <a [routerLink]="['/question/CicloUmEntrevistaFuncional']" style="padding-right: 14px;"><img src="/assets/img/icon.svg" style="padding-bottom: 10px;">Entrevista Funcional LGPD</a>
-              <a [routerLink]="['/question/CicloUmEntrevistaTecnica']" style="padding-right: 28px;"><img src="/assets/img/icon.svg" style="padding-bottom: 10px;">Entrevista Técnica LGPD</a>
-          </div>
-      </div>                   
-      </div>
-  </div>
-  </div>
-</div>
-
-<div class="container mt-2">
-  <div class="card mb-2">
-    <div class="card-header" id="headingEight">
-      <h5 class="mb-0 text-center">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-          ASSESSMENT - Ciclo de Vida  - Geral     
-        </button>
-      </h5>
-    </div>
-  <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordion">
-      <div class="card-body">
-        <div class="flex-row text-center">
-          <div class="p-2">
-              <a [routerLink]="['/question/CicloUmEntrevistaFuncional']" style="padding-right: 14px;"><img src="/assets/img/icon.svg" style="padding-bottom: 10px;">Entrevista Funcional LGPD</a>
-              <a [routerLink]="['/question/CicloUmEntrevistaTecnica']" style="padding-right: 28px;"><img src="/assets/img/icon.svg" style="padding-bottom: 10px;">Entrevista Técnica LGPD</a>
-          </div>
-      </div>                   
-      </div>
-  </div>
-  </div>
-</div>
 
 
 

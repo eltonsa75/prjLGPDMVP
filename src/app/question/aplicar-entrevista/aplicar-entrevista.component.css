@@ -1,0 +1,21 @@
+.CorTitulo {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2.0em;
+    color: blue;
+}
+
+.h1 {
+    text-shadow: 2px 2px #ccc;
+  }
+
+.selectCenter {
+    text-align-last: center;
+}
+
+select.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+select.ng-valid.ng-touched {
+    border: 1px solid green;
+}

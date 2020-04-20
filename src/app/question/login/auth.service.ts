@@ -18,8 +18,6 @@ export class AuthService {
         this.usuarioAuthenticado = true;
 
         this.router.navigate(['/question/menu']);
-
-
      }
   }
 }

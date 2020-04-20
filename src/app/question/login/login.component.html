@@ -1,11 +1,27 @@
 <div class="container">
-        <div class="form-group">
-          <label for="exampleInputEmail1">Email</label>
-          <input [(ngModel)]="usuario.nome" id="usuario" type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Usuário">         
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Senha</label>
-          <input [(ngModel)]="usuario.senha" type="password" class="form-control" id="senha" placeholder="Senha">
-        </div>        
-        <button type="submit" class="btn btn-primary" name="action" (click)="fazerLogin()">Login</button>
+
 </div>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm"></div>
+    <div class="col-sm">
+      <div class="row mb-2">
+        <div class="container text-center">
+          <img src="/assets/img/logolgpd.jfif" width="350" height="250" class="d-inline-block align-top rounded" alt="">
+        </div>
+       
+      </div>
+      <div class="form-group">       
+        <input [(ngModel)]="usuario.nome" id="usuario" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Usuário">         
+      </div>
+      <div class="form-group">        
+        <input [(ngModel)]="usuario.senha" type="password" class="form-control" id="senha" aria-describedby="emailHelp" placeholder="Senha">
+      </div>        
+      <button type="submit" class="btn btn-secondary btn-lg btn-block" name="action" (click)="fazerLogin()">Login</button>
+    </div>
+    <div class="col-sm"></div>
+
+  </div>
+</div>
+

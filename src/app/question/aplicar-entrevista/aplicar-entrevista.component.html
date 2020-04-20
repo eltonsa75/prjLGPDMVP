@@ -1,0 +1,152 @@
+<div class="container">
+    <div class="container mt-5">
+        <p class="lead text-center h1 CorTitulo">
+            {{title}}           
+          </p>
+    <hr>
+    </div>
+
+    <div class="container">
+    
+        <fieldset class="border rounded mt-3 p-2">
+            <legend class="w-auto border-bottom text-primary"><h5></h5></legend>
+           <div class="container">
+
+            <form  [formGroup]="formAplicarEntrevista" novalidate (ngSubmit)="gravarPlanejarEntrevista()">    
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <select class="custom-select mr-sm-2 selectCenter"  formControlName="cliente" id="cliente" name="cliente">
+                                <option selected>Selecione o Nome Fantasia do Cliente:</option>
+                                <option value="cliente">Cliente</option>                               
+                              </select>
+                              <small *ngIf="formAplicarEntrevista.get('cliente').valid && formAplicarEntrevista.get('cliente').touched" class="form-text text-success">Ok</small>
+                              <small *ngIf="!formAplicarEntrevista.get('cliente').valid && formAplicarEntrevista.get('cliente').touched" class="form-text text-danger">Cliente Invalido</small>
+                        </div>
+                    </div>              
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <select class="custom-select mr-sm-2 selectCenter" formControlName="filial" id="filial" name="filial">
+                                <option selected>Selecione o Nome Fantasia da Filial:</option>
+                                <option value="filial">Filial</option>
+                              </select>
+                              <small *ngIf="formAplicarEntrevista.get('filial').valid && formAplicarEntrevista.get('filial').touched" class="form-text text-success">Ok</small>
+                              <small *ngIf="!formAplicarEntrevista.get('filial').valid && formAplicarEntrevista.get('filial').touched" class="form-text text-danger">Filial Invalido</small>
+                        </div>
+                    </div>              
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <select class="custom-select mr-sm-2 selectCenter" formControlName="area" id="area" name="area">
+                                <option selected>Selecione a Área:</option>
+                                <option value="area">Área</option>
+                              </select>
+                              <small *ngIf="formAplicarEntrevista.get('area').valid && formAplicarEntrevista.get('area').touched" class="form-text text-success">Ok</small>
+                              <small *ngIf="!formAplicarEntrevista.get('area').valid && formAplicarEntrevista.get('area').touched" class="form-text text-danger">Área Invalido</small>
+                        </div>
+                    </div>              
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <select class="custom-select mr-sm-2 selectCenter" formControlName="questionariodisponivel" id="questionariodisponivel" name="questionariodisponivel">
+                                <option selected>Selecione o Questionário Disponivel:</option>
+                                <option value="disponivel">disponivel</option>
+                              </select>
+                              <small *ngIf="formAplicarEntrevista.get('questionariodisponivel').valid && formAplicarEntrevista.get('questionariodisponivel').touched" class="form-text text-success">Ok</small>
+                              <small *ngIf="!formAplicarEntrevista.get('questionariodisponivel').valid && formAplicarEntrevista.get('questionariodisponivel').touched" class="form-text text-danger">Questionário Invalido</small>
+                        </div>
+                    </div>              
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <select class="custom-select mr-sm-2 selectCenter" formControlName="entrevistado1" id="entrevistado1" name="entrevistado1">
+                                <option selected>Selecione o Entrevistado:</option>
+                                <option value="entrevistado1">Entrevistado 1</option>                              
+                              </select>
+                              <small *ngIf="formAplicarEntrevista.get('entrevistado1').valid && formAplicarEntrevista.get('entrevistado1').touched" class="form-text text-success">Ok</small>
+                              <small *ngIf="!formAplicarEntrevista.get('entrevistado1').valid && formAplicarEntrevista.get('entrevistado1').touched" class="form-text text-danger">Entrevistador Invalido</small>
+                        </div>
+                    </div>              
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <select class="custom-select mr-sm-2 select" formControlName="entrevistado2" id="entrevistado2" name="entrevistado2">
+                                <option selected>Selecione o Entrevistado:</option>
+                                <option value="entrevistado2">Entrevistado 2</option>
+                              
+                              </select>
+                        </div>
+                    </div>              
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <select class="custom-select mr-sm-2 select" formControlName="entrevistado3" id="entrevistado3" name="entrevistado3">
+                                <option selected>Selecione o Entrevistado:</option>
+                                <option value="entrevistado3">Entrevistado 3</option>
+                               
+                              </select>
+                        </div>
+                    </div>              
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <select class="custom-select mr-sm-2 select" formControlName="entrevistado4" id="entrevistado4" name="entrevistado4">
+                                <option selected>Selecione o Entrevistado:</option>
+                                <option value="entrevistado4">Entrevistado 4</option>
+                               
+                              </select>
+                        </div>
+                    </div>              
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <select class="custom-select mr-sm-2 select" formControlName="entrevistado5" id="entrevistado5" name="entrevistado5">
+                                <option selected>Selecione o Entrevistado:</option>
+                                <option value="entrevistado5">Entrevistado 5</option>
+                               
+                              </select>
+                        </div>
+                    </div>              
+                </div>
+     
+                
+                <div class="row">
+                    <div class="col-sm-4 text-center">
+                        <div class="form-group">
+                            <button type="button" class="btn btn-danger">Limpar</button>   
+                        </div>
+                    </div>
+                    <div class="col-sm-4 text-center">
+                        <div class="form-group">
+                            <button type="submit"
+                            class="btn btn-primary"
+                            >Gravar</button>   
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-4 text-center">
+                        <div class="form-group">
+                            <button type="button"
+                             class="btn btn-success"                            
+                             [routerLink]="['/question/menu']">Menu de Acesso</button>  
+                        </div>
+                    </div>            
+                </div>
+                              
+              </form>
+           </div>
+        </fieldset>
+    </div>
+
+  
+</div><!-- End Container -->
