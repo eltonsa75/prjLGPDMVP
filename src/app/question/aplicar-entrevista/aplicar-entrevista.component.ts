@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
+import { PlanejarEntrevista } from './../../shared/planejarentrevista.model';
+
 @Component({
   selector: 'app-aplicar-entrevista',
   templateUrl: './aplicar-entrevista.component.html',
@@ -9,6 +11,10 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class AplicarEntrevistaComponent implements OnInit {
 
   title = "Planejar Entrevistas";
+
+  // Gravar Planejamento da Entrevista
+// Paramentro vazio por ser string
+  public planejarentrevista: PlanejarEntrevista = new PlanejarEntrevista('', '', '', '', '', '', '', '', '')
 
   public formAplicarEntrevista: FormGroup = new FormGroup({
     'cliente': new FormControl(null, [ Validators.required ]),
@@ -26,7 +32,7 @@ export class AplicarEntrevistaComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  // Subtituindo o método ConfirmarCompra
   public gravarPlanejarEntrevista(): void {
     if (this.formAplicarEntrevista.status === 'INVALID') {
       console.log('formulario está inválido')
@@ -42,6 +48,18 @@ export class AplicarEntrevistaComponent implements OnInit {
       this.formAplicarEntrevista.get('entrevistado5').markAllAsTouched()
 
     } else {
+
+      let planejarentrevista: PlanejarEntrevista = new PlanejarEntrevista(
+        this.formAplicarEntrevista.value.cliente,
+        this.formAplicarEntrevista.value.filial,
+        this.formAplicarEntrevista.value.area,
+        this.formAplicarEntrevista.value.questionariodisponivel,
+        this.formAplicarEntrevista.value.entrevistado1,
+        this.formAplicarEntrevista.value.entrevistado2,
+        this.formAplicarEntrevista.value.entrevistado3,
+        this.formAplicarEntrevista.value.entrevistado4,
+        this.formAplicarEntrevista.value.entrevistado5
+      )
       console.log('Formulário está válido')
     }
   }
