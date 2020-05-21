@@ -19,12 +19,14 @@ import { AuthService } from './question/login/auth.service';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
     PaginaNaoEncontradaComponent,
     TopoComponent,
+
   
   ],
   imports: [ 

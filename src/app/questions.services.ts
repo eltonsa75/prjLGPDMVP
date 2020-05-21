@@ -14,6 +14,7 @@ export class QuestionsService {
 
     constructor(private http: HttpClient) { }  
 
+        // Método que pega a primeira questão do formulário
     public getQuestions(params: string): Promise<Question> {
         // efetuar uma requisição http 
         return this.http.get(`${URL_API}/primeiraQuestao`)
@@ -21,7 +22,7 @@ export class QuestionsService {
         .then((resposta: any) => resposta )       
         //retornar um Promise Question[]        
     }
-
+    // Método que Salva e busca a próxima questão
     public getSaveAndNext(answer: Object, next: {
         carga: string, question_edited_number:string}): Promise<any> {
         const httpOptions = {
@@ -35,7 +36,7 @@ export class QuestionsService {
         .toPromise()
         .then((questions) => questions ? questions[0] : {})
     }
-
+    // Método para avançar para próxima Questão
     public getNext(
         carga: string, question_edited_number:string): Promise<any> {
         return this.http.get(`${URL_API}/proxima/carga/${carga}/question_edited_number/${question_edited_number}`)

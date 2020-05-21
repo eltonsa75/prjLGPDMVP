@@ -9,9 +9,11 @@
     <div class="container">
     
         <fieldset class="border rounded mt-3 p-2">
-            <legend class="w-auto border-bottom text-primary"><h5></h5></legend>
+            <legend class="w-auto border-bottom text-primary"></legend>
            <div class="container">
-            <form>          
+
+             <form  [formGroup]="formulario" novalidate (ngSubmit)="FormEntrevista()"> 
+
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="form-group">
@@ -50,18 +52,21 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="form-group">
-                            <select class="custom-select mr-sm-2 select" id="cidade" name="cidade">
-                                <option selected>Selecione o Entrevistado:</option>
-                              
+                            <select class="custom-select mr-sm-2 selectCenter"  formControlName="entrevistado1" id="entrevistado1">
+                                <option value="">Selecione o Entrevistado:</option>
+                                <option value="entrevistado1">Entrevistado 1</option>                              
                               </select>
+                              <small *ngIf="formulario.get('entrevistado1').valid && formulario.get('entrevistado1').touched" class="form-text text-success"> <i class="fa fa-check"></i></small>
+                              <small *ngIf="!formulario.get('entrevistado1').valid && formulario.get('entrevistado1').touched" class="form-text text-danger"><i class="fa fa-times"></i></small>
                         </div>
                     </div>              
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="form-group">
-                            <select class="custom-select mr-sm-2 select" id="cidade" name="cidade">
-                                <option selected>Selecione o Entrevistado:</option>
+                            <select class="custom-select mr-sm-2 selectCenter"  formControlName="entrevistado2" id="entrevistado2">
+                                <option value="">Selecione o Entrevistado:</option>
+                                <option value="entrevistado2">Entrevistado 2</option>
                                
                               </select>
                         </div>
@@ -70,8 +75,9 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="form-group">
-                            <select class="custom-select mr-sm-2 select" id="cidade" name="cidade">
-                                <option selected>Selecione o Entrevistado:</option>
+                            <select class="custom-select mr-sm-2 selectCenter"  formControlName="entrevistado3" id="entrevistado3">
+                                <option value="">Selecione o Entrevistado:</option>
+                                <option value="entrevistado3">Entrevistado 3</option>
                                
                               </select>
                         </div>
@@ -80,8 +86,9 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="form-group">
-                            <select class="custom-select mr-sm-2 select" id="cidade" name="cidade">
-                                <option selected>Selecione o Entrevistado:</option>
+                            <select class="custom-select mr-sm-2 selectCenter"  formControlName="entrevistado4" id="entrevistado4">
+                                <option value="">Selecione o Entrevistado:</option>
+                                <option value="entrevistado4">Entrevistado 4</option>
                                
                               </select>
                         </div>
@@ -91,8 +98,9 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="form-group">
-                            <select class="custom-select mr-sm-2 select" id="cidade" name="cidade">
-                                <option selected>Selecione o Entrevistado:</option>
+                            <select class="custom-select mr-sm-2 selectCenter"  formControlName="entrevistado5" id="entrevistado5">
+                                <option value="">Selecione o Entrevistado:</option>
+                                <option value="entrevistado5">Entrevistado 5</option>
                                
                               </select>
                         </div>
@@ -101,25 +109,25 @@
 
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Considerações Gerais:</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea class="form-control" id="consideracaoesGerais" rows="3" formControlName="consideracaoesGerais"></textarea>
                   </div>
      
                 
                 <div class="row">
                     <div class="col-sm-4 text-center">
                         <div class="form-group">
-                            <button type="button" class="btn btn-danger">Limpar</button>   
+                            <button type="button" class="btn btn-danger" (click)="LimparForm()">Limpar</button>      
                         </div>
                     </div>
                     <div class="col-sm-4 text-center">
                         <div class="form-group">
-                            <button type="button" class="btn btn-primary" [routerLink]="['/question/painelentrevista']">Gravar</button>    
+                            <button type="submit" class="btn btn-primary">Gravar</button>   
                         </div>
                     </div>
                     
                     <div class="col-sm-4 text-center">
                         <div class="form-group">
-                            <button type="button" class="btn btn-success" [routerLink]="['/question/menu']">Menu de Acesso</button>  
+                            <button type="button" class="btn btn-success" [routerLink]="['/question/menu']">Menu</button>  
                         </div>
                     </div>            
                 </div>

@@ -1,0 +1,108 @@
+<div class="container">
+    <div class="container mt-5">
+        <p class="lead text-center h1 CorTitulo">
+            {{title}}           
+          </p>
+    <hr>
+    </div>
+
+    <div class="container"> 
+        <p class="lead"></p>
+    
+        <fieldset class="border rounded mt-3 p-2">
+            <legend class="w-auto border-bottom text-primary"><h5></h5></legend>
+           <div class="container">
+
+            <form  [formGroup]="formulario" novalidate (ngSubmit)="FormSelecao()">
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group text-primary">
+                             <label for="lblCliente">Nome do Cliente:</label>
+                            <select class="custom-select mr-sm-2 selectCenter"  formControlName="cliente" id="cliente">
+                                <option value="cliente" *ngFor="let customer of customers">{{ customer.customer_name }}</option>
+                              </select>
+                              <small *ngIf="formulario.get('cliente').valid && formulario.get('cliente').touched" class="form-text text-success"> <i class="fa fa-check"></i></small>
+                              <small *ngIf="!formulario.get('cliente').valid && formulario.get('cliente').touched" class="form-text text-danger"><i class="fa fa-times"></i></small>
+                        </div>
+                    </div>              
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group text-primary">
+                            <label for="lblFilial">Nome da Filial</label>
+                            <select class="custom-select mr-sm-2 selectCenter" formControlName="filial" id="filial">
+                                <option value="cliente" *ngFor="let customerOffice of customersOffices">{{ customerOffice.customer_office_name }}</option>
+                              </select>
+                              <small *ngIf="formulario.get('filial').valid && formulario.get('filial').touched" class="form-text text-success"><i class="fa fa-check"></i></small>
+                              <small *ngIf="!formulario.get('filial').valid && formulario.get('filial').touched" class="form-text text-danger"><i class="fa fa-times"></i></small>
+                        </div>
+                    </div>              
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group text-primary">
+                            <label for="lblUnidadeNegocio">Selecione a Unidade de Negócio</label>
+                            <select class="custom-select mr-sm-2 selectCenter" formControlName="unidadeNegocio">
+                                <option value="unidadeNegocio" *ngFor="let businessUnit of businessUnits">{{ businessUnit.business_unit_name }}</option>
+                              </select>
+                              <small *ngIf="formulario.get('unidadeNegocio').valid && formulario.get('unidadeNegocio').touched" class="form-text text-success"><i class="fa fa-check"></i></small>
+                              <small *ngIf="!formulario.get('unidadeNegocio').valid && formulario.get('unidadeNegocio').touched" class="form-text text-danger"><i class="fa fa-times"></i></small>
+                        </div>
+                    </div>              
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group text-primary">
+                            <label for="lblArea">Selecione a Área</label>
+                            <select class="custom-select mr-sm-2 selectCenter" formControlName="area">
+                                <option value="area" *ngFor="let area of areas">{{ area.area_name }}</option>
+                              </select>
+                              <small *ngIf="formulario.get('area').valid && formulario.get('area').touched" class="form-text text-success"><i class="fa fa-check"></i></small>
+                              <small *ngIf="!formulario.get('area').valid && formulario.get('area').touched" class="form-text text-danger"><i class="fa fa-times"></i></small>
+                            </div>
+                    </div>              
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group text-primary">
+                            <label for="lblQuestionario"> Selecione o Questionário</label>
+                            <select class="custom-select mr-sm-2 selectCenter" formControlName="questionario">
+                                <option value="">Selecione o Questionário:</option>
+                                <option value="questionario">Questionario</option>                              
+                              </select>
+                              <small *ngIf="formulario.get('questionario').valid && formulario.get('questionario').touched" class="form-text text-success"><i class="fa fa-check"></i></small>
+                              <small *ngIf="!formulario.get('questionario').valid && formulario.get('questionario').touched" class="form-text text-danger"><i class="fa fa-times"></i></small>
+                        </div>
+                    </div>              
+                </div>            
+     
+                
+                <div class="row">
+                    <div class="col-sm-4 text-center">
+                        <div class="form-group">
+                            <button type="button" class="btn btn-danger" (click)="LimparForm()">Limpar</button>   
+                        </div>
+                    </div>
+                    <div class="col-sm-4 text-center">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Gravar</button>   
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-4 text-center">
+                        <div class="form-group">
+                            <button type="button"
+                             class="btn btn-success"                            
+                             [routerLink]="['/question/menu']">Menu</button>  
+                        </div>
+                    </div>            
+                </div>
+                              
+              </form>
+           </div>
+        </fieldset>
+    </div>
+
+  
+</div><!-- End Container -->

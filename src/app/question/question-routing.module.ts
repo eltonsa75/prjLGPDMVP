@@ -1,5 +1,6 @@
+import { SelecaoQuestionarioEntrevistaComponent } from './selecao-questionario-entrevista/selecao-questionario-entrevista.component';
 import { EntrevistaComponent } from './entrevista/entrevista.component';
-import { AplicarEntrevistaComponent } from './aplicar-entrevista/aplicar-entrevista.component';
+
 import { PrincipalComponent } from './principal/principal.component';
 import { LoginComponent } from './login/login.component';
 import { PainelComponent } from './aplicar-question/contextualizacao/painel/painel.component';
@@ -21,23 +22,23 @@ import { CicloUmEntrevistaFuncionalComponent } from './aplicar-question/CiclodeV
 import { CicloUmEntrevistadocumentalFuncionalComponent } from './aplicar-question/CiclodeVida01_GeracaoColetaProducao/ciclo-um-entrevista-documental-funcional/ciclo-um-entrevistadocumental-funcional.component';
 
 
+
 const routes: Routes = [
   { path: '', component: LoginComponent}, 
   { path: 'menu', component: PrincipalComponent},
   { path: 'usuario', component: CadUsuarioComponent},
   { path: 'perfil', component: CadPerfilComponent},
-  { path: 'Aplicar-Entrevista', component: AplicarEntrevistaComponent},
   { path: 'Entrevista', component: EntrevistaComponent},
   { path: 'AplicarQuestion', component: AplicarQuestionComponent},
   { path: 'AnaliseGap', component: AnaliseGapComponent},
   { path: 'TabAuxiliar', component: TabAuxiliaresComponent},
   { path: 'painelentrevista', component: PainelComponent},
-  { path: 'documentalfuncional', component: DocumentalfuncionalComponent},
-
+  { path: 'documentalfuncional', component: DocumentalfuncionalComponent}, 
   { path: 'CicloUmEntrevistaFuncional', component: CicloUmEntrevistadocumentalFuncionalComponent },
   { path: 'CicloUmDocFundional', component: CicloUmEntrevistaFuncionalComponent }, 
   { path: 'CicloUmEntrevistaTecnica', component: CicloUmEntrevistaTecnicaComponent },
-  { path: 'CicloUmEntrevistaTecnicaFuncional', component: CicloUmEntrevistaTecnicaFuncionalComponent }
+  { path: 'CicloUmEntrevistaTecnicaFuncional', component: CicloUmEntrevistaTecnicaFuncionalComponent },
+  { path: 'Selecao-Questionario-Entrevista', component: SelecaoQuestionarioEntrevistaComponent}
 
 ];
 

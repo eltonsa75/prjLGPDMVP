@@ -23,8 +23,10 @@ import { PainelComponent } from './aplicar-question/contextualizacao/painel/pain
 import { LoginComponent } from './login/login.component';
 import { PrincipalComponent } from './principal/principal.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AplicarEntrevistaComponent } from './aplicar-entrevista/aplicar-entrevista.component';
 import { EntrevistaComponent } from './entrevista/entrevista.component';
+//Tela Atual
+import { SelecaoQuestionarioEntrevistaComponent } from './selecao-questionario-entrevista/selecao-questionario-entrevista.component';
+
 
 
 @NgModule({
@@ -44,8 +46,9 @@ import { EntrevistaComponent } from './entrevista/entrevista.component';
    PainelComponent,
    LoginComponent,
    PrincipalComponent,
-   AplicarEntrevistaComponent,
    EntrevistaComponent,
+   SelecaoQuestionarioEntrevistaComponent,
+
   ],
    
   imports: [
