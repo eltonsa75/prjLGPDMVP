@@ -1,12 +1,21 @@
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+import { AuthenticationService } from './../authentication.service';
+import { AuthGuardService } from './../auth-guard.service';
+
+
+
+import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 import { QuestionRoutingModule } from './question-routing.module';
 import { CadUsuarioComponent } from './cad-usuario/cad-usuario.component';
 import { CadPerfilComponent } from './cad-perfil/cad-perfil.component';
-
 import { AplicarQuestionComponent } from './aplicar-question/aplicar-question.component';
 import { AnaliseGapComponent } from './analise-gap/analise-gap.component';
 import { TabAuxiliaresComponent } from './tab-auxiliares/tab-auxiliares.component';
@@ -20,13 +29,15 @@ import { CicloUmEntrevistaTecnicaComponent } from './aplicar-question/CiclodeVid
 import { CicloUmEntrevistaTecnicaFuncionalComponent } from './aplicar-question/CiclodeVida01_GeracaoColetaProducao/ciclo-um-entrevista-tecnica-funcional/ciclo-um-entrevista-tecnica-funcional.component';
 import { ProgressoComponent } from './aplicar-question/contextualizacao/entrevistafuncional/progresso/progresso.component';
 import { PainelComponent } from './aplicar-question/contextualizacao/painel/painel.component';
-import { LoginComponent } from './login/login.component';
 import { PrincipalComponent } from './principal/principal.component';
-import { HttpClientModule } from '@angular/common/http';
 import { EntrevistaComponent } from './entrevista/entrevista.component';
-//Tela Atual
-import { SelecaoQuestionarioEntrevistaComponent } from './selecao-questionario-entrevista/selecao-questionario-entrevista.component';
 
+import { SelecaoQuestionarioEntrevistaComponent } from './selecao-questionario-entrevista/selecao-questionario-entrevista.component';
+import { RegisterComponent } from './register/register.component';
+
+/**
+ * Essa página subistiu o app.module
+ */
 
 
 @NgModule({
@@ -48,7 +59,8 @@ import { SelecaoQuestionarioEntrevistaComponent } from './selecao-questionario-e
    PrincipalComponent,
    EntrevistaComponent,
    SelecaoQuestionarioEntrevistaComponent,
-
+   ProfileComponent,
+   RegisterComponent,
   ],
    
   imports: [
@@ -56,8 +68,11 @@ import { SelecaoQuestionarioEntrevistaComponent } from './selecao-questionario-e
     QuestionRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule,
+    RouterModule
+  ],
+
+  providers: [AuthenticationService, AuthGuardService],
 })
 export class QuestionModule { }
 

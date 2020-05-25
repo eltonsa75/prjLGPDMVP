@@ -3,11 +3,11 @@ import { AuthenticationService, TokenPayload } from './../../authentication.serv
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
-export class LoginComponent {
+export class RegisterComponent  {
 
   credentials: TokenPayload = {
     id: 0,
@@ -17,12 +17,13 @@ export class LoginComponent {
     password: ''
   }
 
+
   constructor(public auth: AuthenticationService, private router: Router) { }
 
-  login() {
-    this.auth.login(this.credentials).subscribe(
+  register() {
+    this.auth.register(this.credentials).subscribe(
       () => {
-        this.router.navigateByUrl('/question/menu')
+        this.router.navigateByUrl('/question')
       },
       err => {
         console.error(err)

@@ -1,8 +1,10 @@
+import { RegisterComponent } from './register/register.component';
+
 import { SelecaoQuestionarioEntrevistaComponent } from './selecao-questionario-entrevista/selecao-questionario-entrevista.component';
 import { EntrevistaComponent } from './entrevista/entrevista.component';
 
 import { PrincipalComponent } from './principal/principal.component';
-import { LoginComponent } from './login/login.component';
+
 import { PainelComponent } from './aplicar-question/contextualizacao/painel/painel.component';
 import { CicloUmEntrevistaTecnicaFuncionalComponent } from './aplicar-question/CiclodeVida01_GeracaoColetaProducao/ciclo-um-entrevista-tecnica-funcional/ciclo-um-entrevista-tecnica-funcional.component';
 import { CicloUmEntrevistaTecnicaComponent } from './aplicar-question/CiclodeVida01_GeracaoColetaProducao/ciclo-um-entrevista-tecnica/ciclo-um-entrevista-tecnica.component';
@@ -15,16 +17,27 @@ import { AplicarQuestionComponent } from './aplicar-question/aplicar-question.co
 import { CadUsuarioComponent } from './cad-usuario/cad-usuario.component';
 
 
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CadPerfilComponent } from './cad-perfil/cad-perfil.component';
 import { CicloUmEntrevistaFuncionalComponent } from './aplicar-question/CiclodeVida01_GeracaoColetaProducao/ciclo-um-entrevista-funcional/ciclo-um-entrevista-funcional.component';
 import { CicloUmEntrevistadocumentalFuncionalComponent } from './aplicar-question/CiclodeVida01_GeracaoColetaProducao/ciclo-um-entrevista-documental-funcional/ciclo-um-entrevistadocumental-funcional.component';
 
 
+import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
+import { AuthGuardService } from './../auth-guard.service';
+
 
 const routes: Routes = [
+  // Tela de Login
   { path: '', component: LoginComponent}, 
+  { 
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [AuthGuardService]
+  },
+
   { path: 'menu', component: PrincipalComponent},
   { path: 'usuario', component: CadUsuarioComponent},
   { path: 'perfil', component: CadPerfilComponent},
@@ -38,7 +51,8 @@ const routes: Routes = [
   { path: 'CicloUmDocFundional', component: CicloUmEntrevistaFuncionalComponent }, 
   { path: 'CicloUmEntrevistaTecnica', component: CicloUmEntrevistaTecnicaComponent },
   { path: 'CicloUmEntrevistaTecnicaFuncional', component: CicloUmEntrevistaTecnicaFuncionalComponent },
-  { path: 'Selecao-Questionario-Entrevista', component: SelecaoQuestionarioEntrevistaComponent}
+  { path: 'Selecao-Questionario-Entrevista', component: SelecaoQuestionarioEntrevistaComponent},
+  { path: 'register', component: RegisterComponent}
 
 ];
 
