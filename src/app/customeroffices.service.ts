@@ -16,7 +16,6 @@ export class CustomersOfficesService {
         return this.http.get(`${URL_API}/customersoffice?id=${id}`)
         .toPromise()
         .then((resposta: any) => {
-            console.log('Valores do Service Office', resposta)
             return resposta
         })
 

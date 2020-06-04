@@ -1,12 +1,11 @@
 export class SelecaoQuestionarioEntrevista{
     
-    // Não esquecer de colocar dentro do Constructor
     constructor(
-        public cliente: string ,
-        public filial: string,
-        public unidadeNegocio: string,
-        public area: string,
-        public questionario: string
+        public customer_id: number, 
+        public customer_office_id: number, 
+        public business_unit_id: number, 
+        public area_id: number, 
+        public questionnaire_version_id: number,
 
     ){}
 }

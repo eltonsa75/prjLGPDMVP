@@ -1,4 +1,6 @@
 export class Customers {
+
+    // Campos da Tabela
 	
     constructor(data) {
         id: data.id

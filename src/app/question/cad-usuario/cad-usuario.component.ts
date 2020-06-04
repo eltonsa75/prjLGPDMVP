@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-cad-usuario',
+  selector: 'app-curso',
   templateUrl: './cad-usuario.component.html',
   styleUrls: ['./cad-usuario.component.css']
 })
 export class CadUsuarioComponent implements OnInit {
+
+
 
   constructor() { }
 

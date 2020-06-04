@@ -2,21 +2,23 @@ import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 
 
-import { BusinessUnits } from './shared/businessunits.model';
+import { QuestionnaireForm } from './shared/questionnaireForm.model';
 
 import { URL_API } from './app.api';
 
+
 @Injectable()
-export class BusinessUnitsService {
+export class QuestionnaireFormService {
 
     constructor(private http: HttpClient) {}
 
-    businessUnits(id: number): Promise<BusinessUnits> {
-        return this.http.get(`${URL_API}/businessunits?id=${id}`)
+    questionnaireForm(id: number): Promise<QuestionnaireForm> {
+        return this.http.get(`${URL_API}/questionnaireForm?id=${id}`)
         .toPromise()
         .then((resposta: any) => {
             return resposta
         })
 
       }
-    }
+
+}

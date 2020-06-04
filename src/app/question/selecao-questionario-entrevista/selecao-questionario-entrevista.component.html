@@ -13,17 +13,20 @@
             <legend class="w-auto border-bottom text-primary"><h5></h5></legend>
            <div class="container">
 
-            <form  [formGroup]="formulario" novalidate (ngSubmit)="FormSelecao()">
+           
 
+            <form  [formGroup]="formulario" novalidate (ngSubmit)="FormSelecao()">
+           
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="form-group text-primary">
                              <label for="lblCliente">Nome do Cliente:</label>
-                            <select class="custom-select mr-sm-2 selectCenter"  formControlName="cliente" id="cliente">
-                                <option value="cliente" *ngFor="let customer of customers">{{ customer.customer_name }}</option>
+                            <select class="custom-select mr-sm-2 selectCenter" formControlName="customer_name" id="cliente">
+                                <option *ngFor="let customer of customers" [value]="customer.id">{{ customer.fantasy_name }}</option>
+                                
                               </select>
-                              <small *ngIf="formulario.get('cliente').valid && formulario.get('cliente').touched" class="form-text text-success"> <i class="fa fa-check"></i></small>
-                              <small *ngIf="!formulario.get('cliente').valid && formulario.get('cliente').touched" class="form-text text-danger"><i class="fa fa-times"></i></small>
+                              <small *ngIf="formulario.get('customer_name').valid && formulario.get('customer_name').touched" class="form-text text-success"> <i class="fa fa-check"></i></small>
+                              <small *ngIf="!formulario.get('customer_name').valid && formulario.get('customer_name').touched" class="form-text text-danger"><i class="fa fa-times"></i></small>
                         </div>
                     </div>              
                 </div>
@@ -31,11 +34,11 @@
                     <div class="col-sm-12">
                         <div class="form-group text-primary">
                             <label for="lblFilial">Nome da Filial</label>
-                            <select class="custom-select mr-sm-2 selectCenter" formControlName="filial" id="filial">
-                                <option value="cliente" *ngFor="let customerOffice of customersOffices">{{ customerOffice.customer_office_name }}</option>
+                            <select class="custom-select mr-sm-2 selectCenter" formControlName="customer_office_name" id="filial">
+                                <option *ngFor="let customerOffice of customersOffices" [value]="customerOffice.id">{{ customerOffice.customer_office_name }}</option>
                               </select>
-                              <small *ngIf="formulario.get('filial').valid && formulario.get('filial').touched" class="form-text text-success"><i class="fa fa-check"></i></small>
-                              <small *ngIf="!formulario.get('filial').valid && formulario.get('filial').touched" class="form-text text-danger"><i class="fa fa-times"></i></small>
+                              <small *ngIf="formulario.get('customer_office_name').valid && formulario.get('customer_office_name').touched" class="form-text text-success"><i class="fa fa-check"></i></small>
+                              <small *ngIf="!formulario.get('customer_office_name').valid && formulario.get('customer_office_name').touched" class="form-text text-danger"><i class="fa fa-times"></i></small>
                         </div>
                     </div>              
                 </div>
@@ -43,11 +46,11 @@
                     <div class="col-sm-12">
                         <div class="form-group text-primary">
                             <label for="lblUnidadeNegocio">Selecione a Unidade de Negócio</label>
-                            <select class="custom-select mr-sm-2 selectCenter" formControlName="unidadeNegocio">
-                                <option value="unidadeNegocio" *ngFor="let businessUnit of businessUnits">{{ businessUnit.business_unit_name }}</option>
+                            <select class="custom-select mr-sm-2 selectCenter" formControlName="business_unit_name" id="unidadeNegocio">
+                                <option *ngFor="let businessUnit of businessUnits" [value]="businessUnit.id">{{ businessUnit.business_unit_name }}</option>
                               </select>
-                              <small *ngIf="formulario.get('unidadeNegocio').valid && formulario.get('unidadeNegocio').touched" class="form-text text-success"><i class="fa fa-check"></i></small>
-                              <small *ngIf="!formulario.get('unidadeNegocio').valid && formulario.get('unidadeNegocio').touched" class="form-text text-danger"><i class="fa fa-times"></i></small>
+                              <small *ngIf="formulario.get('business_unit_name').valid && formulario.get('business_unit_name').touched" class="form-text text-success"><i class="fa fa-check"></i></small>
+                              <small *ngIf="!formulario.get('business_unit_name').valid && formulario.get('business_unit_name').touched" class="form-text text-danger"><i class="fa fa-times"></i></small>
                         </div>
                     </div>              
                 </div>
@@ -55,11 +58,11 @@
                     <div class="col-sm-12">
                         <div class="form-group text-primary">
                             <label for="lblArea">Selecione a Área</label>
-                            <select class="custom-select mr-sm-2 selectCenter" formControlName="area">
-                                <option value="area" *ngFor="let area of areas">{{ area.area_name }}</option>
+                            <select class="custom-select mr-sm-2 selectCenter" formControlName="area_name" id="area">
+                                <option *ngFor="let area of areas" [value]="area.id">{{ area.area_name }}</option>
                               </select>
-                              <small *ngIf="formulario.get('area').valid && formulario.get('area').touched" class="form-text text-success"><i class="fa fa-check"></i></small>
-                              <small *ngIf="!formulario.get('area').valid && formulario.get('area').touched" class="form-text text-danger"><i class="fa fa-times"></i></small>
+                              <small *ngIf="formulario.get('area_name').valid && formulario.get('area_name').touched" class="form-text text-success"><i class="fa fa-check"></i></small>
+                              <small *ngIf="!formulario.get('area_name').valid && formulario.get('area_name').touched" class="form-text text-danger"><i class="fa fa-times"></i></small>
                             </div>
                     </div>              
                 </div>
@@ -67,12 +70,11 @@
                     <div class="col-sm-12">
                         <div class="form-group text-primary">
                             <label for="lblQuestionario"> Selecione o Questionário</label>
-                            <select class="custom-select mr-sm-2 selectCenter" formControlName="questionario">
-                                <option value="">Selecione o Questionário:</option>
-                                <option value="questionario">Questionario</option>                              
+                            <select class="custom-select mr-sm-2 selectCenter" formControlName="questionnaire_version_name" id="questionario">
+                                <option *ngFor="let questionnaireForm of questionnaireForms" [value]="questionnaireForm.id">{{ questionnaireForm.questionnaire_form_name }}</option>                           
                               </select>
-                              <small *ngIf="formulario.get('questionario').valid && formulario.get('questionario').touched" class="form-text text-success"><i class="fa fa-check"></i></small>
-                              <small *ngIf="!formulario.get('questionario').valid && formulario.get('questionario').touched" class="form-text text-danger"><i class="fa fa-times"></i></small>
+                              <small *ngIf="formulario.get('questionnaire_version_name').valid && formulario.get('questionnaire_version_name').touched" class="form-text text-success"><i class="fa fa-check"></i></small>
+                              <small *ngIf="!formulario.get('questionnaire_version_name').valid && formulario.get('questionnaire_version_name').touched" class="form-text text-danger"><i class="fa fa-times"></i></small>
                         </div>
                     </div>              
                 </div>            
@@ -86,7 +88,7 @@
                     </div>
                     <div class="col-sm-4 text-center">
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Gravar</button>   
+                            <button type="submit" class="btn btn-primary">Salvar</button>   
                         </div>
                     </div>
                     
@@ -98,7 +100,7 @@
                         </div>
                     </div>            
                 </div>
-                              
+                   
               </form>
            </div>
         </fieldset>

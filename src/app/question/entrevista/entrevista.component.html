@@ -7,7 +7,7 @@
     </div>
   
     <div class="container">
-    
+      
         <fieldset class="border rounded mt-3 p-2">
             <legend class="w-auto border-bottom text-primary"></legend>
            <div class="container">
@@ -16,58 +16,75 @@
 
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="form-group">
-                            <input class="form-control text-center" type="text" placeholder="Nome do Questionário" readonly>
+                        <div class="form-group text-primary">
+                            <label for="lblCliente">Questionário:</label>
+                            <div  *ngIf="questionnaire_form_name" class="alert alert-secondary text-center text-primary" role="alert">
+                               <strong>{{ questionnaire_form_name }}</strong>
+                              </div>
                         </div>
                     </div>              
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="form-group">
-                            <input class="form-control text-center" type="text" placeholder="Cliente" readonly>
+                        <div class="form-group text-primary">
+                            <label for="lblCliente">Cliente:</label>
+                            <div  *ngIf="fantasy_name" class="alert alert-secondary text-center text-primary" role="alert">
+                                <strong>{{ fantasy_name }}</strong>
+                               </div>
                         </div>
                     </div>              
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="form-group">
-                            <input class="form-control text-center" type="text" placeholder="Filial" readonly>
+                        <div class="form-group text-primary">
+                            <label for="lblCliente">Filial:</label>
+                            <div  *ngIf="customer_office_name" class="alert alert-secondary text-center text-primary" role="alert">
+                                <strong>{{ customer_office_name }}</strong>
+                               </div>
                         </div>
                     </div>              
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="form-group">
-                            <input class="form-control text-center" type="text" placeholder="Unidade de Négocio" readonly>
+                        <div class="form-group text-primary">
+                            <label for="lblCliente">Unidade de Négocio:</label>
+                            <div  *ngIf="business_unit_name" class="alert alert-secondary text-center text-primary" role="alert">
+                                <strong>{{ business_unit_name }}</strong>
+                               </div>
                         </div>
                     </div>              
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="form-group">
-                            <input class="form-control text-center" type="text" placeholder="Área" readonly>
+                        <div class="form-group text-primary">
+                            <label for="lblCliente">Area:</label>
+                            <div  *ngIf="area_name" class="alert alert-secondary text-center text-primary" role="alert">
+                                <strong>{{ area_name }}</strong>
+                               </div>
                         </div>
                     </div>              
                 </div>
+                <div class="form-group text-primary">
+                    <label for="lblLocal">Local da Entrevista:</label>
+                    <textarea class="form-control"  name="localentrevista"  rows="2" formControlName="location"></textarea>
+                  </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="form-group">
-                            <select class="custom-select mr-sm-2 selectCenter"  formControlName="entrevistado1" id="entrevistado1">
-                                <option value="">Selecione o Entrevistado:</option>
-                                <option value="entrevistado1">Entrevistado 1</option>                              
+                        <div class="form-group text-primary">   
+                            <label for="lblCliente">Nome do Entrevistado:</label>
+                            <select class="custom-select mr-sm-2 selectCenter" formControlName="interviewee_1_id" id="interviewee_1">
+                                <option *ngFor="let interviewee of interviewees" [value]="interviewee.id">{{ interviewee.interviewee_name }}</option>                           
                               </select>
-                              <small *ngIf="formulario.get('entrevistado1').valid && formulario.get('entrevistado1').touched" class="form-text text-success"> <i class="fa fa-check"></i></small>
-                              <small *ngIf="!formulario.get('entrevistado1').valid && formulario.get('entrevistado1').touched" class="form-text text-danger"><i class="fa fa-times"></i></small>
+                              <small *ngIf="formulario.get('interviewee_1_id').valid && formulario.get('interviewee_1_id').touched" class="form-text text-success"> <i class="fa fa-check"></i></small>
+                              <small *ngIf="!formulario.get('interviewee_1_id').valid && formulario.get('interviewee_1_id').touched" class="form-text text-danger"><i class="fa fa-times"></i></small>
                         </div>
                     </div>              
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="form-group">
-                            <select class="custom-select mr-sm-2 selectCenter"  formControlName="entrevistado2" id="entrevistado2">
-                                <option value="">Selecione o Entrevistado:</option>
-                                <option value="entrevistado2">Entrevistado 2</option>
-                               
+                            <select class="custom-select mr-sm-2 selectCenter" formControlName="interviewee_2_id" id="interviewee_1">
+                                <option *ngFor="let interviewee of interviewees" [value]="interviewee.id">{{ interviewee.interviewee_name }}</option>                           
                               </select>
                         </div>
                     </div>              
@@ -75,10 +92,8 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="form-group">
-                            <select class="custom-select mr-sm-2 selectCenter"  formControlName="entrevistado3" id="entrevistado3">
-                                <option value="">Selecione o Entrevistado:</option>
-                                <option value="entrevistado3">Entrevistado 3</option>
-                               
+                            <select class="custom-select mr-sm-2 selectCenter" formControlName="interviewee_3_id" id="interviewee_1">
+                                <option *ngFor="let interviewee of interviewees" [value]="interviewee.id">{{ interviewee.interviewee_name }}</option>                           
                               </select>
                         </div>
                     </div>              
@@ -86,10 +101,8 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="form-group">
-                            <select class="custom-select mr-sm-2 selectCenter"  formControlName="entrevistado4" id="entrevistado4">
-                                <option value="">Selecione o Entrevistado:</option>
-                                <option value="entrevistado4">Entrevistado 4</option>
-                               
+                            <select class="custom-select mr-sm-2 selectCenter" formControlName="interviewee_4_id" id="interviewee_1">
+                                <option *ngFor="let interviewee of interviewees" [value]="interviewee.id">{{ interviewee.interviewee_name }}</option>                           
                               </select>
                         </div>
                     </div>              
@@ -98,18 +111,16 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="form-group">
-                            <select class="custom-select mr-sm-2 selectCenter"  formControlName="entrevistado5" id="entrevistado5">
-                                <option value="">Selecione o Entrevistado:</option>
-                                <option value="entrevistado5">Entrevistado 5</option>
-                               
+                            <select class="custom-select mr-sm-2 selectCenter" formControlName="interviewee_5_id" id="interviewee_1">
+                                <option *ngFor="let interviewee of interviewees" [value]="interviewee.id">{{ interviewee.interviewee_name }}</option>                           
                               </select>
                         </div>
                     </div>              
                 </div>
 
-                <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Considerações Gerais:</label>
-                    <textarea class="form-control" id="consideracaoesGerais" rows="3" formControlName="consideracaoesGerais"></textarea>
+                <div class="form-group text-primary">
+                    <label for="lblGerais">Considerações Gerais:</label>
+                    <textarea class="form-control" id="consideracaoesGerais" name="consideracaoesGerais" rows="3" formControlName="consideracaoesGerais"></textarea>
                   </div>
      
                 
@@ -121,7 +132,7 @@
                     </div>
                     <div class="col-sm-4 text-center">
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Gravar</button>   
+                            <button type="submit" class="btn btn-primary">Salvar</button>   
                         </div>
                     </div>
                     
@@ -130,11 +141,11 @@
                             <button type="button" class="btn btn-success" [routerLink]="['/question/menu']">Menu</button>  
                         </div>
                     </div>            
-                </div>
-                              
+                </div>                              
               </form>
            </div>
         </fieldset>
+        <br><br>
     </div>
 
   

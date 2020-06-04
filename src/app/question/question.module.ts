@@ -72,7 +72,7 @@ import { RegisterComponent } from './register/register.component';
     RouterModule
   ],
 
-  providers: [AuthenticationService, AuthGuardService],
+  providers: [AuthenticationService, AuthGuardService, ],
 })
 export class QuestionModule { }
 

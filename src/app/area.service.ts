@@ -15,7 +15,6 @@ export class AreasService {
         return this.http.get(`${URL_API}/area?id=${id}`)
         .toPromise()
         .then((resposta: any) => {
-            console.log('Valores do Service Area', resposta)
             return resposta
         })
 

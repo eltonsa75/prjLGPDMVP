@@ -1,7 +1,7 @@
-import { Router } from '@angular/router';
+import { Router, Params } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Component, OnInit, Input, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { SelecaoQuestionarioEntrevistaService } from './../../selecao-questionario-entrevista.service';
 import { SelecaoQuestionarioEntrevista } from './../../shared/SelecaoQuestionarioEntrevista.model';
@@ -21,6 +21,10 @@ import { BusinessUnitsService } from './../../businessunits.service';
 import { Area } from './../../shared/area.model';
 import { AreasService } from './../../area.service';
 
+import { QuestionnaireFormService } from './../../questionnaireForm.service';
+import { QuestionnaireForm } from './../../shared/questionnaireForm.model';
+import { ReturnForm } from 'src/app/shared/returnForm.model';
+
 
 @Component({
   selector: 'app-selecao-questionario-entrevista',
@@ -31,7 +35,8 @@ import { AreasService } from './../../area.service';
               CustomersService,
               CustomersOfficesService,
               BusinessUnitsService,
-              AreasService]
+              AreasService,
+              QuestionnaireFormService]
 
 })
 export class SelecaoQuestionarioEntrevistaComponent implements OnInit {
@@ -39,13 +44,13 @@ export class SelecaoQuestionarioEntrevistaComponent implements OnInit {
   title = "Seleção do Questionário para Entrevista";
 
   public idQuestionarioEntrevista: number
-
+  
   public formulario: FormGroup = new FormGroup({
-    'cliente': new FormControl(null, [Validators.required]),
-    'filial': new FormControl(null, [Validators.required]),
-    'unidadeNegocio': new FormControl(null, [Validators.required]),
-    'area': new FormControl(null, Validators.required),
-    'questionario': new FormControl(null, Validators.required)
+    'customer_name': new FormControl(null, [Validators.required]),
+    'customer_office_name': new FormControl(null, [Validators.required]),
+    'business_unit_name': new FormControl(null, [Validators.required]),
+    'area_name': new FormControl(null, Validators.required),
+    'questionnaire_version_name': new FormControl(null, Validators.required)
   })
 
  // Criar as propriedades para o HTML
@@ -54,8 +59,12 @@ export class SelecaoQuestionarioEntrevistaComponent implements OnInit {
   public customersOffices: CustomersOffices
   public businessUnits: BusinessUnits
   public areas: Area
+  public questionnaireForms : QuestionnaireForm
 
- 
+
+  public customer_name: Customers
+
+  public returnForm: ReturnForm
 
   constructor(private selecaoQuestionarioEntrevistaService: SelecaoQuestionarioEntrevistaService,
               private MasterCompaniesService: MasterCompaniesService,
@@ -63,6 +72,7 @@ export class SelecaoQuestionarioEntrevistaComponent implements OnInit {
               private CustomersOfficesService: CustomersOfficesService,
               private BusinessUnitsService: BusinessUnitsService,
               private AreasService: AreasService,
+              private QuestionnaireFormService: QuestionnaireFormService,
               private route: ActivatedRoute,
               private router: Router) {}
 
@@ -75,20 +85,19 @@ ngOnInit(){
     })   
   })
 
-    // Método do Customer
+    // Método do Customer busca valor do BD
     this.route.params.subscribe((parametros: Params) => {
       this.CustomersService.customers(parametros.id)
       .then((customers: Customers) => {
-        console.log('Valores do Component', customers)
         this.customers = customers
-      })   
+        this.customers = customers
+      })
     })
 
     // Método do Customer_offices
     this.route.params.subscribe((parametros: Params) => {
       this.CustomersOfficesService.customeroffices(parametros.id)
       .then((customersOffices: CustomersOffices) => {
-        console.log('Valores do Component Office', customersOffices)
         this.customersOffices = customersOffices
       })   
     })
@@ -98,7 +107,6 @@ ngOnInit(){
        this.route.params.subscribe((parametros: Params) => {
         this.BusinessUnitsService.businessUnits(parametros.id)
         .then((businessUnits: BusinessUnits) => {
-          console.log('Valores do Component Business Units', businessUnits)
           this.businessUnits = businessUnits
         })   
       })
@@ -108,48 +116,55 @@ ngOnInit(){
            this.route.params.subscribe((parametros: Params) => {
             this.AreasService.areas(parametros.id)
             .then((areas: Area) => {
-              console.log('Valores do Component Area', areas)
               this.areas = areas
             })   
           })
     
+            // Método do QuestionnaireForms
+            this.route.params.subscribe((parametros: Params) => {
+              this.QuestionnaireFormService.questionnaireForm(parametros.id)
+              .then((questionnaireForm: QuestionnaireForm) => {
+                this.questionnaireForms = questionnaireForm 
+              })   
+            })
+            
 
-
-  
 }
 //Método Ligado ao formulário (ngSubmit)
 public FormSelecao(): void {
   if(this.formulario.status === 'INVALID'){
     console.log('formulário está inválido')
 
-    this.formulario.get('cliente').markAllAsTouched()
-    this.formulario.get('filial').markAllAsTouched()
-    this.formulario.get('unidadeNegocio').markAllAsTouched()
-    this.formulario.get('area').markAllAsTouched()
-    this.formulario.get('questionario').markAllAsTouched()
+    this.formulario.get('customer_name').markAllAsTouched()
+    this.formulario.get('customer_office_name').markAllAsTouched()
+    this.formulario.get('business_unit_name').markAllAsTouched()
+    this.formulario.get('area_name').markAllAsTouched()
+    this.formulario.get('questionnaire_version_name').markAllAsTouched()
   } else {
 
+    // Campos realcionado ao Model
     let entrevista: SelecaoQuestionarioEntrevista = new SelecaoQuestionarioEntrevista(
-      this.formulario.value.cliente,
-      this.formulario.value.filial,
-      this.formulario.value.unidadeNegocio,
-      this.formulario.value.area,
-      this.formulario.value.questionario
-    )
+      this.formulario.value.customer_name,
+      this.formulario.value.customer_office_name,
+      this.formulario.value.business_unit_name,
+      this.formulario.value.area_name,
+      this.formulario.value.questionnaire_version_name,
+      
+    )   
 
     this.selecaoQuestionarioEntrevistaService.selecaoQuestionario(entrevista)
     .subscribe((idEntrevista: number) => {
       this.idQuestionarioEntrevista = idEntrevista
-      // Método que limpa o Formulário
-      this.formulario.reset();
-      this.router.navigate(['/question/Entrevista']);
-      console.log(this.idQuestionarioEntrevista)
+      this.returnForm = idEntrevista
+     // Método que limpa o Formulário
+     this.router.navigate(['/question/Entrevista', this.returnForm]);
+     this.formulario.reset();
+
     }) 
   }
 }
-
   public LimparForm(): void {
-    this.formulario.reset();
+  this.formulario.reset();
   }
 
 
