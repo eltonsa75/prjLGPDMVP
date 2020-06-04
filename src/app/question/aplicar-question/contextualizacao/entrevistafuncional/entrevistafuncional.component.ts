@@ -16,8 +16,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 
 export class EntrevistafuncionalComponent implements OnInit {
 
-  public title = "Entrevista Funcional - Contextualização"
-  public titulo: string = 'CAPITULO VI - Artigo 41 - Encarregado pelo tratamento dos dados pessoais'
+  public title = "Análise Documental: Politicas ou Normas sobre Governança de Dados / ou Governança de Privacidade"
   public numeroQuestion = '01 - '
   public question: Question
   public resposta: string

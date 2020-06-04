@@ -1,14 +1,24 @@
 <h3 class="text-center mt-5 text-primary">
-    {{title}}
+    
 </h3>
 
-<div class="container mt-5">
+<div class="container mt-2">
   <div *ngIf="question !== undefined">
-  <div class="container mt-5">
+  <div class="container">
     <div class="jumbotron">
+      <div class="row">
+        <div class="col">
+          <h6 class="text-primary">{{title}}</h6>
+        </div>
+        <h6 class="text-secondary ajusteTime">Tempo Decorrido: 01:22</h6>
+      </div>
+      
       <app-progresso [progresso]="progresso"></app-progresso>
-        <h6 class="display-5">{{titulo}}</h6><br/>
-        <p class="lead">{{ numeroQuestion }} {{ question.question_enunciation}}</p>
+      <h6 class=" ajusteAltura text-success">Evolução da Análise:</h6>
+      
+      <h6 class="ajusteTituloDoc text-primary">Título Documento: Norma de Governança de Dados Pessoais</h6>
+      <h6 class="ajusteTema">Tema: Governança - ISO27701</h6>
+        <p class="lead"><strong>{{ numeroQuestion }} {{ question.question_enunciation}}</strong></p>
         <hr class="my-4">
         <form>
           <div [formGroup]="respForm">
