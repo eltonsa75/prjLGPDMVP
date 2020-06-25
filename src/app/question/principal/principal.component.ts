@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrincipalComponent implements OnInit {
 
-  title = "Menu de Acesso";
+  title = "Menu Principal";
 
   constructor() { }
 

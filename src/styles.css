@@ -2,3 +2,10 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
 
+.imgFundo {
+    background-image: url('/assets/img/fundo3.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+

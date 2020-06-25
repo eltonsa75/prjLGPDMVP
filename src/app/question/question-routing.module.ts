@@ -1,3 +1,4 @@
+import { ConsultaEntrevistaComponent } from './consulta-entrevista/consulta-entrevista.component';
 import { RegisterComponent } from './register/register.component';
 
 import { SelecaoQuestionarioEntrevistaComponent } from './selecao-questionario-entrevista/selecao-questionario-entrevista.component';
@@ -51,6 +52,7 @@ const routes: Routes = [
   { path: 'CicloUmDocFundional', component: CicloUmEntrevistaFuncionalComponent }, 
   { path: 'CicloUmEntrevistaTecnica', component: CicloUmEntrevistaTecnicaComponent },
   { path: 'CicloUmEntrevistaTecnicaFuncional', component: CicloUmEntrevistaTecnicaFuncionalComponent },
+  { path: 'ConsultaEntrevista', component: ConsultaEntrevistaComponent},
   { path: 'Selecao-Questionario-Entrevista', component: SelecaoQuestionarioEntrevistaComponent},
   { path: 'register', component: RegisterComponent}
 

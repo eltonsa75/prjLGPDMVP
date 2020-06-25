@@ -6,7 +6,7 @@
     <hr>
     </div>
 
-    <div class="container" class="fundoForm"> 
+    <div class="container fundoForm"> 
         <p class="lead"></p>
     
         <fieldset class="border rounded mt-3 p-2">
@@ -66,19 +66,29 @@
                             </div>
                     </div>              
                 </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="form-group text-primary">
-                            <label for="lblQuestionario"> Selecione o Questionário</label>
-                            <select class="custom-select mr-sm-2 selectCenter" formControlName="questionnaire_version_name" id="questionario">
-                                <option *ngFor="let questionnaireForm of questionnaireForms" [value]="questionnaireForm.id">{{ questionnaireForm.questionnaire_form_name }}</option>                           
-                              </select>
-                              <small *ngIf="formulario.get('questionnaire_version_name').valid && formulario.get('questionnaire_version_name').touched" class="form-text text-success"><i class="fa fa-check"></i></small>
-                              <small *ngIf="!formulario.get('questionnaire_version_name').valid && formulario.get('questionnaire_version_name').touched" class="form-text text-danger"><i class="fa fa-times"></i></small>
-                        </div>
-                    </div>              
-                </div>            
-     
+
+                <div class="container">
+                    <div class="row">
+                        <table class="table table-sm">
+                            <thead>
+                              <tr>
+                                <th scope="col">Nome da Entrevista</th>
+                                <th scope="col" style="padding-left: 25px;">Situação</th>
+                                <th scope="col"></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">ASSESSMENT LGPD - Formulário Entrevista Funcional - Contextualização</th>
+                                <td style="background-color: green; color: white; width: 109px; text-align: center;">Não iniciado</td>
+                                <td><a [routerLink]="['/question/Entrevista']"><i class="fa fa-pencil-square-o"></i></a></td>                                                          
+                              </tr>             
+                            </tbody>
+                          </table>
+                    </div>
+                  </div>
+                  
+                  <br>
                 
                 <div class="row">
                     <div class="col-sm-4 text-center">
@@ -86,13 +96,8 @@
                             <button type="button" class="btn btn-danger" (click)="LimparForm()">Limpar</button>   
                         </div>
                     </div>
-                    <div class="col-sm-4 text-center">
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Salvar</button>   
-                        </div>
-                    </div>
-                    
-                    <div class="col-sm-4 text-center">
+                                  
+                    <div class="col-sm-6 text-right">
                         <div class="form-group">
                             <button type="button"
                              class="btn btn-success"                            
@@ -108,3 +113,4 @@
 
   
 </div><!-- End Container -->
+

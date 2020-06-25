@@ -8,7 +8,8 @@ export class SelecaoEntrevistado{
         public interviewee_4_id: number,
         public interviewee_5_id: number,
         public location: string,
-        public general_considerations: string
+        public general_considerations: string,
+        public other_participants: string
 
     ){}
 }

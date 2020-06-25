@@ -2,16 +2,18 @@
   <div class="row">
     <div class="col-md-6 mt-5 mx-auto">
       <form (submit)="login()">
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-        <div class="form-group">
-          <label for="email">Email address</label>
-          <input type="email" class="form-control" name="email" placeholder="Enter email" [(ngModel)]="credentials.email">
+        <div class="container text-center">
+          <img src="/assets/img/logolgpd.jfif" width="500" height="350" class="d-inline-block align-top rounded" alt="">
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" class="form-control" name="password" placeholder="Enter Passowrd" [(ngModel)]="credentials.password">
+          <label for="email"></label>
+          <input type="email" class="form-control" name="email" placeholder="Digite o e-mail" [(ngModel)]="credentials.email">
         </div>
-        <button  type="submit" class="btn btn-lg btn-primary btn-block">Sign In</button>
+        <div class="form-group">
+          <label for="password"></label>
+          <input type="password" class="form-control" name="password" placeholder="Digite a senha" [(ngModel)]="credentials.password">
+        </div>
+        <button  type="submit" class="btn btn-lg btn-primary btn-block">Login</button>
       </form>
     </div>
   </div>

@@ -30,7 +30,7 @@ import { ReturnForm } from './../../shared/returnForm.model';
 })
 export class EntrevistaComponent implements OnInit {
 
-  title = "Selecionar a Entrevistado";
+  title = "Entrevista";
 
   public idQuestionarioEntrevista: number
   public interviewees : Interviewee
@@ -53,7 +53,8 @@ export class EntrevistaComponent implements OnInit {
     'interviewee_4_id': new FormControl(null),
     'interviewee_5_id': new FormControl(null),
     'location': new FormControl(null),
-    'consideracaoesGerais': new FormControl(null)
+    'consideracaoesGerais': new FormControl(null),
+    'demaisparticipantes': new FormControl(null)
   })
 
    constructor(private IntervieweeService: IntervieweeService,
@@ -94,6 +95,7 @@ public FormEntrevista(): void {
     this.formulario.get('interviewee_5_id').markAllAsTouched()
     this.formulario.get('location').markAsTouched()
     this.formulario.get('consideracaoesGerais').markAsTouched()
+    this.formulario.get('demaisparticipantes').markAllAsTouched()
   } else {
 
   // Campos realcionado ao Model
@@ -104,7 +106,8 @@ public FormEntrevista(): void {
     this.formulario.value.interviewee_4_id,
     this.formulario.value.interviewee_5_id,
     this.formulario.value.location,
-    this.formulario.value.consideracaoesGerais
+    this.formulario.value.consideracaoesGerais,
+    this.formulario.value.demaisparticipantes
   )
 
   console.log('Value', this.formulario)

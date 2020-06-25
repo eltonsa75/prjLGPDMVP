@@ -8,6 +8,10 @@
   text-shadow: 2px 2px #ccc;
 }
 
+.fundoForm{
+  background-color: white;
+}
+
 .selectCenter {
   text-align-last: center;
 }

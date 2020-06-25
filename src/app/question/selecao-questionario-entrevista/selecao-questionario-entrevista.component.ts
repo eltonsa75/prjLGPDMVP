@@ -1,6 +1,6 @@
 import { Router, Params } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { SelecaoQuestionarioEntrevistaService } from './../../selecao-questionario-entrevista.service';
@@ -156,7 +156,6 @@ public FormSelecao(): void {
     .subscribe((idEntrevista: number) => {
       this.idQuestionarioEntrevista = idEntrevista
       this.returnForm = idEntrevista
-     // Método que limpa o Formulário
      this.router.navigate(['/question/Entrevista', this.returnForm]);
      this.formulario.reset();
 

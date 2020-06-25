@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./topo.component.css']
 })
 export class TopoComponent implements OnInit {
-  title = 'Sistema LGPD';
+  title = 'Soluções Digitais';
 
   constructor() { }
 

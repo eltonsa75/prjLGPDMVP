@@ -1,23 +1,32 @@
-
-import { Router } from '@angular/router';
-import { QuestionsService } from '../../../../questions.services';
-import { Question } from './../../../../shared/question.model';
+import { Router, Params } from '@angular/router';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
+
+
+import { QuestionsService } from '../../../../questions.services';
+import { Question } from './../../../../shared/question.model';
+
+import { QuestionnaireForm } from './../../../../shared/questionnaireForm.model';
+import { QuestionnaireFormService } from './../../../../questionnaireForm.service';
+
+import { QuestionnaireVersionsService } from './../../../../questionnaireVersions.service';
+import { QuestionnaireVersion } from './../../../../shared/questionnaireVersions.model';
 
 
 @Component({
   selector: 'app-entrevistafuncional',
   templateUrl: './entrevistafuncional.component.html',
   styleUrls: ['./entrevistafuncional.component.css'],
-  providers: [QuestionsService]
+  providers: [QuestionsService,
+              QuestionnaireFormService,
+              QuestionnaireVersionsService]
 })
 
 export class EntrevistafuncionalComponent implements OnInit {
 
-  public title = "Análise Documental: Politicas ou Normas sobre Governança de Dados / ou Governança de Privacidade"
-  public numeroQuestion = '01 - '
+  
   public question: Question
   public resposta: string
   public rodada: number = 0
@@ -26,11 +35,17 @@ export class EntrevistafuncionalComponent implements OnInit {
   public id: number;
   public respForm: any;
 
+  public questionnaireForms : QuestionnaireForm
+  public questionnaireVersions: QuestionnaireVersion
+
   @Output() public encerrarQuestion: EventEmitter<string> = new EventEmitter()
 
-  constructor(private questionsService: QuestionsService, private formBuilder: FormBuilder) { 
-
-  }
+  constructor(private questionsService: QuestionsService,
+              private formBuilder: FormBuilder,
+              private questionnaireFormService: QuestionnaireFormService,
+              private questionnaireVersionsService: QuestionnaireVersionsService,
+              private route: ActivatedRoute,
+              private router: Router) {}
 
   initForm() {
     this.respForm=this.formBuilder.group({
@@ -41,6 +56,26 @@ export class EntrevistafuncionalComponent implements OnInit {
   }
 
   ngOnInit() {
+
+      // Método do QuestionnaireForms
+      this.route.params.subscribe((parametros: Params) => {
+        this.questionnaireFormService.questionnaireForm(parametros.id)
+        .then((questionnaireForm: QuestionnaireForm) => {
+          this.questionnaireForms = questionnaireForm 
+        })   
+      })
+
+          // Método do QuestionnaireVersion
+          this.route.params.subscribe((parametros: Params) => {
+            this.questionnaireVersionsService.questionnaireVersions(parametros.id)
+            .then((questionnaireVersion: QuestionnaireVersion) => {
+              this.questionnaireVersions = questionnaireVersion
+              console.log('Teste Classe', questionnaireVersion)
+            })   
+          })
+
+
+
     // Chamando o Método do QuestionsService  
        this.questionsService.init()
       .then((question: Question) => {
