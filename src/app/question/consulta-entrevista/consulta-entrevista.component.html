@@ -1,7 +1,7 @@
 <div class="container">
     <div class="container mt-5">
-        <p class="lead text-center h1 CorTitulo">
-            {{title}}           
+        <p class="lead text-center h1 CorTitulo text-uppercase">
+            <strong>{{ title }} </strong>          
           </p>
     <hr>
     </div>
@@ -19,72 +19,80 @@
            
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="form-group text-primary">
-                             <label for="lblCliente">Nome do Cliente:</label>
+                        <div class="form-group text-primary text-uppercase">
+                            NOME DO CLIENTE: &nbsp;<label for="lblCliente">
+                                <small *ngIf="formulario.get('customer_name').valid && formulario.get('customer_name').touched" class="form-text text-success"> <strong><i class="fa fa-check" style="font-size: 20px; color: yellow;"></i></strong></small>
+                                <small *ngIf="!formulario.get('customer_name').valid && formulario.get('customer_name').touched" class="form-text text-danger"><strong><i class="fa fa-times" style="font-size: 20px; color: red;"></i></strong></small>
+                             </label>
                             <select class="custom-select mr-sm-2 selectCenter" formControlName="customer_name" id="cliente">
-                                <option *ngFor="let customer of customers" [value]="customer.id">{{ customer.fantasy_name }}</option>
-                                
+                                <option *ngFor="let customer of customers" [value]="customer.id">{{ customer.fantasy_name }}</option>                                
                               </select>
-                              <small *ngIf="formulario.get('customer_name').valid && formulario.get('customer_name').touched" class="form-text text-success"> <i class="fa fa-check"></i></small>
-                              <small *ngIf="!formulario.get('customer_name').valid && formulario.get('customer_name').touched" class="form-text text-danger"><i class="fa fa-times"></i></small>
+                              
+                              
                         </div>
                     </div>              
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="form-group text-primary">
-                            <label for="lblFilial">Nome da Filial</label>
+                        <div class="form-group text-primary text-uppercase">
+                            NOME DA FILIAL: &nbsp;<label for="lblFilial">
+                                <small *ngIf="formulario.get('customer_office_name').valid && formulario.get('customer_office_name').touched" class="form-text text-success"><strong><i class="fa fa-check" style="font-size: 20px; color: yellow;"></i></strong></small>
+                                <small *ngIf="!formulario.get('customer_office_name').valid && formulario.get('customer_office_name').touched" class="form-text text-danger"><strong><i class="fa fa-times" style="font-size: 20px; color: red;"></i></strong></small>
+                            </label>
                             <select class="custom-select mr-sm-2 selectCenter" formControlName="customer_office_name" id="filial">
                                 <option *ngFor="let customerOffice of customersOffices" [value]="customerOffice.id">{{ customerOffice.customer_office_name }}</option>
                               </select>
-                              <small *ngIf="formulario.get('customer_office_name').valid && formulario.get('customer_office_name').touched" class="form-text text-success"><i class="fa fa-check"></i></small>
-                              <small *ngIf="!formulario.get('customer_office_name').valid && formulario.get('customer_office_name').touched" class="form-text text-danger"><i class="fa fa-times"></i></small>
                         </div>
                     </div>              
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="form-group text-primary">
-                            <label for="lblUnidadeNegocio">Selecione a Unidade de Negócio</label>
+                        <div class="form-group text-primary text-uppercase">
+                            Unidade de Negócio: &nbsp;<label for="lblUnidadeNegocio">
+                              <small *ngIf="formulario.get('business_unit_name').valid && formulario.get('business_unit_name').touched" class="form-text text-success"><strong><i class="fa fa-check" style="font-size: 20px; color: yellow;"></i></strong></small>
+                              <small *ngIf="!formulario.get('business_unit_name').valid && formulario.get('business_unit_name').touched" class="form-text text-danger"><strong><i class="fa fa-times" style="font-size: 20px; color: red;"></i></strong></small>
+                            </label>
                             <select class="custom-select mr-sm-2 selectCenter" formControlName="business_unit_name" id="unidadeNegocio">
                                 <option *ngFor="let businessUnit of businessUnits" [value]="businessUnit.id">{{ businessUnit.business_unit_name }}</option>
-                              </select>
-                              <small *ngIf="formulario.get('business_unit_name').valid && formulario.get('business_unit_name').touched" class="form-text text-success"><i class="fa fa-check"></i></small>
-                              <small *ngIf="!formulario.get('business_unit_name').valid && formulario.get('business_unit_name').touched" class="form-text text-danger"><i class="fa fa-times"></i></small>
+                            </select>
                         </div>
                     </div>              
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="form-group text-primary">
-                            <label for="lblArea">Selecione a Área</label>
+                        <div class="form-group text-primary text-uppercase">
+                            Selecione a Área:&nbsp;<label for="lblArea">
+                              <small *ngIf="formulario.get('area_name').valid && formulario.get('area_name').touched" class="form-text text-success"><strong><i class="fa fa-check" style="font-size: 20px; color: yellow;"></i></strong></small>
+                              <small *ngIf="!formulario.get('area_name').valid && formulario.get('area_name').touched" class="form-text text-danger"><strong><i class="fa fa-times" style="font-size: 20px; color: red;"></i></strong></small>
+                            </label>
                             <select class="custom-select mr-sm-2 selectCenter" formControlName="area_name" id="area">
                                 <option *ngFor="let area of areas" [value]="area.id">{{ area.area_name }}</option>
-                              </select>
-                              <small *ngIf="formulario.get('area_name').valid && formulario.get('area_name').touched" class="form-text text-success"><i class="fa fa-check"></i></small>
-                              <small *ngIf="!formulario.get('area_name').valid && formulario.get('area_name').touched" class="form-text text-danger"><i class="fa fa-times"></i></small>
+                              </select>                              
                             </div>
                     </div>              
                 </div>
+                <br>
+                <table class="table">
+                    <tr> 
+                        <th style="color: white; background-color: rgba(50, 50, 152, 0.65);" class="text-uppercase">&nbsp; Nome da Entrevista </th>
+                        <th class="text-center text-uppercase" style="color: white; background-color: rgba(50, 50, 152, 0.65);">Situação</th>
+                        <th class="text-center"  style="color: white; background-color: rgba(50, 50, 152, 0.65);">&nbsp;</th>
+                        <th class="text-center text-uppercase"  style="color: white; background-color: rgba(50, 50, 152, 0.65);">Ação</th>
+                    </tr>
+                    <tr *ngFor="let questionnaireForm of questionnaireForms" style="background-color: white;">
+                        <td style="background-color: white;"><strong>&nbsp;&nbsp;{{ questionnaireForm.questionnaire_form_name }}</strong></td>
+                        <input type="text" hidden formControlName="questionnaire_form_name">
+                        <td *ngIf="showIniciado(questionnaireForm)" style="color: red; width: 130px; text-align: center;" class="text-uppercase"><strong>Não Iniciado</strong></td>
+                        <td *ngIf="!showIniciado(questionnaireForm)" style="color: green; width: 109px; text-align: center;" class="text-uppercase"><strong>Iniciado</strong></td>
+                        <td></td>
+                        <td style="padding-left: 50px;"><button type="submit" class="btn btn-white"><i class="fa fa-pencil-square-o"></i></button></td>
+                    </tr>
+                    
+                </table>
 
                 <div class="container">
                     <div class="row">
-                        <table class="table table-sm">
-                            <thead>
-                              <tr>
-                                <th scope="col">Nome da Entrevista</th>
-                                <th scope="col" style="padding-left: 25px;">Situação</th>
-                                <th scope="col"></th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <th scope="row">ASSESSMENT LGPD - Formulário Entrevista Funcional - Contextualização</th>
-                                <td style="background-color: green; color: white; width: 109px; text-align: center;">Não iniciado</td>
-                                <td><a [routerLink]="['/question/Entrevista']"><i class="fa fa-pencil-square-o"></i></a></td>                                                          
-                              </tr>             
-                            </tbody>
-                          </table>
+                   
                     </div>
                   </div>
                   
@@ -93,15 +101,13 @@
                 <div class="row">
                     <div class="col-sm-4 text-center">
                         <div class="form-group">
-                            <button type="button" class="btn btn-danger" (click)="LimparForm()">Limpar</button>   
+                            <button type="button" class="btn btn-danger text-uppercase" (click)="LimparForm()">Limpar</button>   
                         </div>
                     </div>
                                   
                     <div class="col-sm-6 text-right">
                         <div class="form-group">
-                            <button type="button"
-                             class="btn btn-success"                            
-                             [routerLink]="['/question/menu']">Menu</button>  
+                            <button type="button" class="btn btn-success text-uppercase" [routerLink]="['/question/menu']">Menu</button>  
                         </div>
                     </div>            
                 </div>

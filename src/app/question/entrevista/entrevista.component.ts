@@ -30,7 +30,7 @@ import { ReturnForm } from './../../shared/returnForm.model';
 })
 export class EntrevistaComponent implements OnInit {
 
-  title = "Entrevista";
+  title = "ENTREVISTA";
 
   public idQuestionarioEntrevista: number
   public interviewees : Interviewee
@@ -47,14 +47,14 @@ export class EntrevistaComponent implements OnInit {
  questionnaire_form_name:string
 
   public formulario: FormGroup = new FormGroup({
-    'interviewee_1_id': new FormControl(null, [Validators.required]),
-    'interviewee_2_id': new FormControl(null),
-    'interviewee_3_id': new FormControl(null),
-    'interviewee_4_id': new FormControl(null),
-    'interviewee_5_id': new FormControl(null),
-    'location': new FormControl(null),
-    'consideracaoesGerais': new FormControl(null),
-    'demaisparticipantes': new FormControl(null)
+    'interviewee_1_id_log': new FormControl(null, [Validators.required]),
+    'interviewee_2_id_log': new FormControl(null),
+    'interviewee_3_id_log': new FormControl(null),
+    'interviewee_4_id_log': new FormControl(null),
+    'interviewee_5_id_log': new FormControl(null),
+    'location_log': new FormControl(null),
+    'general_considerations_log': new FormControl(null),
+    'other_participants_log': new FormControl(null)
   })
 
    constructor(private IntervieweeService: IntervieweeService,
@@ -88,26 +88,26 @@ public FormEntrevista(): void {
   if(this.formulario.status === 'INVALID'){
     console.log('formulário está inválido')
 
-    this.formulario.get('interviewee_1_id').markAllAsTouched()
-    this.formulario.get('interviewee_2_id').markAllAsTouched()
-    this.formulario.get('interviewee_3_id').markAllAsTouched()
-    this.formulario.get('interviewee_4_id').markAllAsTouched()
-    this.formulario.get('interviewee_5_id').markAllAsTouched()
-    this.formulario.get('location').markAsTouched()
-    this.formulario.get('consideracaoesGerais').markAsTouched()
-    this.formulario.get('demaisparticipantes').markAllAsTouched()
+    this.formulario.get('interviewee_1_id_log').markAllAsTouched()
+    this.formulario.get('interviewee_2_id_log').markAllAsTouched()
+    this.formulario.get('interviewee_3_id_log').markAllAsTouched()
+    this.formulario.get('interviewee_4_id_log').markAllAsTouched()
+    this.formulario.get('interviewee_5_id_log').markAllAsTouched()
+    this.formulario.get('location_log').markAsTouched()
+    this.formulario.get('general_considerations_log').markAsTouched()
+    this.formulario.get('other_participants_log').markAllAsTouched()
   } else {
 
   // Campos realcionado ao Model
   let entrevista: SelecaoEntrevistado = new SelecaoEntrevistado(
-    this.formulario.value.interviewee_1_id,
-    this.formulario.value.interviewee_2_id,
-    this.formulario.value.interviewee_3_id,
-    this.formulario.value.interviewee_4_id,
-    this.formulario.value.interviewee_5_id,
-    this.formulario.value.location,
-    this.formulario.value.consideracaoesGerais,
-    this.formulario.value.demaisparticipantes
+    this.formulario.value.interviewee_1_id_log,
+    this.formulario.value.interviewee_2_id_log,
+    this.formulario.value.interviewee_3_id_log,
+    this.formulario.value.interviewee_4_id_log,
+    this.formulario.value.interviewee_5_id_log,
+    this.formulario.value.location_log,
+    this.formulario.value.general_considerations_log,
+    this.formulario.value.other_participants_log
   )
 
   console.log('Value', this.formulario)

@@ -1,7 +1,7 @@
 <div class="container">
     <div class="container mt-5">
-        <p class="lead text-center h1 CorTitulo">
-            {{title}}           
+        <p class="lead text-center h1 CorTitulo text-uppercase">
+            <strong>{{ title }} </strong>          
           </p>
     <hr>
     </div>
@@ -13,7 +13,7 @@
            <div class="container">
 
              <form  [formGroup]="formulario" novalidate (ngSubmit)="FormEntrevista()"> 
-
+                <!--
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="form-group text-primary">
@@ -24,6 +24,7 @@
                         </div>
                     </div>              
                 </div>
+            -->
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="form-group text-primary">
@@ -66,33 +67,24 @@
                 </div>
                 <div class="form-group text-primary">
                     <label for="lblLocal">Local da Entrevista:</label>
-                    <textarea class="form-control"  name="localentrevista"  rows="2" formControlName="location"></textarea>
+                    <textarea class="form-control"  name="location_log"  rows="2" formControlName="location_log"></textarea>
                   </div>
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="form-group text-primary">   
                             <label for="lblCliente">Nome do Entrevistado:</label>
-                            <select class="custom-select mr-sm-2 selectCenter" formControlName="interviewee_1_id" id="interviewee_1">
+                            <select class="custom-select mr-sm-2 selectCenter" formControlName="interviewee_1_id_log" id="interviewee_1_id_log">
                                 <option *ngFor="let interviewee of interviewees" [value]="interviewee.id">{{ interviewee.interviewee_name }}</option>                           
                               </select>
-                              <small *ngIf="formulario.get('interviewee_1_id').valid && formulario.get('interviewee_1_id').touched" class="form-text text-success"> <i class="fa fa-check"></i></small>
-                              <small *ngIf="!formulario.get('interviewee_1_id').valid && formulario.get('interviewee_1_id').touched" class="form-text text-danger"><i class="fa fa-times"></i></small>
+                              <small *ngIf="formulario.get('interviewee_1_id_log').valid && formulario.get('interviewee_1_id_log').touched" class="form-text text-success"> <i class="fa fa-check"></i></small>
+                              <small *ngIf="!formulario.get('interviewee_1_id_log').valid && formulario.get('interviewee_1_id_log').touched" class="form-text text-danger"><i class="fa fa-times"></i></small>
                         </div>
                     </div>              
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="form-group">
-                            <select class="custom-select mr-sm-2 selectCenter" formControlName="interviewee_2_id" id="interviewee_1">
-                                <option *ngFor="let interviewee of interviewees" [value]="interviewee.id">{{ interviewee.interviewee_name }}</option>                           
-                              </select>
-                        </div>
-                    </div>              
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="form-group">
-                            <select class="custom-select mr-sm-2 selectCenter" formControlName="interviewee_3_id" id="interviewee_1">
+                            <select class="custom-select mr-sm-2 selectCenter" formControlName="interviewee_2_id_log" id="interviewee_2_id_log">
                                 <option *ngFor="let interviewee of interviewees" [value]="interviewee.id">{{ interviewee.interviewee_name }}</option>                           
                               </select>
                         </div>
@@ -101,7 +93,16 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="form-group">
-                            <select class="custom-select mr-sm-2 selectCenter" formControlName="interviewee_4_id" id="interviewee_1">
+                            <select class="custom-select mr-sm-2 selectCenter" formControlName="interviewee_3_id_log" id="interviewee_3_id_log">
+                                <option *ngFor="let interviewee of interviewees" [value]="interviewee.id">{{ interviewee.interviewee_name }}</option>                           
+                              </select>
+                        </div>
+                    </div>              
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <select class="custom-select mr-sm-2 selectCenter" formControlName="interviewee_4_id_log" id="interviewee_4_id_log">
                                 <option *ngFor="let interviewee of interviewees" [value]="interviewee.id">{{ interviewee.interviewee_name }}</option>                           
                               </select>
                         </div>
@@ -111,7 +112,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="form-group">
-                            <select class="custom-select mr-sm-2 selectCenter" formControlName="interviewee_5_id" id="interviewee_1">
+                            <select class="custom-select mr-sm-2 selectCenter" formControlName="interviewee_5_id_log" id="interviewee_5_id_log">
                                 <option *ngFor="let interviewee of interviewees" [value]="interviewee.id">{{ interviewee.interviewee_name }}</option>                           
                               </select>
                         </div>
@@ -120,12 +121,12 @@
 
                 <div class="form-group text-primary">
                     <label for="lblGerais">Demais participantes:</label>
-                    <textarea class="form-control" id="demaisparticipantes" name="demaisparticipantes" rows="3" formControlName="demaisparticipantes"></textarea>
+                    <textarea class="form-control" id="demaisparticipantes" name="other_participants_log" rows="3" formControlName="other_participants_log"></textarea>
                   </div>
 
                 <div class="form-group text-primary">
                     <label for="lblGerais">Considerações Gerais:</label>
-                    <textarea class="form-control" id="consideracaoesGerais" name="consideracaoesGerais" rows="3" formControlName="consideracaoesGerais"></textarea>
+                    <textarea class="form-control" id="consideracaoesGerais" name="general_considerations_log" rows="3" formControlName="general_considerations_log"></textarea>
                   </div>
      
                 

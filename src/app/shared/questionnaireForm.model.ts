@@ -8,5 +8,6 @@ export class QuestionnaireForm {
         assessment_version_id: data.assessment_version_id
         version_year: data.version_year
         version_seq_number: data.version_seq_number
+        status: data.status
         }
     }

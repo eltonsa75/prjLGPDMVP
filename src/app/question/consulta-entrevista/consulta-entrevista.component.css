@@ -1,7 +1,7 @@
 .CorTitulo {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 2.0em;
-    color: blue;
+    color:BLUE;
 }
 
 .h1 {
@@ -9,7 +9,7 @@
   }
 
 .fundoForm{
-    background-color: white;
+    background-color:#0054ffe3;
 }
 
 .figura {
@@ -19,8 +19,15 @@
 .table td, .table th {
     padding: 0.1px;
     vertical-align: inherit;
-    border-top: 1px solid #dee2e6;
 }
+
+select.ng-invalid.ng-touched {
+    border: 2px solid red;
+  }
+  
+  select.ng-valid.ng-touched {
+    border: 2px solid yellow;
+  }
 
 .fa-edit:before, .fa-pencil-square-o:before {
     content: "\f044";
@@ -28,3 +35,25 @@
     font-size: 28px;
     vertical-align: text-top;
 }
+
+.btn-light {
+    color: #0b0c0c;
+    background-color: #d4d5d6ab;
+    border-color: #989898bd;
+}
+
+.fundoForm {
+    background-color: #0054ffe3;
+    padding: 20px;
+}
+
+.alert-secondary {
+    color: #383d41;
+    background-color: #6d9cf9c4;
+    border-color: #6b6c6d5c;
+  }
+  
+  .text-primary {
+    color: #ffffff!important;
+  }
+  

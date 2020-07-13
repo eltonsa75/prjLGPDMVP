@@ -1,6 +1,7 @@
 .CorTitulo {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 2.0em;
+    font-size: 2.1rem;
+    font-weight: 300;
     color: blue;
 }
 
@@ -8,3 +9,18 @@
     text-shadow: 2px 2px #ccc;
   }
 
+.fundoPrincipal{
+    background-color: #48cae4;
+    
+}
+
+
+.fundoMenu{
+    -webkit-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+        -moz-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+        box-shadow:      9px 7px 5px rgba(50, 50, 50, 0.77);
+}
+
+.linha{
+    border: solid 1px rgb(116, 114, 114);
+}

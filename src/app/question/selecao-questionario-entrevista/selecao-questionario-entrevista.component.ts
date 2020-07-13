@@ -130,6 +130,8 @@ ngOnInit(){
             
 
 }
+
+/*
 //Método Ligado ao formulário (ngSubmit)
 public FormSelecao(): void {
   if(this.formulario.status === 'INVALID'){
@@ -158,10 +160,10 @@ public FormSelecao(): void {
       this.returnForm = idEntrevista
      this.router.navigate(['/question/Entrevista', this.returnForm]);
      this.formulario.reset();
-
     }) 
   }
 }
+*/
   public LimparForm(): void {
   this.formulario.reset();
   }

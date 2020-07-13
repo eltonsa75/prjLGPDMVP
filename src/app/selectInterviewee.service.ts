@@ -22,7 +22,7 @@ export class SelectIntervieweetService {
          headers.append('Content-type', 'application/json')
  
          return this.http.post(
-             `${URL_API}/registerapplication`,
+             `${URL_API}/questApplicationLog`,
              (entrevista),
              ({headers: headers})
          )

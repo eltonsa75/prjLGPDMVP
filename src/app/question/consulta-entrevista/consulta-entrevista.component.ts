@@ -15,6 +15,14 @@ import { BusinessUnitsService } from './../../businessunits.service';
 import { Area } from './../../shared/area.model';
 import { AreasService } from './../../area.service';
 
+import { QuestionnaireFormService } from './../../questionnaireForm.service';
+import { QuestionnaireForm } from './../../shared/questionnaireForm.model';
+import { ReturnForm } from 'src/app/shared/returnForm.model';
+
+
+import { SelecaoQuestionarioEntrevistaService } from './../../selecao-questionario-entrevista.service';
+import { SelecaoQuestionarioEntrevista } from './../../shared/selecaoQuestionarioEntrevista.model';
+
 
 
 
@@ -23,29 +31,38 @@ import { AreasService } from './../../area.service';
   templateUrl: './consulta-entrevista.component.html',
   styleUrls: ['./consulta-entrevista.component.css'],
   providers: [CustomersService,CustomersOfficesService,
-              BusinessUnitsService, AreasService, 
+              BusinessUnitsService, AreasService,
+              QuestionnaireFormService, SelecaoQuestionarioEntrevistaService
     ]
 })
 export class ConsultaEntrevistaComponent implements OnInit {
 
   title = "Consulta de Entrevistas";
 
+  public idQuestionarioEntrevista: number
+
   public formulario: FormGroup = new FormGroup({
     'customer_name': new FormControl(null, [Validators.required]),
     'customer_office_name': new FormControl(null, [Validators.required]),
     'business_unit_name': new FormControl(null, [Validators.required]),
-    'area_name': new FormControl(null, Validators.required)
+    'area_name': new FormControl(null, Validators.required),
+    'questionnaire_form_name': new FormControl(null)
   })
 
   public customers: Customers
   public customersOffices: CustomersOffices
   public businessUnits: BusinessUnits
   public areas: Area
+  public questionnaireForms : QuestionnaireForm = []
+
   
+  public returnForm: ReturnForm
 
   constructor( private CustomersService: CustomersService,
                private CustomersOfficesService: CustomersOfficesService,
                private BusinessUnitsService: BusinessUnitsService,
+               private QuestionnaireFormService: QuestionnaireFormService,
+               private SelecaoQuestionarioEntrevistaService: SelecaoQuestionarioEntrevistaService,
                private AreasService: AreasService,
                private route: ActivatedRoute,
                private router: Router) {}
@@ -85,9 +102,54 @@ export class ConsultaEntrevistaComponent implements OnInit {
               this.areas = areas
             })   
           })
+
+             // Método do QuestionnaireForms
+             this.route.params.subscribe((parametros: Params) => {
+              this.QuestionnaireFormService.questionnaireForm(parametros.id)
+              .then((questionnaireForm: QuestionnaireForm) => {
+                this.questionnaireForms = questionnaireForm
+              })   
+            })
+ 
   }
 
-  public LimparForm(): void {
+  //Método Ligado ao formulário (ngSubmit)
+  public FormSelecao(): void {
+    if(this.formulario.status === 'INVALID'){
+      console.log('formulário está inválido')
+  
+      this.formulario.get('customer_name').markAllAsTouched()
+      this.formulario.get('customer_office_name').markAllAsTouched()
+      this.formulario.get('business_unit_name').markAllAsTouched()
+      this.formulario.get('area_name').markAllAsTouched()
+      this.formulario.get('questionnaire_form_name').markAllAsTouched()
+    } else {
+  
+      // Campos realcionado ao Model
+      let entrevista: SelecaoQuestionarioEntrevista = new SelecaoQuestionarioEntrevista(
+        this.formulario.value.customer_name,
+        this.formulario.value.customer_office_name,
+        this.formulario.value.business_unit_name,
+        this.formulario.value.area_name,
+        this.formulario.value.questionnaire_form_name 
+      )   
+  
+      this.SelecaoQuestionarioEntrevistaService.selecaoQuestionario(entrevista)
+      .subscribe((idEntrevista: number) => {
+        this.idQuestionarioEntrevista = idEntrevista
+        this.returnForm = idEntrevista
+       this.router.navigate(['/question/Entrevista', this.returnForm]);
+       this.formulario.reset();
+      }) 
+    }
+  }
+
+  // Método do campo status
+  public showIniciado(questionnaireForm) {
+      return questionnaireForm.status == 0; 
+  }
+
+   public LimparForm(): void {
     this.formulario.reset();
     }
 
