@@ -25,13 +25,13 @@ select.ng-valid.ng-touched {
 }
 
 .fundoForm {
-  background-color: #0054ff78;
+  background-color: #0054ffe3;
   padding: 20px;
 }
 
 .alert-secondary {
   color: #383d41;
-  background-color: #6d9cf9c4;
+  background-color: #b0b2b3ed;
   border-color: #6b6c6d5c;
 }
 
@@ -50,7 +50,7 @@ select.ng-valid.ng-touched {
   font-weight: 400;
   line-height: 1.5;
   color: #495057;
-  background-color: #b0b2b3ed;
+  background-color: #ffffff;
   background-clip: padding-box;
   border: 1px solid #ced4da;
   border-radius: .25rem;

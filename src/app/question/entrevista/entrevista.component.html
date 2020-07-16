@@ -27,7 +27,7 @@
             -->
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="form-group text-primary">
+                        <div class="form-group text-primary text-uppercase">
                             <label for="lblCliente">Cliente:</label>
                             <div  *ngIf="fantasy_name" class="alert alert-secondary text-center text-primary" role="alert">
                                 <strong>{{ fantasy_name }}</strong>
@@ -37,7 +37,7 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="form-group text-primary">
+                        <div class="form-group text-primary text-uppercase">
                             <label for="lblCliente">Filial:</label>
                             <div  *ngIf="customer_office_name" class="alert alert-secondary text-center text-primary" role="alert">
                                 <strong>{{ customer_office_name }}</strong>
@@ -47,7 +47,7 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="form-group text-primary">
+                        <div class="form-group text-primary text-uppercase">
                             <label for="lblCliente">Unidade de Négocio:</label>
                             <div  *ngIf="business_unit_name" class="alert alert-secondary text-center text-primary" role="alert">
                                 <strong>{{ business_unit_name }}</strong>
@@ -57,7 +57,7 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="form-group text-primary">
+                        <div class="form-group text-primary text-uppercase">
                             <label for="lblCliente">Area:</label>
                             <div  *ngIf="area_name" class="alert alert-secondary text-center text-primary" role="alert">
                                 <strong>{{ area_name }}</strong>
@@ -65,13 +65,13 @@
                         </div>
                     </div>              
                 </div>
-                <div class="form-group text-primary">
+                <div class="form-group text-primary text-uppercase">
                     <label for="lblLocal">Local da Entrevista:</label>
                     <textarea class="form-control"  name="location_log"  rows="2" formControlName="location_log"></textarea>
                   </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="form-group text-primary">   
+                        <div class="form-group text-primary text-uppercase">   
                             <label for="lblCliente">Nome do Entrevistado:</label>
                             <select class="custom-select mr-sm-2 selectCenter" formControlName="interviewee_1_id_log" id="interviewee_1_id_log">
                                 <option *ngFor="let interviewee of interviewees" [value]="interviewee.id">{{ interviewee.interviewee_name }}</option>                           
@@ -119,32 +119,32 @@
                     </div>              
                 </div>
 
-                <div class="form-group text-primary">
+                <div class="form-group text-primary text-uppercase">
                     <label for="lblGerais">Demais participantes:</label>
                     <textarea class="form-control" id="demaisparticipantes" name="other_participants_log" rows="3" formControlName="other_participants_log"></textarea>
                   </div>
 
-                <div class="form-group text-primary">
+                <div class="form-group text-primary text-uppercase">
                     <label for="lblGerais">Considerações Gerais:</label>
                     <textarea class="form-control" id="consideracaoesGerais" name="general_considerations_log" rows="3" formControlName="general_considerations_log"></textarea>
                   </div>
      
                 
                 <div class="row">
-                    <div class="col-sm-4 text-center">
+                    <div class="col-sm-4 text-center text-uppercase">
                         <div class="form-group">
-                            <button type="button" class="btn btn-danger" (click)="LimparForm()">Limpar</button>      
+                            <button type="button" class="btn btn-danger" (click)="LimparForm()">LIMPAR</button>      
                         </div>
                     </div>
-                    <div class="col-sm-4 text-center">
+                    <div class="col-sm-4 text-center text-uppercase">
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Salvar</button>   
+                            <button type="submit" class="btn btn-primary">SALVAR</button>   
                         </div>
                     </div>
                     
-                    <div class="col-sm-4 text-center">
+                    <div class="col-sm-4 text-center text-uppercase">
                         <div class="form-group">
-                            <button type="button" class="btn btn-success" [routerLink]="['/question/menu']">Menu</button>  
+                            <button type="button" class="btn btn-success" [routerLink]="['/question/menu']">MENU</button>  
                         </div>
                     </div>            
                 </div>                              
