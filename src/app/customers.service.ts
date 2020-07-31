@@ -12,6 +12,7 @@ export class CustomersService {
 
     constructor(private http: HttpClient) {}
 
+   
     public customers(id: number): Promise<Customers> {
         return this.http.get(`${URL_API}/customersearch/1`)
         .toPromise()

@@ -58,7 +58,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="form-group text-primary text-uppercase">
-                            <label for="lblCliente">Area:</label>
+                            <label for="lblCliente">Área:</label>
                             <div  *ngIf="area_name" class="alert alert-secondary text-center text-primary" role="alert">
                                 <strong>{{ area_name }}</strong>
                                </div>
@@ -72,14 +72,16 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="form-group text-primary text-uppercase">   
-                            <label for="lblCliente">Nome do Entrevistado:</label>
-                            <select class="custom-select mr-sm-2 selectCenter" formControlName="interviewee_1_id_log" id="interviewee_1_id_log">
-                                <option *ngFor="let interviewee of interviewees" [value]="interviewee.id">{{ interviewee.interviewee_name }}</option>                           
-                              </select>
-                              <small *ngIf="formulario.get('interviewee_1_id_log').valid && formulario.get('interviewee_1_id_log').touched" class="form-text text-success"> <i class="fa fa-check"></i></small>
-                              <small *ngIf="!formulario.get('interviewee_1_id_log').valid && formulario.get('interviewee_1_id_log').touched" class="form-text text-danger"><i class="fa fa-times"></i></small>
+                            NOME DO ENTREVISTADO:&nbsp;<label for="lblEntrevistado">
+                                <small *ngIf="formulario.get('interviewee_1_id_log').valid && formulario.get('interviewee_1_id_log').touched" class="form-text text-success"> <strong><i class="fa fa-check" style="font-size: 20px; color: yellow;"></i></strong></small>
+                                <small *ngIf="!formulario.get('interviewee_1_id_log').valid && formulario.get('interviewee_1_id_log').touched" class="form-text text-danger"> <strong><i class="fa fa-times" style="font-size: 20px; color: red;"></i></strong></small>
+                                </label>
+                                    <select class="custom-select mr-sm-2 selectCenter" formControlName="interviewee_1_id_log" id="interviewee_1_id_log">
+                                        <option *ngFor="let interviewee of interviewees" [value]="interviewee.id">{{ interviewee.interviewee_name }}</option>                           
+                                      </select>
                         </div>
-                    </div>              
+                    </div>
+                            
                 </div>
                 <div class="row">
                     <div class="col-sm-12">

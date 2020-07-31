@@ -70,7 +70,6 @@ export class EntrevistafuncionalComponent implements OnInit {
             this.questionnaireVersionsService.questionnaireVersions(parametros.id)
             .then((questionnaireVersion: QuestionnaireVersion) => {
               this.questionnaireVersions = questionnaireVersion
-              console.log('Teste Classe', questionnaireVersion)
             })   
           })
 
