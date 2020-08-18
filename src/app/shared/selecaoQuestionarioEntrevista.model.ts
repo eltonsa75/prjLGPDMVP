@@ -5,7 +5,5 @@ export class SelecaoQuestionarioEntrevista{
         public customer_office_id: number, 
         public business_unit_id: number, 
         public area_id: number, 
-        public questionnaire_version_id: number,
-
     ){}
 }

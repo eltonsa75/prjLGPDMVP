@@ -4,7 +4,7 @@ import { Component, OnInit, } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { SelecaoQuestionarioEntrevistaService } from './../../selecao-questionario-entrevista.service';
-import { SelecaoQuestionarioEntrevista } from './../../shared/SelecaoQuestionarioEntrevista.model';
+//import { SelecaoQuestionarioEntrevista } from './../../shared/SelecaoQuestionarioEntrevista.model';
 
 import { MasterCompanies } from './../../shared/mastercompanies.model';
 import { MasterCompaniesService } from './../../masterCompanies.services';

@@ -77,13 +77,13 @@
                         <th class="text-center"  style="color: white; background-color: rgba(50, 50, 152, 0.65);">&nbsp;</th>
                         <th class="text-center text-uppercase"  style="color: white; background-color: rgba(50, 50, 152, 0.65);">Ação</th>
                     </tr>
-                    <tr *ngFor="let questionnaireForm of questionnaireForms" style="background-color: white;">
-                        <td style="background-color: white;"><strong>&nbsp;&nbsp;{{ questionnaireForm.questionnaire_form_name }}</strong></td>
+                    <tr *ngFor="let applicationConfig of applicationConfigs" style="background-color: white;">
+                        <td style="background-color: white;"><strong>&nbsp;&nbsp;{{ applicationConfig.questionnaire_form_name }}&nbsp;&nbsp;{{ applicationConfig.questionnaire_version_name }}</strong></td>
                         <input type="text" hidden formControlName="questionnaire_form_name">
-                        <td *ngIf="showIniciado(questionnaireForm)" style="color: red; width: 130px; text-align: center;" class="text-uppercase"><strong>Não Iniciado</strong></td>
-                        <td *ngIf="!showIniciado(questionnaireForm)" style="color: green; width: 109px; text-align: center;" class="text-uppercase"><strong>Iniciado</strong></td>
+                        <td *ngIf="showIniciado(applicationConfig)" style="color: red; width: 130px; text-align: center;" class="text-uppercase"><strong>Não Iniciado</strong></td>
+                        <td *ngIf="!showIniciado(applicationConfig)" style="color: green; width: 109px; text-align: center;" class="text-uppercase"><strong>Iniciado</strong></td>
                         <td></td>
-                        <td style="padding-left: 50px;"><button type="submit" class="btn btn-white"><i class="fa fa-pencil-square-o"></i></button></td>
+                        <td style="padding-left: 50px;"><button  class="btn btn-white" routerLink="/question/ConsultaEntrevista/:id{{ applicationConfig.id }}"><i class="fa fa-pencil-square-o"></i></button></td>
                     </tr>
                     
                 </table>

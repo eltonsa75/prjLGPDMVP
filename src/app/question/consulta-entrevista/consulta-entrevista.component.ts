@@ -17,6 +17,7 @@ import { AreasService } from './../../area.service';
 
 import { QuestionnaireFormService } from './../../questionnaireForm.service';
 import { QuestionnaireForm } from './../../shared/questionnaireForm.model';
+
 import { ReturnForm } from 'src/app/shared/returnForm.model';
 
 
@@ -24,6 +25,8 @@ import { SelecaoQuestionarioEntrevistaService } from './../../selecao-questionar
 import { SelecaoQuestionarioEntrevista } from './../../shared/selecaoQuestionarioEntrevista.model';
 
 
+import { ApplicationConfigs } from './../../shared/applicationConfigs.model';
+import { ApplicationConfigService } from './../../applicationConfig.service';
 
 
 @Component({
@@ -32,7 +35,8 @@ import { SelecaoQuestionarioEntrevista } from './../../shared/selecaoQuestionari
   styleUrls: ['./consulta-entrevista.component.css'],
   providers: [CustomersService,CustomersOfficesService,
               BusinessUnitsService, AreasService,
-              QuestionnaireFormService, SelecaoQuestionarioEntrevistaService
+              QuestionnaireFormService, SelecaoQuestionarioEntrevistaService,
+              ApplicationConfigService, ApplicationConfigService
     ]
 })
 export class ConsultaEntrevistaComponent implements OnInit {
@@ -54,6 +58,7 @@ export class ConsultaEntrevistaComponent implements OnInit {
   public businessUnits: BusinessUnits
   public areas: Area
   public questionnaireForms : QuestionnaireForm = []
+  public applicationConfigs : ApplicationConfigs
 
   
   public returnForm: ReturnForm
@@ -63,6 +68,7 @@ export class ConsultaEntrevistaComponent implements OnInit {
                private BusinessUnitsService: BusinessUnitsService,
                private QuestionnaireFormService: QuestionnaireFormService,
                private SelecaoQuestionarioEntrevistaService: SelecaoQuestionarioEntrevistaService,
+               private ApplicationConfigService: ApplicationConfigService,
                private AreasService: AreasService,
                private route: ActivatedRoute,
                private router: Router) {}
@@ -72,7 +78,6 @@ export class ConsultaEntrevistaComponent implements OnInit {
       this.route.params.subscribe((parametros: Params) => {
         this.CustomersService.customers(parametros.id)
         .then((customers: Customers) => {
-          this.customers = customers
           this.customers = customers
         })
       })
@@ -110,6 +115,15 @@ export class ConsultaEntrevistaComponent implements OnInit {
                 this.questionnaireForms = questionnaireForm
               })   
             })
+
+            // Método do Applicationconfig
+            this.route.params.subscribe((parametros: Params) => {
+            this.ApplicationConfigService.applicationConfig(parametros.id)
+            .then((applicationConfig: ApplicationConfigs) => {
+              this.applicationConfigs = applicationConfig
+              console.log('Teste do Component', this.applicationConfigs)
+            })
+            })
  
   }
 
@@ -117,21 +131,18 @@ export class ConsultaEntrevistaComponent implements OnInit {
   public FormSelecao(): void {
     if(this.formulario.status === 'INVALID'){
       console.log('formulário está inválido')
-  
       this.formulario.get('customer_name').markAllAsTouched()
       this.formulario.get('customer_office_name').markAllAsTouched()
       this.formulario.get('business_unit_name').markAllAsTouched()
       this.formulario.get('area_name').markAllAsTouched()
-      this.formulario.get('questionnaire_form_name').markAllAsTouched()
     } else {
   
-      // Campos realcionado ao Model
+      // Campos relacionado ao Model
       let entrevista: SelecaoQuestionarioEntrevista = new SelecaoQuestionarioEntrevista(
         this.formulario.value.customer_name,
         this.formulario.value.customer_office_name,
         this.formulario.value.business_unit_name,
-        this.formulario.value.area_name,
-        this.formulario.value.questionnaire_form_name 
+        this.formulario.value.area_name
       )   
   
       this.SelecaoQuestionarioEntrevistaService.selecaoQuestionario(entrevista)
@@ -148,6 +159,11 @@ export class ConsultaEntrevistaComponent implements OnInit {
   public showIniciado(questionnaireForm) {
       return questionnaireForm.status == 0; 
   }
+
+  public showId(applicationConfig) {
+    return applicationConfig.id;
+  }
+
 
    public LimparForm(): void {
     this.formulario.reset();

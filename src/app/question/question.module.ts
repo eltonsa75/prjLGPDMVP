@@ -74,7 +74,7 @@ import { ConsultaEntrevistaComponent } from './consulta-entrevista/consulta-entr
     RouterModule
   ],
 
-  providers: [AuthenticationService, AuthGuardService, ],
+  providers: [AuthenticationService, AuthGuardService, AuthGuardService ],
 })
 export class QuestionModule { }
 

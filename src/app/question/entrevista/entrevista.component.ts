@@ -8,16 +8,16 @@ import { IntervieweeService } from './../../interviewee.service';
 import { Interviewee } from './../../shared/interviewee.model';
 
 import { SelecaoQuestionarioEntrevistaService } from './../../selecao-questionario-entrevista.service';
-import { SelecaoQuestionarioEntrevista } from './../../shared/SelecaoQuestionarioEntrevista.model';
+
 
 
 import { SelecaoEntrevistado } from './../../shared/selecaoEntrevistados.model';
-import { SelectIntervieweetService } from './../../selectInterviewee.service';
+import { SelectIntervieweetService } from '../../selectInterviewee.service';
 
 import { Customers } from '../../shared/customers.model';
 import { CustomersService } from './../../customers.service';
 
-import { ReturnForm } from './../../shared/returnForm.model';
+
 
 @Component({
   selector: 'app-entrevista',
@@ -38,13 +38,13 @@ export class EntrevistaComponent implements OnInit {
   public customers: Customers
 
 
- public returnForm: string
+ //public returnForm: string
 
+ 
  fantasy_name: string
  customer_office_name: string
  business_unit_name: string
  area_name:string
- questionnaire_form_name:string
 
   public formulario: FormGroup = new FormGroup({
     'interviewee_1_id_log': new FormControl(null, [Validators.required]),
@@ -57,21 +57,17 @@ export class EntrevistaComponent implements OnInit {
     'other_participants_log': new FormControl(null)
   })
 
-   constructor(private IntervieweeService: IntervieweeService,
-               private CustomersService: CustomersService,
-               private SelecaoQuestionarioEntrevistaService: SelecaoQuestionarioEntrevistaService,
+   constructor(private IntervieweeService: IntervieweeService,                            
                private SelectIntervieweetService: SelectIntervieweetService,
               private route: ActivatedRoute,
               private router: Router) {}
 
   ngOnInit() {
-
       this.fantasy_name = this.route.snapshot.paramMap.get('fantasy_name')
       this.customer_office_name = this.route.snapshot.paramMap.get('customer_office_name')
       this.business_unit_name = this.route.snapshot.paramMap.get('business_unit_name')
       this.area_name = this.route.snapshot.paramMap.get('area_name')
-      this.questionnaire_form_name = this.route.snapshot.paramMap.get('questionnaire_form_name')
-
+  
 
     // Método do Interviewee -- Get
     this.route.params.subscribe((parametros: Params) => {
@@ -110,8 +106,7 @@ public FormEntrevista(): void {
     this.formulario.value.other_participants_log
   )
 
-  console.log('Value', this.formulario)
-
+ 
   this.SelectIntervieweetService.intervieweeForm(entrevista)
   .subscribe((idEntrevista: number) => {
     this.idQuestionarioEntrevista = idEntrevista

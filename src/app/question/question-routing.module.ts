@@ -39,22 +39,40 @@ const routes: Routes = [
     canActivate: [AuthGuardService]
   },
 
-  { path: 'menu', component: PrincipalComponent},
-  { path: 'usuario', component: CadUsuarioComponent},
+  { path: 'menu',
+   component: PrincipalComponent,
+   canActivate: [AuthGuardService]
+  },
+
+  { path: 'usuario',
+   component: CadUsuarioComponent,
+   },
   { path: 'perfil', component: CadPerfilComponent},
-  { path: 'Entrevista', component: EntrevistaComponent},
+  { path: 'Entrevista',
+   component: EntrevistaComponent,
+   canActivate: [AuthGuardService]
+  },
   { path: 'AplicarQuestion', component: AplicarQuestionComponent},
   { path: 'AnaliseGap', component: AnaliseGapComponent},
   { path: 'TabAuxiliar', component: TabAuxiliaresComponent},
-  { path: 'painelentrevista', component: PainelComponent},
+  { path: 'painelentrevista',
+    component: PainelComponent,
+    canActivate: [AuthGuardService]},
+    
   { path: 'documentalfuncional', component: DocumentalfuncionalComponent}, 
   { path: 'CicloUmEntrevistaFuncional', component: CicloUmEntrevistadocumentalFuncionalComponent },
   { path: 'CicloUmDocFundional', component: CicloUmEntrevistaFuncionalComponent }, 
   { path: 'CicloUmEntrevistaTecnica', component: CicloUmEntrevistaTecnicaComponent },
   { path: 'CicloUmEntrevistaTecnicaFuncional', component: CicloUmEntrevistaTecnicaFuncionalComponent },
-  { path: 'ConsultaEntrevista', component: ConsultaEntrevistaComponent},
-  { path: 'Selecao-Questionario-Entrevista', component: SelecaoQuestionarioEntrevistaComponent},
-  { path: 'register', component: RegisterComponent}
+  { path: "ConsultaEntrevista/:id", component: ConsultaEntrevistaComponent},
+  { path: 'Selecao-Questionario-Entrevista',
+   component: SelecaoQuestionarioEntrevistaComponent,
+   canActivate: [AuthGuardService]},
+
+  { path: 'register',
+   component: RegisterComponent,
+   canActivate: [AuthGuardService]
+  }
 
 ];
 
