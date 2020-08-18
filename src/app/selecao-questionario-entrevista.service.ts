@@ -3,6 +3,9 @@ import { SelecaoQuestionarioEntrevista } from './shared/selecaoQuestionarioEntre
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
+import { Router} from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+
 
 import 'rxjs/add/operator/map'
 
@@ -15,23 +18,27 @@ export class SelecaoQuestionarioEntrevistaService {
 
    public returnForm: any
 
-    constructor(private http: HttpClient){}
+
+    constructor(private http: HttpClient,
+        private route: ActivatedRoute,
+        private router: Router) {}
+    
     
 
     public selecaoQuestionario(entrevista : SelecaoQuestionarioEntrevista): Observable<any> {
 
-
-        // Requisição em Post
          let headers: HttpHeaders = new HttpHeaders()
          headers.append('Content-type', 'application/json')
+
+         //(`${URL_API}/interviewee?id=${id}`)
  
-         return this.http.post(
-             `${URL_API}/registerapplication`,
+         return this.http.put(`${URL_API}/registerapplication/${this.route.snapshot.paramMap.get('id')}`,
              (entrevista),
              ({headers: headers})
          )
          .map((resposta: any) => {
             this.returnForm = resposta
+            console.log('Resposta do Service', resposta)
             return resposta}) 
      }
 

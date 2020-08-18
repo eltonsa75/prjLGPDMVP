@@ -17,7 +17,6 @@ export class CustomersService {
         return this.http.get(`${URL_API}/customersearch/1`)
         .toPromise()
         .then((resposta: any) => {
-            console.log('Resultado', resposta)
             return resposta
         })
       }

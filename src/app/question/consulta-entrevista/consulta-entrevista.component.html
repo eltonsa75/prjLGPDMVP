@@ -83,7 +83,7 @@
                         <td *ngIf="showIniciado(applicationConfig)" style="color: red; width: 130px; text-align: center;" class="text-uppercase"><strong>Não Iniciado</strong></td>
                         <td *ngIf="!showIniciado(applicationConfig)" style="color: green; width: 109px; text-align: center;" class="text-uppercase"><strong>Iniciado</strong></td>
                         <td></td>
-                        <td style="padding-left: 50px;"><button  class="btn btn-white" routerLink="/question/ConsultaEntrevista/:id{{ applicationConfig.id }}"><i class="fa fa-pencil-square-o"></i></button></td>
+                        <td style="padding-left: 50px;"><button  class="btn btn-white" routerLink="/question/ConsultaEntrevista/{{ applicationConfig.id }}"><i class="fa fa-pencil-square-o"></i></button></td>
                     </tr>
                     
                 </table>

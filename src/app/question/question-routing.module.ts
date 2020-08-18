@@ -55,7 +55,7 @@ const routes: Routes = [
   { path: 'AplicarQuestion', component: AplicarQuestionComponent},
   { path: 'AnaliseGap', component: AnaliseGapComponent},
   { path: 'TabAuxiliar', component: TabAuxiliaresComponent},
-  { path: 'painelentrevista',
+  { path: 'painelentrevista/:id',
     component: PainelComponent,
     canActivate: [AuthGuardService]},
     

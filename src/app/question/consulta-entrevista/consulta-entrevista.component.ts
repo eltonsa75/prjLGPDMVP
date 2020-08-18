@@ -45,6 +45,8 @@ export class ConsultaEntrevistaComponent implements OnInit {
 
   public idQuestionarioEntrevista: number
 
+  app_id: any
+
   public formulario: FormGroup = new FormGroup({
     'customer_name': new FormControl(null, [Validators.required]),
     'customer_office_name': new FormControl(null, [Validators.required]),
@@ -72,8 +74,11 @@ export class ConsultaEntrevistaComponent implements OnInit {
                private AreasService: AreasService,
                private route: ActivatedRoute,
                private router: Router) {}
+
+
   ngOnInit() {
 
+         
       // Método do Customer busca valor do BD
       this.route.params.subscribe((parametros: Params) => {
         this.CustomersService.customers(parametros.id)
@@ -124,6 +129,8 @@ export class ConsultaEntrevistaComponent implements OnInit {
               console.log('Teste do Component', this.applicationConfigs)
             })
             })
+
+            
  
   }
 
@@ -135,7 +142,9 @@ export class ConsultaEntrevistaComponent implements OnInit {
       this.formulario.get('customer_office_name').markAllAsTouched()
       this.formulario.get('business_unit_name').markAllAsTouched()
       this.formulario.get('area_name').markAllAsTouched()
-    } else {
+    } 
+
+    else {
   
       // Campos relacionado ao Model
       let entrevista: SelecaoQuestionarioEntrevista = new SelecaoQuestionarioEntrevista(
@@ -153,15 +162,13 @@ export class ConsultaEntrevistaComponent implements OnInit {
        this.formulario.reset();
       }) 
     }
+
   }
+
 
   // Método do campo status
   public showIniciado(questionnaireForm) {
       return questionnaireForm.status == 0; 
-  }
-
-  public showId(applicationConfig) {
-    return applicationConfig.id;
   }
 
 

@@ -110,7 +110,7 @@ public FormEntrevista(): void {
   this.SelectIntervieweetService.intervieweeForm(entrevista)
   .subscribe((idEntrevista: number) => {
     this.idQuestionarioEntrevista = idEntrevista
-    this.router.navigate(['/question/painelentrevista']);
+    this.router.navigate(['/question/painelentrevista/:id']);
       this.formulario.reset();
     }) 
   }
