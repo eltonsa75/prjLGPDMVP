@@ -15,14 +15,11 @@ import { TopoComponent } from './topo/topo.component';
 
 
 
-import * as $ from 'jquery';
-
-
-
 import { AuthenticationService } from './authentication.service';
 import { AuthGuardService } from './auth-guard.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
+import { MatToolbarModule} from '@angular/material/toolbar';
 
 
 
@@ -37,7 +34,9 @@ import { AuthGuardService } from './auth-guard.service';
   imports: [ 
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule, 
+    ReactiveFormsModule,
+    BrowserAnimationsModule, 
+    MatToolbarModule
     
   ],
   bootstrap: [AppComponent]

@@ -36,8 +36,9 @@ import { SelecaoQuestionarioEntrevistaComponent } from './selecao-questionario-e
 import { RegisterComponent } from './register/register.component';
 import { ConsultaEntrevistaComponent } from './consulta-entrevista/consulta-entrevista.component';
 
+
 /**
- * Essa página subistiu o app.module
+ * Essa página substitui o app.module
  */
 
 
@@ -71,7 +72,7 @@ import { ConsultaEntrevistaComponent } from './consulta-entrevista/consulta-entr
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
   ],
 
   providers: [AuthenticationService, AuthGuardService, AuthGuardService ],
