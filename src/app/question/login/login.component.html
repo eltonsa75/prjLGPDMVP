@@ -1,20 +1,27 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 mt-5 mx-auto">
-      <form (submit)="login()">
-        <div class="container text-center">
-          <img src="/assets/img/logolgpd.jfif" width="500" height="350" class="d-inline-block align-top rounded" alt="">
-        </div>
-        <div class="form-group">
-          <label for="email"></label>
-          <input type="email" class="form-control" name="email" placeholder="Digite o e-mail" [(ngModel)]="credentials.email">
-        </div>
-        <div class="form-group">
-          <label for="password"></label>
-          <input type="password" class="form-control" name="password" placeholder="Digite a senha" [(ngModel)]="credentials.password">
-        </div>
-        <button  type="submit" class="btn btn-lg btn-primary btn-block">Login</button>
-      </form>
+<div class="modal-dialog text-center">
+  <div class="col-sm-9 main-section">
+    <div class="modal-content">
+
+      <div class="col-12 user-img">
+        <img src="/assets/img/logolgpd.jfif">
+      </div>
+
+      <div class="col-12 form-input">
+        <form (submit)="login()">
+          <div class="form-group">
+            <input type="email" class="form-control" name="email" placeholder="Digite o e-mail" [(ngModel)]="credentials.email">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" name="password" placeholder="Digite a senha" [(ngModel)]="credentials.password">
+          </div>
+          <button type="submit" class="btn btn-success">Login</button>
+        </form>
+      </div>
+
+      <div class="col-12 forgot">
+        <a href="#">Forgot Password?</a>
+      </div>
+
     </div>
   </div>
 </div>

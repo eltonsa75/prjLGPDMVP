@@ -19,7 +19,7 @@ import { AuthenticationService } from './authentication.service';
 import { AuthGuardService } from './auth-guard.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatToolbarModule} from '@angular/material/toolbar';
+
 
 
 
@@ -36,7 +36,7 @@ import { MatToolbarModule} from '@angular/material/toolbar';
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule, 
-    MatToolbarModule
+   
     
   ],
   bootstrap: [AppComponent]
