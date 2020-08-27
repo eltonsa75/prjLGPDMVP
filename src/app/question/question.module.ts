@@ -35,6 +35,7 @@ import { EntrevistaComponent } from './entrevista/entrevista.component';
 import { SelecaoQuestionarioEntrevistaComponent } from './selecao-questionario-entrevista/selecao-questionario-entrevista.component';
 import { RegisterComponent } from './register/register.component';
 import { ConsultaEntrevistaComponent } from './consulta-entrevista/consulta-entrevista.component';
+import { FormClienteComponent } from './FormCliente/form-cliente/form-cliente.component';
 
 
 
@@ -65,6 +66,7 @@ import { ConsultaEntrevistaComponent } from './consulta-entrevista/consulta-entr
    ProfileComponent,
    RegisterComponent,
    ConsultaEntrevistaComponent,
+   FormClienteComponent,
   ],
    
   imports: [
