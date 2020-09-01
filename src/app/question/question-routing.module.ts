@@ -1,3 +1,4 @@
+import { FormClienteComponent } from './FormCliente/form-cliente/form-cliente.component';
 import { ConsultaEntrevistaComponent } from './consulta-entrevista/consulta-entrevista.component';
 import { RegisterComponent } from './register/register.component';
 
@@ -68,6 +69,8 @@ const routes: Routes = [
   { path: 'Selecao-Questionario-Entrevista',
    component: SelecaoQuestionarioEntrevistaComponent,
    canActivate: [AuthGuardService]},
+
+   { path: 'FormCliente', component: FormClienteComponent},
 
   { path: 'register',
    component: RegisterComponent,
