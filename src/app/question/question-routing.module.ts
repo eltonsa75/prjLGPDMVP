@@ -33,8 +33,8 @@ import { AuthGuardService } from './../auth-guard.service';
 
 const routes: Routes = [
   // Tela de Login
-  { path: '', component: LoginComponent}, 
-  { 
+  { path: '', component: LoginComponent},
+  {
     path: 'profile',
     component: ProfileComponent,
     canActivate: [AuthGuardService]
@@ -59,16 +59,17 @@ const routes: Routes = [
   { path: 'painelentrevista',
     component: PainelComponent,
     canActivate: [AuthGuardService]},
-    
-  { path: 'documentalfuncional', component: DocumentalfuncionalComponent}, 
+
+  { path: 'documentalfuncional', component: DocumentalfuncionalComponent},
   { path: 'CicloUmEntrevistaFuncional', component: CicloUmEntrevistadocumentalFuncionalComponent },
-  { path: 'CicloUmDocFundional', component: CicloUmEntrevistaFuncionalComponent }, 
+  { path: 'CicloUmDocFundional', component: CicloUmEntrevistaFuncionalComponent },
   { path: 'CicloUmEntrevistaTecnica', component: CicloUmEntrevistaTecnicaComponent },
   { path: 'CicloUmEntrevistaTecnicaFuncional', component: CicloUmEntrevistaTecnicaFuncionalComponent },
   { path: "ConsultaEntrevista/:id", component: ConsultaEntrevistaComponent},
   { path: 'Selecao-Questionario-Entrevista',
    component: SelecaoQuestionarioEntrevistaComponent,
    canActivate: [AuthGuardService]},
+   { path: 'FormCliente', component: FormClienteComponent},
 
    { path: 'FormCliente', component: FormClienteComponent},
 
