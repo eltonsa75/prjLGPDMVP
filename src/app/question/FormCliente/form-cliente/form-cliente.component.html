@@ -1,1 +1,177 @@
-<p>form-cliente works!</p>
+<form>
+  <div class="titulo">
+    <h1> Gestão de Cadastro de Clientes</h1>
+  </div>
+  <div class="quadro1">
+  <div class="form-input">
+    <div class="col-md-12">
+      <label for="empresa" class="empresa">Empresa</label>
+      <select class="form-control" id="empresa" formControlName="empresa">
+        <option>Selecione a empresa Master (Embratel ou Hitss)</option>
+        <option>Embratel </option>
+        <option>Hitss </option>
+      </select>
+    </div>
+    <div class="form-group col-md-12">
+      <label for="razaoSocial" class="razaoSocial">Razão social</label>
+      <input type="text" class="form-control" id="razaoSocial">
+    </div>
+    <div class="col-md-12">
+    <label for="nomeFantasia"class="nomeFantasia">Nome Fantasia</label>
+    <input type="text" class="form-control" id="nomeFantasia">
+  </div>
+  <div class="form-row col-md-12">
+  <div class="col-md-9">
+    <label for="endereco" class="endereco">Endereço</label>
+    <input type="text" class="form-control" id="endereco">
+  </div>
+  <div class="col-md-3">
+    <label for="numero" class="numero" >N°</label>
+    <div class="blocoNumero">
+    <input type="text" class="form-control" id="numero">
+    </div>
+  </div>
+  </div>
+  <div class="col-md-12">
+    <label for="complemento" class="complemento">Complemento</label>
+    <input type="text" class="form-control" id="complemento">
+  </div>
+  <div class="form-row col-md-12">
+  <div class="col-md-8">
+    <label for="estado" class="estado">Estado</label>
+    <select class="form-control" id="estado">
+      <option>  </option>
+      <option>AC </option>
+      <option>AL </option>
+      <option>AM </option>
+      <option>AP </option>
+      <option>BA </option>
+      <option>CE </option>
+      <option>DF </option>
+      <option>ES </option>
+      <option>GO </option>
+      <option>MA </option>
+      <option>MG </option>
+      <option>MS </option>
+      <option>MT </option>
+      <option>PA </option>
+      <option>PB </option>
+      <option>PE </option>
+      <option>PI </option>
+      <option>PR </option>
+      <option>RJ </option>
+      <option>RN </option>
+      <option>RO </option>
+      <option>RR </option>
+      <option>RS </option>
+      <option>SC </option>
+      <option>SE </option>
+      <option>SP </option>
+      <option>TO </option>
+    </select>
+  </div>
+  <div class="col-md-4">
+    <label for="cidade" class="cidade" >Cidade</label>
+    <div class="blocoCidade">
+    <select class="form-control" id="cidade">
+      <!--Escolhas do bloco cidade -->
+    <option>  </option>
+
+    </select>
+    </div>
+  </div>
+  </div>
+  <div class="form-group col-md-12">
+    <label for="cnpj" class="cnpj">CNPJ</label>
+    <input type="text" class="form-control" id="cnpj">
+  </div>
+
+
+
+
+
+  <div class="quadro2">
+    <div class="titulo2">
+    <p>Informações do contato </p>
+    </div>
+    <div class="form-row col-md-12">
+
+      <div class="col-md-8">
+        <label for="nome" class="nome">Nome</label>
+        <input type="text" class="form-control" id="nome">
+      </div>
+    <div class="col-md-4">
+      <label for="cargo" class="cargo" >Cargo</label>
+      <div class="blocoCargo">
+      <input type="text" class="form-control" id="cargo">
+      </div>
+    </div>
+    </div>
+
+<div class="form-row col-md-12">
+  <div class="col-md-4">
+    <label for="celular" class="celular">Celular</label>
+    <input type="text" class="form-control" id="celular">
+  </div>
+<div class="col-md-4">
+  <label for="telefone" class="telefone" >Telefone</label>
+  <div class="blocoTelefone">
+  <input type="text" class="form-control" id="telefone">
+  </div>
+</div>
+
+
+<div class="col-md-4">
+  <label for="ramal" class="ramal" >Ramal</label>
+  <div class="blocoRamal">
+  <input type="text" class="form-control" id="ramal">
+  </div>
+</div>
+</div>
+
+<div class="form-row col-md-12">
+  <div class="col-md-7">
+    <label for="email" class="email">Email</label>
+    <input type="text" class="form-control" id="email">
+  </div>
+<div class="col-md-5">
+  <label for="depto" class="depto" >Depto</label>
+  <div class="blocoDpto">
+  <input type="text" class="form-control" id="depto">
+  </div>
+</div>
+</div>
+
+<div class="form-row">
+  <div class="voltar">
+  <button type="submit" class="btn btn-primary" style="background-color: #7b2e07; border: none;">Voltar</button>
+</div>
+
+<div class="excluir">
+  <button type="submit" class="btn btn-primary" style="background-color: #ff4a06;border: none;">Excluir</button>
+</div>
+
+<div class="incluir">
+  <button type="submit" class="btn btn-primary" style="background-color: #ffbd06;border: none;">Incluir</button>
+</div>
+
+<div class="salvar">
+  <button type="submit" class="btn btn-primary" style="background-color: #0e06ff;border: none;">Salvar</button>
+</div>
+
+<div class="menu">
+  <button type="submit" class="btn btn-primary" style="background-color: #092d05;border: none;">Menu</button>
+</div>
+
+<div class="avancar">
+  <button type="submit" class="btn btn-primary" style="background-color: #7b2e07;border: none;">Avançar</button>
+</div>
+
+
+</div>
+
+  </div>
+</div>
+  </div>
+
+</form>
