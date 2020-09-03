@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormClienteComponent implements OnInit {
 
+  title = "Gestão de Cadastro de Clientes";
+  subTitulo = " Informações do Contato";
+
   constructor() { }
 
   ngOnInit() {

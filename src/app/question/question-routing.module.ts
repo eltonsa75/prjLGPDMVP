@@ -71,7 +71,7 @@ const routes: Routes = [
    canActivate: [AuthGuardService]},
    { path: 'FormCliente', component: FormClienteComponent},
 
-   { path: 'FormCliente', component: FormClienteComponent},
+
 
   { path: 'register',
    component: RegisterComponent,

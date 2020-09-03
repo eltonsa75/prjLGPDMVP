@@ -11,25 +11,26 @@
         </div>
         <h6 class="text-secondary ajusteTime">Tempo Decorrido: 01:22</h6>
       </div>
-      
-      <app-progresso [progresso]="progresso"></app-progresso>
+     
+        <app-progresso [progresso]="progresso"></app-progresso>
+     
       <h6 class=" ajusteAltura text-success" *ngFor="let questionnaireVersion of questionnaireVersions">Evolução da Entrevista: <strong class="text-primary">{{ question.question_edited_number }}</strong></h6>
       
         <h6 class="ajusteTema">Tema: Governança</h6>
-        <p class="lead" *ngFor="let questionnaireVersion of questionnaireVersions"><strong>{{ question.question_edited_number }} / {{ questionnaireVersion.last_question_number }} -- {{ question.question_enunciation}}</strong></p>
+        <p class="lead" *ngFor="let questionnaireVersion of questionnaireVersions"><strong>{{ question.question_edited_number }} / {{ questionnaireVersion.last_question_number }} -- {{ question.question_enunciation}} =>Respostas {{ question.answer_yes_no }}</strong></p>
         <hr class="my-4">
         <form>
           <div [formGroup]="respForm">
             <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" id="sim" formControlName="radioAnswer" value="1" class="custom-control-input">
+              <input type="radio" id="sim" formControlName="radioAnswer" value="1" [checked]="question.answer_yes_no === 1" class="custom-control-input">
               <label class="custom-control-label" for="sim">Sim</label>
             </div>
             <div class="custom-control custom-radio custom-control-inline" >
-              <input type="radio" id="nao" formControlName="radioAnswer" value="0"  class="custom-control-input">
+              <input type="radio" id="nao" formControlName="radioAnswer" value="0" [checked]="question.answer_yes_no === 0"  class="custom-control-input">
               <label class="custom-control-label" for="nao">Não</label>
             </div>
             <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" id="naoSeAplica" formControlName="radioAnswer" value="2" class="custom-control-input">
+              <input type="radio" id="naoSeAplica" formControlName="radioAnswer" value="2" [checked]="question.answer_yes_no === 2" class="custom-control-input">
               <label class="custom-control-label" for="naoSeAplica">Não se aplica</label>
             </div>
             <hr class="my-2">

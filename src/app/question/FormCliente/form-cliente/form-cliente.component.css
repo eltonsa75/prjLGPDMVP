@@ -1,192 +1,65 @@
-.titulo {
-  max-width: 100%;
-  height: 100%;
-  text-align: center;
+.CorTitulo {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2.0em;
   color: blue;
 }
 
-.quadro1 {
-  border-radius: 50px;
-  border: slategrey solid 1px;
-  background-color: white;
-  height: 365px;
-  width: 83%;
-  margin-bottom: 80px;
-  margin-left: 110px;
-  padding-left: 202px;
-  padding-right: 202px;
-  padding-top: 3px;
-  }
-  .form-control {
-    margin-top:16px;
-    font-size: 12px;
-  }
-  .empresa {
-    position: absolute;
-    margin-top: 4px;
-    margin-left: -81px;
-  }
-  .razaoSocial {
-    position: absolute;
-    margin-top: 7px;
-    margin-left: -110px;
-  }
-
-  .nomeFantasia {
-    position: absolute;
-    margin-top: 4px;
-    margin-left: -126px;
-
-  }
-  .endereco {
-    position: absolute;
-    margin-top: 21px;
-    margin-left: -86px;
-  }
-  .numero {
-    position: absolute;
-    margin-top: 24px;
-    margin-left: 3px;
-  }
-  .blocoNumero {
-    margin-top: 17px;
-    margin-left: 34px;
-    margin-right: -8px;
-
-  }
-.complemento {
-  position: absolute;
-    margin-top: 7px;
-    margin-left: -121px;
-
+.subTitulo {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.0em;
+  color: white;
 }
-.estado {
-  position: absolute;
-  margin-top: 21px;
-  margin-left: -71px;
 
-}
-.cidade {
-  position: absolute;
-    margin-top: 25px;
-    margin-left: 3px;
-}
-.blocoCidade {
-  margin-top: 18px;
-    margin-left: 65px;
-    margin-right: -8px;
-}
-.cnpj {
-  position: absolute;
-    margin-top: 7px;
-    margin-left: -60px
+.h1 {
+  text-shadow: 2px 2px #ccc;
 }
 
 
-
-
-
-
-.quadro2 {
-  border-radius: 50px;
-  border: slategrey solid 1px;
-  background-color: white;
-  margin-left: -203px;
-  margin-right: -203px;
-  margin-top: 29px;
-  padding-left: 202px;
-  padding-right: 202px;
-  margin-bottom: 90px;
-  height: 237px;
-
-  }
-.titulo2 {
-
-  max-width: 100%;
-  text-align: center;
-  margin-bottom: -17px;
-
-
-}
-.nome {
-  position: absolute;
-  margin-top: 19px;
-  margin-left: -60px;
-}
-.cargo {
-  position: absolute;
-  margin-top: 21px;
-  margin-left: 6px;
-}
-.blocoCargo {
-  margin-top: 18px;
-    margin-left: 65px;
-    margin-right: -8px;
-
-}
-.celular {
-  position: absolute;
-  margin-top: 22px;
-  margin-left: -65px;
+.selectCenter {
+  text-align-last: center;
 }
 
-.telefone {
-  position: absolute;
-  margin-top: 21px;
-  margin-left: -4px;
+select.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
 
+select.ng-valid.ng-touched {
+  border: 1px solid green;
 }
-.blocoTelefone {
-  margin-top: 18px;
-  margin-left: 63px;
-  margin-right: 1px;
-}
-.ramal {
-  position: absolute;
-  margin-top: 21px;
-  margin-left: 4px;
 
+.fundoForm {
+  background-color: #0054ffe3;
+  padding: 5px;
+  height: 800px;
+  border-radius: .25rem;
+  border: 1px solid white;
 }
-.blocoRamal {
-  margin-top: 18px;
-  margin-left: 65px;
-  margin-right: -7px;
-}
-.email {
-  position: absolute;
-  margin-top: 21px;
-  margin-left: -58px;
 
+.alert-secondary {
+  color: #383d41;
+  background-color: #b0b2b3ed;
+  border-color: #6b6c6d5c;
 }
-.depto {
-  position: absolute;
-  margin-top: 21px;
-  margin-left: 4px;
+
+
+.text-primary {
+  color: #ffffff!important;
 }
-.blocoDpto {
-  margin-top: 18px;
-  margin-left: 56px;
-  margin-right: -7px;
+
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + .75rem + 2px);
+  padding: .350rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #ffffff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
-.btn-primary {
-  border-radius: 50px;
-}
-.voltar {
-  margin: 10px;
-  margin-left: 48px;
-}
-.excluir {
-  margin: 10px;
-}
-.incluir {
-  margin: 10px;
-}
-.salvar {
-  margin: 10px;
-}
-.menu {
-  margin: 10px;
-}
-.avancar {
-  margin: 10px;
-}
+
