@@ -1,4 +1,3 @@
-import { FormClienteComponent } from './FormCliente/form-cliente/form-cliente.component';
 import { ConsultaEntrevistaComponent } from './consulta-entrevista/consulta-entrevista.component';
 import { RegisterComponent } from './register/register.component';
 
@@ -29,6 +28,11 @@ import { CicloUmEntrevistadocumentalFuncionalComponent } from './aplicar-questio
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthGuardService } from './../auth-guard.service';
+
+import { FormClienteComponent } from './FormCliente/form-cliente/form-cliente.component';
+import { FormEmpresaComponent } from './FormEmpresa/form-empresa/form-empresa.component';
+
+
 
 
 const routes: Routes = [
@@ -70,6 +74,9 @@ const routes: Routes = [
    component: SelecaoQuestionarioEntrevistaComponent,
    canActivate: [AuthGuardService]},
    { path: 'FormCliente', component: FormClienteComponent},
+
+   { path: 'FormEmpresa', component: FormEmpresaComponent},
+ 
 
 
 
