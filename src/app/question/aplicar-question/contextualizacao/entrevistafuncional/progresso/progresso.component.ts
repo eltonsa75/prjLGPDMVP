@@ -1,20 +1,18 @@
-import { Component, OnInit, Input, SimpleChange, SimpleChanges, OnChanges } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-progresso',
   templateUrl: './progresso.component.html',
   styleUrls: ['./progresso.component.css']
 })
-export class ProgressoComponent implements OnChanges  {
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes, this.progresso)
-    this.progressox = parseInt(changes.progresso.currentValue)
+export class ProgressoComponent implements OnInit  {
+ 
+  // Exibi o movimento da Barra de Progresso
+  @Input() public progresso: number = 0
+
+  constructor(){}
+
+  ngOnInit(){
+
   }
-
-  @Input()  progresso: number = 20
-
-  progressox = 20
-
-  constructor() { }
-
 }

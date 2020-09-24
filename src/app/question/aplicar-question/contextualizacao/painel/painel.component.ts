@@ -20,7 +20,6 @@ export class PainelComponent implements OnInit {
   public questionEncerrado: string
 
   public encerrarQuestion(tipo: string): void {
-    console.log(tipo);
     this.questionEmAndamento = false
     this.questionEncerrado = tipo
   }

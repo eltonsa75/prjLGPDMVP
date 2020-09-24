@@ -37,8 +37,7 @@ export class QuestionsService {
         .then((questions) => questions ? questions[0] : {})
     }
     // Método para avançar para próxima Questão
-    public getNext(
-        carga: string, question_edited_number:string): Promise<any> {
+    public getNext(carga: string, question_edited_number:string): Promise<any> {
         return this.http.get(`${URL_API}/proxima/carga/${carga}/question_edited_number/${question_edited_number}`)
         .toPromise()
         .then((questions) => questions ? questions[0] : {})

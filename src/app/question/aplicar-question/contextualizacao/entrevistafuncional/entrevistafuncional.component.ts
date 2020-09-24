@@ -25,13 +25,15 @@ import { QuestionnaireVersion } from './../../../../shared/questionnaireVersions
 })
 
 export class EntrevistafuncionalComponent implements OnInit {
-
   
-  public question: Question
   public resposta: string
+  public question: Question
+  
   public rodada: number = 0
+  public progresso: number = 0
+
   public rodadaQuestion: Question
-  public progresso: number = 0 // Variavel da Barra de progresso
+
   public id: number;
   public respForm: any;
 
@@ -45,7 +47,8 @@ export class EntrevistafuncionalComponent implements OnInit {
               private questionnaireFormService: QuestionnaireFormService,
               private questionnaireVersionsService: QuestionnaireVersionsService,
               private route: ActivatedRoute,
-              private router: Router) {}
+              private router: Router) {
+              }
 
   initForm() {
     this.respForm=this.formBuilder.group({
@@ -80,6 +83,7 @@ export class EntrevistafuncionalComponent implements OnInit {
       .then((question: Question) => {
         // AtualizarResposta    
         this.question = question
+        console.log("Service Questões", this.question)
       })
       .catch((param: any) => {
       })
@@ -166,6 +170,16 @@ export class EntrevistafuncionalComponent implements OnInit {
         this.initForm();
         alert("Você alcançou o final do Questionário.");
       }
+
+
+      // Rodada da Questão
+      this.rodada=16
+      this.rodadaQuestion = this.question[this.rodada]
+      console.log('Questões Formulário', this.question)
+      //this.progresso = this.progresso + 25
+      this.progresso = this.progresso + (100 / this.rodada)
+      console.log('Progresso', this.progresso)
+
   }
 
   public voltarQuestion(): void {
@@ -185,5 +199,10 @@ export class EntrevistafuncionalComponent implements OnInit {
     }else{
       alert("Início")
     }
+
+
+
   }
+ 
+
 }

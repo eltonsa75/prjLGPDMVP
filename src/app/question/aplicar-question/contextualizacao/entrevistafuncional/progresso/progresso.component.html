@@ -1,3 +1,4 @@
 <div class="progress mb-1">
-    <div class="progress-bar w-{{ progresso }}"></div>
+    <div class="progress-bar" [ngStyle]="{'width': progresso + '%'}">{{progresso}}%</div>
   </div>
+
