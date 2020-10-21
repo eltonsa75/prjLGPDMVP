@@ -131,6 +131,11 @@ export class EntrevistafuncionalComponent implements OnInit {
       this.initForm();
       alert("Você alcançou o final do Questionário.");
     }
+
+    // Rodada da Questão botão Salvar
+    this.rodada=16
+    this.rodadaQuestion = this.question[this.rodada]
+    this.progresso = this.progresso + (100 / this.rodada)
   }
 
   private isFinished(): boolean {
@@ -172,14 +177,11 @@ export class EntrevistafuncionalComponent implements OnInit {
       }
 
 
-      // Rodada da Questão
-      this.rodada=16
+      // Rodada da Questão botão Avançar
+      this.rodada = 16
       this.rodadaQuestion = this.question[this.rodada]
-      console.log('Questões Formulário', this.question)
-      //this.progresso = this.progresso + 25
-      this.progresso = this.progresso + (100 / this.rodada)
-      console.log('Progresso', this.progresso)
-
+      this.progresso  = Math.round(this.progresso + (100 / this.rodada))
+      console.log('Variável progresso', this.progresso)
   }
 
   public voltarQuestion(): void {
@@ -200,8 +202,10 @@ export class EntrevistafuncionalComponent implements OnInit {
       alert("Início")
     }
 
-
-
+    // Rodada da Questão Botão Voltar
+      this.rodada=16
+      this.rodadaQuestion = this.question[this.rodada]
+      this.progresso = this.progresso - (100 / this.rodada) 
   }
  
 
