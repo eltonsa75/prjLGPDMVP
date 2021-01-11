@@ -55,11 +55,17 @@ export class SelecaoQuestionarioEntrevistaComponent implements OnInit {
 
  // Criar as propriedades para o HTML
   public masterCompanies: MasterCompanies
+
+  public selectCustomer: Customers ={fantasy_name: 0, name: ''}
   public customers: Customers
+
   public customersOffices: CustomersOffices
   public businessUnits: BusinessUnits
   public areas: Area
   public questionnaireForms : QuestionnaireForm
+
+
+  public filial: CustomersOffices
 
 
   public customer_name: Customers
@@ -76,7 +82,8 @@ export class SelecaoQuestionarioEntrevistaComponent implements OnInit {
               private route: ActivatedRoute,
               private router: Router) {}
 
-ngOnInit(){
+ngOnInit(){ 
+  
   // Método da Master Companies
   this.route.params.subscribe((parametros: Params) => {
     this.MasterCompaniesService.mastercompanies(parametros.id)
@@ -84,42 +91,41 @@ ngOnInit(){
       this.masterCompanies = masterCompanies
     })   
   })
-
-    // Método do Customer busca valor do BD
-    this.route.params.subscribe((parametros: Params) => {
-      this.CustomersService.customers(parametros.id)
-      .then((customers: Customers) => {
-        this.customers = customers
-        this.customers = customers
-      })
+  
+  // Método do Customer busca valor do BD
+  this.route.params.subscribe((parametros: Params) => {
+    this.CustomersService.customers(parametros.id)
+    .then((customers: Customers) => {
+      this.customers = customers
     })
-
-    // Método do Customer_offices
-    this.route.params.subscribe((parametros: Params) => {
-      this.CustomersOfficesService.customeroffices(parametros.id)
-      .then((customersOffices: CustomersOffices) => {
-        this.customersOffices = customersOffices
+  })
+  
+  // Método do Customer_offices
+  this.route.params.subscribe((parametros: Params) => {
+    this.CustomersOfficesService.customeroffices(parametros.id)
+    .then((customersOffices: CustomersOffices) => {
+      this.customersOffices = customersOffices
       })   
     })
-
-
-       // Método do Business_Units
-       this.route.params.subscribe((parametros: Params) => {
-        this.BusinessUnitsService.businessUnits(parametros.id)
-        .then((businessUnits: BusinessUnits) => {
-          this.businessUnits = businessUnits
-        })   
-      })
-
-
-           // Método do Area
-           this.route.params.subscribe((parametros: Params) => {
-            this.AreasService.areas(parametros.id)
-            .then((areas: Area) => {
-              this.areas = areas
-            })   
-          })
     
+
+    // Método do Business_Units
+    this.route.params.subscribe((parametros: Params) => {
+      this.BusinessUnitsService.businessUnits(parametros.id)
+      .then((businessUnits: BusinessUnits) => {
+        this.businessUnits = businessUnits
+      })   
+    })
+    
+    
+    // Método do Area
+           this.route.params.subscribe((parametros: Params) => {
+             this.AreasService.areas(parametros.id)
+             .then((areas: Area) => {
+               this.areas = areas
+              })   
+            })
+            
             // Método do QuestionnaireForms
             this.route.params.subscribe((parametros: Params) => {
               this.QuestionnaireFormService.questionnaireForm(parametros.id)
@@ -128,12 +134,17 @@ ngOnInit(){
               })   
             })
             
-
-}
-
-/*
-//Método Ligado ao formulário (ngSubmit)
-public FormSelecao(): void {
+            this.customers = this.CustomersService.customers         
+          }
+          
+          
+          onSelect(fantasy_name: string): void{
+            console.log('id ==>', fantasy_name);
+          }
+          
+          /*
+          //Método Ligado ao formulário (ngSubmit)
+          public FormSelecao(): void {
   if(this.formulario.status === 'INVALID'){
     console.log('formulário está inválido')
 

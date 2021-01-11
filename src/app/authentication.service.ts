@@ -35,6 +35,7 @@ export class AuthenticationService {
 
     constructor(private http: HttpClient, private router: Router) {}
 
+
     private saveToken(token: string): void {
         localStorage.setItem('usertoken', token)
         this.token = token
@@ -46,6 +47,7 @@ export class AuthenticationService {
         }
         return this.token
     }
+
 
     public getUserDetails(): UserDetails {
         const token = this.getToken()

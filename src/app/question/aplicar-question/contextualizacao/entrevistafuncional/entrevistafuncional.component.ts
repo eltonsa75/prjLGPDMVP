@@ -1,6 +1,6 @@
 import { Router, Params } from '@angular/router';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
 
@@ -52,19 +52,24 @@ export class EntrevistafuncionalComponent implements OnInit {
 
   initForm() {
     this.respForm=this.formBuilder.group({
-      radioAnswer:['',Validators.required],
-      txtObservations:[''],
-      txtComments:['']
+      radioAnswer:[null,Validators.required],
+      txtObservations:[null],
+      txtComments:[null]
     })
   }
 
+
+
+  // radioAnswer: new FormControl(null, [ Validators.required ]),
   ngOnInit() {
+
 
       // Método do QuestionnaireForms
       this.route.params.subscribe((parametros: Params) => {
         this.questionnaireFormService.questionnaireForm(parametros.id)
         .then((questionnaireForm: QuestionnaireForm) => {
           this.questionnaireForms = questionnaireForm 
+          console.log('QuestionnaireForms', this.questionnaireForms)
         })   
       })
 
@@ -114,7 +119,8 @@ export class EntrevistafuncionalComponent implements OnInit {
           // AtualizarResposta    
           if (question){
             this.question = question
-            this.initForm();
+            //this.initForm();
+            
           }else{
             this.initForm();
             if (this.isFinished()){
@@ -125,17 +131,20 @@ export class EntrevistafuncionalComponent implements OnInit {
         .catch((param: any) => {
         })
       }else{
-        alert("Selecione uma opçâo : 'Sim','Nâo' ou 'Nâo se aplica'.");
+          alert("Selecione uma opçâo : 'Sim','Nâo' ou 'Nâo se aplica'.");
+          this.respForm.value.radioAnswer.focus();
       }
     }else {
       this.initForm();
       alert("Você alcançou o final do Questionário.");
     }
 
+
     // Rodada da Questão botão Salvar
     this.rodada=16
     this.rodadaQuestion = this.question[this.rodada]
-    this.progresso = this.progresso + (100 / this.rodada)
+    this.progresso  = Math.round(this.progresso + (100 / this.rodada))
+
   }
 
   private isFinished(): boolean {
@@ -154,9 +163,9 @@ export class EntrevistafuncionalComponent implements OnInit {
             application_config_id: "1",
             question_id: this.question.id,
             phase_id: this.question.phase_id,
-            interviewer_id: '1',
-            respondent_id: '1',
-            answer_yes_no: '3',
+            interviewer_id: 1,
+            respondent_id: 1,
+            answer_yes_no: 3,
             answer_comments: '',
             answer_observation: ''
           },
@@ -167,7 +176,7 @@ export class EntrevistafuncionalComponent implements OnInit {
         ).then((question: Question) => {
           // AtualizarResposta
           this.question = question
-          this.initForm();
+          //this.initForm();
         })
         .catch((param: any) => {
         })
@@ -176,12 +185,6 @@ export class EntrevistafuncionalComponent implements OnInit {
         alert("Você alcançou o final do Questionário.");
       }
 
-
-      // Rodada da Questão botão Avançar
-      this.rodada = 16
-      this.rodadaQuestion = this.question[this.rodada]
-      this.progresso  = Math.round(this.progresso + (100 / this.rodada))
-      console.log('Variável progresso', this.progresso)
   }
 
   public voltarQuestion(): void {
@@ -194,7 +197,7 @@ export class EntrevistafuncionalComponent implements OnInit {
       .then((question: Question) => {
         // AtualizarResposta    
         this.question = question
-        this.initForm();
+        //this.initForm();
       })
       .catch((param: any) => {
       })
@@ -205,8 +208,7 @@ export class EntrevistafuncionalComponent implements OnInit {
     // Rodada da Questão Botão Voltar
       this.rodada=16
       this.rodadaQuestion = this.question[this.rodada]
-      this.progresso = this.progresso - (100 / this.rodada) 
+      this.progresso  = Math.round(this.progresso - (100 / this.rodada))
   }
  
-
 }

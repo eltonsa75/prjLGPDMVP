@@ -19,8 +19,10 @@
                     <div class="col-sm-12">
                         <div class="form-group text-primary">
                              <label for="lblCliente">Nome do Cliente:</label>
-                            <select class="custom-select mr-sm-2 selectCenter" formControlName="customer_name" id="cliente">
-                                <option *ngFor="let customer of customers" [value]="customer.id">{{ customer.fantasy_name }}</option>
+                            <select [(ngModel)]="selectCustomer.id" (change)="onSelect($event.target.value)" class="custom-select mr-sm-2 selectCenter" formControlName="customer_name" id="cliente">
+                                <option *ngFor="let customer of customers" [value]="customer.id">
+                                    {{ customer.fantasy_name }}
+                                </option>
                                 
                               </select>
                               <small *ngIf="formulario.get('customer_name').valid && formulario.get('customer_name').touched" class="form-text text-success"> <i class="fa fa-check"></i></small>

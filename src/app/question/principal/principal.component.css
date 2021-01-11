@@ -24,3 +24,13 @@
 .linha{
     border: solid 1px rgb(116, 114, 114);
 }
+
+.logout{
+    font-family: Arial;
+    font-size: 18px;
+    color: white;
+    display: block;
+    float: right;
+    margin-right: 2px;
+    margin-top: -16px;
+}

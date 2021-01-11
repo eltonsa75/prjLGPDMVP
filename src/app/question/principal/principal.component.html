@@ -1,3 +1,9 @@
+<!-- As a link -->
+<div class="logout">
+    <a class="navbar-brand logout" routerLink="/question" routerLinkActive="active" (click)="logout()">&nbsp;Logout <i class="fas fa-sign-out-alt"></i></a>
+
+</div>
+
 <div class="container">
     <div class="container mt-5">
         <p class="lead text-center h1 CorTitulo text-uppercase">
@@ -17,7 +23,7 @@
                     <h5 class="card-title"><i class="fa fa-building" aria-hidden="true" style="font-size: 50px; color:#9EBAFF;"></i>
                         <p class="text-white">Gestão Empresa</p>
                     </h5>
-                    <a class="btn btn-danger" [routerLink]="['/question/FormEmpresa']">Acessar</a>
+                    <a class="btn btn-danger disabled" [routerLink]="['/question/FormEmpresa']">Acessar</a>
                 </div>
             </div>
         </div>
@@ -58,7 +64,7 @@
                     <h5 class="card-title"><i class="fa fa-user-plus" aria-hidden="true" style="font-size: 50px; color: yellow;"></i>
                         <p class="text-white">Gestão Cliente</p>
                     </h5>
-                    <a class="btn btn-danger" [routerLink]="['/question/FormCliente']">Acessar</a>
+                    <a class="btn btn-danger disabled" [routerLink]="['/question/FormCliente']">Acessar</a>
                 </div>
             </div>
         </div>
@@ -71,7 +77,7 @@
                             <h5 class="card-title"><i class="fa fa-file-text" aria-hidden="true" style="font-size: 50px; color: white;"></i>
                                 <p class="text-white">Aplicar Questionários</p>
                             </h5>
-                            <a class="btn btn-danger" [routerLink]="['/question/AplicarQuestion']">Acessar</a>
+                            <a class="btn btn-danger disabled" [routerLink]="['/question/AplicarQuestion']">Acessar</a>
                         </div>
                     </div>
                 </div>

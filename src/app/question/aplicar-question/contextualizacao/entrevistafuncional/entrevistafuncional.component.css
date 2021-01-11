@@ -22,3 +22,11 @@
     color: #0000ff;
 }
 
+.txtAjuste{
+    resize: none;
+}
+
+#sim:focus{
+    border: none;
+}
+
