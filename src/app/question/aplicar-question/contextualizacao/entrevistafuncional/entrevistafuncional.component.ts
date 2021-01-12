@@ -111,10 +111,12 @@ export class EntrevistafuncionalComponent implements OnInit {
             answer_comments: this.respForm.value.txtComments,
             answer_observation: this.respForm.value.txtObservations
           },
+          
           {
             carga: this.question.questionnaire_version_id_carga.toString(), 
             question_edited_number: this.respForm.value.radioAnswer === "1"? if_yes : if_no
           } 
+          
         ).then((question: Question) => {
           // AtualizarResposta    
           if (question){
@@ -146,6 +148,10 @@ export class EntrevistafuncionalComponent implements OnInit {
     this.progresso  = Math.round(this.progresso + (100 / this.rodada))
 
   }
+
+  public LimparForm(): void {
+    this.respForm.reset();
+    }
 
   private isFinished(): boolean {
     if (this.question.if_no === null  && this.question.if_yes === null){

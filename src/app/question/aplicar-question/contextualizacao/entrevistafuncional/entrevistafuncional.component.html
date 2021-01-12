@@ -9,14 +9,22 @@
             <strong class="text-primary"><option *ngFor="let questionnaireForm of questionnaireForms">{{ questionnaireForm.questionnaire_form_name }}</option></strong>           
           </h6>
         </div>
-        <!--<h6 class="text-secondary ajusteTime">Tempo Decorrido: 01:22</h6> -->
+        <div class="col">
+          <div style="font-size: 12px;"><app-timer-inicio></app-timer-inicio></div>
+        </div>
+        <div class="col">
+          <div style="font-size: 12px;"><app-timer-questionario></app-timer-questionario></div>
+        </div>
+       
       </div>
+     
      
         <app-progresso [progresso]="progresso"></app-progresso>
      
       <h6 class=" ajusteAltura text-success" *ngFor="let questionnaireVersion of questionnaireVersions">Evolução da Entrevista: <strong class="text-primary">{{ question.question_edited_number }}</strong></h6>
       
         <h6 class="ajusteTema">Tema: Governança</h6>
+        
         <p class="lead" *ngFor="let questionnaireVersion of questionnaireVersions"><strong>{{ question.question_edited_number }} / {{ questionnaireVersion.last_question_number }} -- {{ question.question_enunciation}} =>Respostas {{ question.answer_yes_no }}</strong></p>
         <hr class="my-4">
         
@@ -55,7 +63,7 @@
             </div>
             <div class="col d-flex justify-content-center">
               <div class="form-group">
-                <button type="submit" class="btn btn-secondary btn-lg"(click)="save()">SALVAR</button> 
+                <button type="submit" class="btn btn-secondary btn-lg"(click)="save()" (click)="LimparForm()">SALVAR</button> 
             </div>          
             </div>
             <div class="col d-flex justify-content-center">

@@ -38,9 +38,8 @@ import { ConsultaEntrevistaComponent } from './consulta-entrevista/consulta-entr
 
 import { FormClienteComponent } from './FormCliente/form-cliente/form-cliente.component';
 import { FormEmpresaComponent } from './FormEmpresa/form-empresa/form-empresa.component';
-
-
-
+import { TimerInicioComponent } from './aplicar-question/contextualizacao/entrevistafuncional/cronometro/timer-inicio/timer-inicio.component';
+import { TimerQuestionarioComponent } from './aplicar-question/contextualizacao/entrevistafuncional/cronometro/timer-questionario/timer-questionario.component';
 
 
 
@@ -73,6 +72,9 @@ import { FormEmpresaComponent } from './FormEmpresa/form-empresa/form-empresa.co
    ConsultaEntrevistaComponent,
    FormClienteComponent,
    FormEmpresaComponent,
+   TimerInicioComponent,
+   TimerQuestionarioComponent,
+
    
   ],
    

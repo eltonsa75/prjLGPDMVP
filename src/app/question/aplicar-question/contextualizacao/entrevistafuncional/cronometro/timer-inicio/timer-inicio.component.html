@@ -1,0 +1,8 @@
+<div>
+    <button (click)="start()"><i class="fa fa-play" aria-hidden="true"></i></button>
+    <button (click)="stop()"><i class="fa fa-pause" aria-hidden="true"></i></button>
+    <button (click)="zerar()"><i class="fa fa-stop" aria-hidden="true"></i></button>
+    <p *ngFor="let cole of coleccion">{{cole.hora}} : {{cole.minuto}} : {{cole.segundos}}</p>
+    <p>Inicio da Entrevista:&nbsp;{{hora}} : {{minuto}} : {{segundos}}</p>
+  </div>
+
