@@ -12,7 +12,7 @@ export class CustomersOfficesService {
 
     constructor(private http: HttpClient) {}
 
-    customeroffices(id: number): Promise<CustomersOffices> {
+    public customeroffices(id: number): Promise<CustomersOffices> {
         return this.http.get(`${URL_API}/customersoffice?id=${id}`)
         .toPromise()
         .then((resposta: any) => {
@@ -20,5 +20,6 @@ export class CustomersOfficesService {
         })
         
       }
+
 
 }

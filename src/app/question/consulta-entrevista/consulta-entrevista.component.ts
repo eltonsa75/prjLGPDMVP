@@ -27,20 +27,28 @@ import { SelecaoQuestionarioEntrevista } from './../../shared/selecaoQuestionari
 
 import { ApplicationConfigs } from './../../shared/applicationConfigs.model';
 import { ApplicationConfigService } from './../../applicationConfig.service';
+import { data } from 'jquery';
 
+import { cscService } from './../../csc.service';
 
 @Component({
   selector: 'app-consulta-entrevista',
   templateUrl: './consulta-entrevista.component.html',
   styleUrls: ['./consulta-entrevista.component.css'],
-  providers: [CustomersService,CustomersOfficesService,
-              BusinessUnitsService, AreasService,
-              QuestionnaireFormService, SelecaoQuestionarioEntrevistaService,
-              ApplicationConfigService, ApplicationConfigService
-    ]
-})
-export class ConsultaEntrevistaComponent implements OnInit {
-
+  providers: [CustomersService,
+              CustomersOfficesService,
+              BusinessUnitsService,
+              AreasService,
+              QuestionnaireFormService,
+              SelecaoQuestionarioEntrevistaService,
+              ApplicationConfigService, 
+              ApplicationConfigService,
+              cscService
+              
+            ]
+          })
+          export class ConsultaEntrevistaComponent implements OnInit {
+            
   title = "Consulta de Entrevistas";
 
   public idQuestionarioEntrevista: number
@@ -56,9 +64,11 @@ export class ConsultaEntrevistaComponent implements OnInit {
   })
 
   public customers: Customers
-  public customersOffices: CustomersOffices
+
   public businessUnits: BusinessUnits
-  public areas: Area
+  
+  public customersOffices: CustomersOffices
+  public areas: Area 
   public questionnaireForms : QuestionnaireForm = []
   public applicationConfigs : ApplicationConfigs
 
@@ -73,45 +83,15 @@ export class ConsultaEntrevistaComponent implements OnInit {
                private ApplicationConfigService: ApplicationConfigService,
                private AreasService: AreasService,
                private route: ActivatedRoute,
+               private cscService: cscService,
                private router: Router) {}
 
 
-  ngOnInit() {
+  ngOnInit() {   
 
-         
-      // Método do Customer busca valor do BD
-      this.route.params.subscribe((parametros: Params) => {
-        this.CustomersService.customers(parametros.id)
-        .then((customers: Customers) => {
-          this.customers = customers
-        })
-      })
-
-       // Método do Customer_offices
-    this.route.params.subscribe((parametros: Params) => {
-      this.CustomersOfficesService.customeroffices(parametros.id)
-      .then((customersOffices: CustomersOffices) => {
-        this.customersOffices = customersOffices
-      })   
-    })
-
-
-       // Método do Business_Units
-       this.route.params.subscribe((parametros: Params) => {
-        this.BusinessUnitsService.businessUnits(parametros.id)
-        .then((businessUnits: BusinessUnits) => {
-          this.businessUnits = businessUnits
-        })   
-      })
-
-
-           // Método do Area
-           this.route.params.subscribe((parametros: Params) => {
-            this.AreasService.areas(parametros.id)
-            .then((areas: Area) => {
-              this.areas = areas
-            })   
-          })
+    this.cscService.getCustomers().subscribe(
+      customers => this.customers = customers
+    )
 
              // Método do QuestionnaireForms
              this.route.params.subscribe((parametros: Params) => {
@@ -128,10 +108,9 @@ export class ConsultaEntrevistaComponent implements OnInit {
               this.applicationConfigs = applicationConfig
               console.log('Teste do Component', this.applicationConfigs)
             })
-            })
-
+            }) 
             
- 
+            
   }
 
   //Método Ligado ao formulário (ngSubmit)
@@ -153,6 +132,7 @@ export class ConsultaEntrevistaComponent implements OnInit {
         this.formulario.value.business_unit_name,
         this.formulario.value.area_name
       )   
+
   
       this.SelecaoQuestionarioEntrevistaService.selecaoQuestionario(entrevista)
       .subscribe((idEntrevista: number) => {
@@ -165,6 +145,32 @@ export class ConsultaEntrevistaComponent implements OnInit {
 
   }
 
+
+
+// Chama o método da Filial
+  onChangeCliente(){   
+  this.cscService.getCustomers().subscribe(customersOffices => {
+  this.customersOffices = customersOffices
+  console.log('Busca as Filial', this.customersOffices)
+  })    
+}
+
+// Chama o método Unidade de Négocio
+  onChangeFilial(){  
+          this.cscService.getCustomeroffices().subscribe(businessUnits => {
+        this.businessUnits = businessUnits;
+        console.log('Busca Unidade de Négocio', this.businessUnits)
+  })  
+ 
+}
+
+// Chama o método Área
+  onChangeUnidadeNegocio(){   
+  this.cscService.getBusinessunits().subscribe(areas => {
+  this.areas = areas;
+  console.log('Busca a Área', this.areas)
+  })    
+}
 
   // Método do campo status
   public showIniciado(questionnaireForm) {

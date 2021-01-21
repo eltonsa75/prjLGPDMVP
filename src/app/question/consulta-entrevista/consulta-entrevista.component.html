@@ -24,9 +24,9 @@
                                 <small *ngIf="formulario.get('customer_name').valid && formulario.get('customer_name').touched" class="form-text text-success"> <strong><i class="fa fa-check" style="font-size: 20px; color: yellow;"></i></strong></small>
                                 <small *ngIf="!formulario.get('customer_name').valid && formulario.get('customer_name').touched" class="form-text text-danger"><strong><i class="fa fa-times" style="font-size: 20px; color: red;"></i></strong></small>
                              </label>
-                            <select class="custom-select mr-sm-2 selectCenter" formControlName="customer_name" id="cliente">
+                            <select class="custom-select mr-sm-2 selectCenter" formControlName="customer_name"  (change)="onChangeCliente($event.target.value)" id="cliente">
                                 <option selected>SELECIONE NOME DO CLIENTE:</option>
-                                <option *ngFor="let customer of customers" [value]="customer.id">{{ customer.fantasy_name }}</option>                                
+                                <option *ngFor="let customer of customers" [ngValue]="customer.id">{{ customer.fantasy_name }}</option>                                
                               </select>                              
                         </div>
                     </div>              
@@ -38,9 +38,9 @@
                                 <small *ngIf="formulario.get('customer_office_name').valid && formulario.get('customer_office_name').touched" class="form-text text-success"><strong><i class="fa fa-check" style="font-size: 20px; color: yellow;"></i></strong></small>
                                 <small *ngIf="!formulario.get('customer_office_name').valid && formulario.get('customer_office_name').touched" class="form-text text-danger"><strong><i class="fa fa-times" style="font-size: 20px; color: red;"></i></strong></small>
                             </label>
-                            <select class="custom-select mr-sm-2 selectCenter" formControlName="customer_office_name" id="filial">
+                            <select class="custom-select mr-sm-2 selectCenter" formControlName="customer_office_name" [(ngModel)]="customerOffice" (change)="onChangeFilial($event.target.value)" id="filial">
                                 <option selected>SELECIONE NOME DA FILIAL:</option>
-                                <option *ngFor="let customerOffice of customersOffices" [value]="customerOffice.id">{{ customerOffice.customer_office_name }}</option>
+                                <option *ngFor="let customerOffice of customersOffices" [ngValue]="customerOffice.id">{{ customerOffice.customer_office_name }}</option>
                               </select>
                         </div>
                     </div>              
@@ -52,8 +52,8 @@
                               <small *ngIf="formulario.get('business_unit_name').valid && formulario.get('business_unit_name').touched" class="form-text text-success"><strong><i class="fa fa-check" style="font-size: 20px; color: yellow;"></i></strong></small>
                               <small *ngIf="!formulario.get('business_unit_name').valid && formulario.get('business_unit_name').touched" class="form-text text-danger"><strong><i class="fa fa-times" style="font-size: 20px; color: red;"></i></strong></small>
                             </label>
-                            <select class="custom-select mr-sm-2 selectCenter" formControlName="business_unit_name" id="unidadeNegocio">
-                                <option selected>SELECIONE UNIDADE DE NEGÓCIO:</option>
+                            <select class="custom-select mr-sm-2 selectCenter" formControlName="business_unit_name" (change)="onChangeUnidadeNegocio($event.target.value)" id="unidadeNegocio">
+                                <option selected>SELECIONE UNIDADE DE NEGÓCIO</option>
                                 <option *ngFor="let businessUnit of businessUnits" [value]="businessUnit.id">{{ businessUnit.business_unit_name }}</option>
                             </select>
                         </div>
