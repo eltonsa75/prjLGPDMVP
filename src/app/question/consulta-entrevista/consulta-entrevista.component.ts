@@ -2,6 +2,7 @@ import { Router, Params } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit, } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from "rxjs/Observable";
 
 import { Customers } from '../../shared/customers.model';
 import { CustomersService } from './../../customers.service';
@@ -47,13 +48,15 @@ import { cscService } from './../../csc.service';
               
             ]
           })
-          export class ConsultaEntrevistaComponent implements OnInit {
+  export class ConsultaEntrevistaComponent implements OnInit {
             
   title = "Consulta de Entrevistas";
 
   public idQuestionarioEntrevista: number
 
   app_id: any
+
+
 
   public formulario: FormGroup = new FormGroup({
     'customer_name': new FormControl(null, [Validators.required]),
@@ -64,16 +67,15 @@ import { cscService } from './../../csc.service';
   })
 
   public customers: Customers
-
   public businessUnits: BusinessUnits
-  
   public customersOffices: CustomersOffices
-  public areas: Area 
-  public questionnaireForms : QuestionnaireForm = []
+  public areas: Area
+  public questionnaireForms : QuestionnaireForm
   public applicationConfigs : ApplicationConfigs
 
-  
+
   public returnForm: ReturnForm
+
 
   constructor( private CustomersService: CustomersService,
                private CustomersOfficesService: CustomersOfficesService,
@@ -87,11 +89,11 @@ import { cscService } from './../../csc.service';
                private router: Router) {}
 
 
-  ngOnInit() {   
+  ngOnInit() {  
 
-    this.cscService.getCustomers().subscribe(
-      customers => this.customers = customers
-    )
+    this.cscService.getCustomers().subscribe(customers => {
+      this.customers = customers
+    })
 
              // Método do QuestionnaireForms
              this.route.params.subscribe((parametros: Params) => {
@@ -118,7 +120,7 @@ import { cscService } from './../../csc.service';
     if(this.formulario.status === 'INVALID'){
       console.log('formulário está inválido')
       this.formulario.get('customer_name').markAllAsTouched()
-      this.formulario.get('customer_office_name').markAllAsTouched()
+      this.formulario.get('customersOffices.customer_office_name').markAllAsTouched()
       this.formulario.get('business_unit_name').markAllAsTouched()
       this.formulario.get('area_name').markAllAsTouched()
     } 
@@ -145,30 +147,27 @@ import { cscService } from './../../csc.service';
 
   }
 
-
-
-// Chama o método da Filial
-  onChangeCliente(){   
-  this.cscService.getCustomers().subscribe(customersOffices => {
-  this.customersOffices = customersOffices
-  console.log('Busca as Filial', this.customersOffices)
-  })    
+// Chama o método do Cliente (CustomerOffices => Filial)
+  onChangeCliente(){  
+    this.cscService.getCustomeroffices().subscribe(businessUnits => {
+      this.businessUnits = businessUnits;
+          console.log('Buscar Filial do Cliente', this.businessUnits)
+    }) 
 }
 
 // Chama o método Unidade de Négocio
-  onChangeFilial(){  
-          this.cscService.getCustomeroffices().subscribe(businessUnits => {
-        this.businessUnits = businessUnits;
-        console.log('Busca Unidade de Négocio', this.businessUnits)
-  })  
- 
+  onChangeFilial(){
+    this.cscService.getBusinessunits().subscribe(areas => {
+      this.areas = areas;
+      console.log('Busca Unidade de Négocio', this.areas)
+      }) 
 }
 
 // Chama o método Área
-  onChangeUnidadeNegocio(){   
-  this.cscService.getBusinessunits().subscribe(areas => {
+onChangeUnidadeNegocio(){   
+  this.cscService.getAreas().subscribe(areas => {
   this.areas = areas;
-  console.log('Busca a Área', this.areas)
+  console.log('Busca Área', this.areas)
   })    
 }
 
