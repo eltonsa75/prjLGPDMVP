@@ -15,7 +15,6 @@
         <div class="col">
           <div style="font-size: 12px;"><app-timer-questionario></app-timer-questionario></div>
         </div>
-       
       </div>
      
      
@@ -25,13 +24,13 @@
       
         <h6 class="ajusteTema">Tema: Governança</h6>
         
-        <p class="lead" *ngFor="let questionnaireVersion of questionnaireVersions"><strong>{{ question.question_edited_number }} / {{ questionnaireVersion.last_question_number }} -- {{ question.question_enunciation}} =>Respostas {{ question.answer_yes_no }}</strong></p>
+        <p class="lead" *ngFor="let questionnaireVersion of questionnaireVersions"><strong>{{ question.question_edited_number }} / {{ questionnaireVersion.last_question_number }} -- {{ question.question_enunciation}} =>Respostas&nbsp;{{ question.answer_yes_no }}&nbsp;Observação:&nbsp;{{question.answer_observation}}&nbsp;Comentários&nbsp;{{question.answer_comments}}</strong></p>
         <hr class="my-4">
         
-        <form>
+        <form >
           <div [formGroup]="respForm">
             <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" id="sim" formControlName="radioAnswer" value="1" [checked]="question.answer_yes_no === 1" class="custom-control-input" autofocus>
+              <input type="radio" id="sim" formControlName="radioAnswer" value="1" [checked]="question.answer_yes_no === 1" class="custom-control-input">
               <label class="custom-control-label" for="sim">Sim</label>
             </div>
             <div class="custom-control custom-radio custom-control-inline" >
@@ -45,11 +44,11 @@
             <hr class="my-2">
             <div class="form-group">
               <label for="Textarea1">Observação:</label>
-              <textarea class="form-control txtAjuste" id="txtObservations" rows="2"  formControlName="txtObservations"></textarea>
+              <textarea  type="text" class="form-control txtAjuste" id="txtObservations" rows="2"  formControlName="txtObservations" [value]="question.answer_observation"></textarea>
             </div>
             <div class="form-group">
               <label for="Textarea2">Comentários:</label>
-              <textarea class="form-control txtAjuste" id="txtComments" rows="2" formControlName="txtComments"></textarea>
+              <textarea type="text" class="form-control txtAjuste" id="txtComments" rows="2" formControlName="txtComments" [value]="question.answer_comments"></textarea>
             </div>
           </div>
  
