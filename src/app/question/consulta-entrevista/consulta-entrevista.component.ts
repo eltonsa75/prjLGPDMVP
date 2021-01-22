@@ -56,8 +56,6 @@ import { cscService } from './../../csc.service';
 
   app_id: any
 
-
-
   public formulario: FormGroup = new FormGroup({
     'customer_name': new FormControl(null, [Validators.required]),
     'customer_office_name': new FormControl(null, [Validators.required]),
@@ -72,7 +70,6 @@ import { cscService } from './../../csc.service';
   public areas: Area
   public questionnaireForms : QuestionnaireForm
   public applicationConfigs : ApplicationConfigs
-
 
   public returnForm: ReturnForm
 
@@ -94,6 +91,9 @@ import { cscService } from './../../csc.service';
     this.cscService.getCustomers().subscribe(customers => {
       this.customers = customers
     })
+
+  
+ 
 
              // Método do QuestionnaireForms
              this.route.params.subscribe((parametros: Params) => {
@@ -147,29 +147,31 @@ import { cscService } from './../../csc.service';
 
   }
 
-// Chama o método do Cliente (CustomerOffices => Filial)
+
+  // Chama o método do Cliente (CustomerOffices => Filial)
   onChangeCliente(){  
-    this.cscService.getCustomeroffices().subscribe(businessUnits => {
-      this.businessUnits = businessUnits;
-          console.log('Buscar Filial do Cliente', this.businessUnits)
+    this.cscService.getCustomeroffices().subscribe(customersOffices => {
+      this.customersOffices = customersOffices;
+          console.log('Buscar a Filial do Cliente', this.customersOffices)
     }) 
 }
 
 // Chama o método Unidade de Négocio
   onChangeFilial(){
-    this.cscService.getBusinessunits().subscribe(areas => {
-      this.areas = areas;
-      console.log('Busca Unidade de Négocio', this.areas)
+    this.cscService.getBusinessunits().subscribe(businessUnits => {
+      this.businessUnits = businessUnits;
+      console.log('Buscar a Unidade de Négocio', this.businessUnits)
       }) 
 }
 
-// Chama o método Área
-onChangeUnidadeNegocio(){   
+// Chama o método Unidade de Négocio
+onChangeUnidadeNegocio(){
   this.cscService.getAreas().subscribe(areas => {
-  this.areas = areas;
-  console.log('Busca Área', this.areas)
-  })    
+    this.areas = areas;
+    console.log('Buscar a Unidade de Négocio', this.areas)
+    }) 
 }
+
 
   // Método do campo status
   public showIniciado(questionnaireForm) {

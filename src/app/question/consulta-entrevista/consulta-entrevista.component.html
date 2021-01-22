@@ -32,18 +32,17 @@
                     </div>              
                 </div>
                 <div class="row">
-                    
                     <div class="col-sm-12">
-                            <div class="form-group text-primary text-uppercase">
-                                NOME DA FILIAL: &nbsp;<label for="lblFilial">
-                                    <small *ngIf="formulario.get('customer_office_name').valid && formulario.get('customer_office_name').touched" class="form-text text-success"><strong><i class="fa fa-check" style="font-size: 20px; color: yellow;"></i></strong></small>
-                                    <small *ngIf="!formulario.get('customer_office_name').valid && formulario.get('customer_office_name').touched" class="form-text text-danger"><strong><i class="fa fa-times" style="font-size: 20px; color: red;"></i></strong></small>
-                                </label>
-                                <select class="custom-select mr-sm-2 selectCenter" formControlName="customer_office_name" (change)="onChangeFilial($event.target.value)" id="filial">
-                                    <option selected>SELECIONE NOME DA FILIAL:</option>
-                                    <option *ngFor="let customerOffice of businessUnits" value="customerOffice.id">{{ customerOffice.customer_office_name }}</option>
-                                  </select>
-                            </div>
+                        <div class="form-group text-primary text-uppercase">
+                            NOME DA FILIAL: &nbsp;<label for="lblFilial">
+                                <small *ngIf="formulario.get('customer_office_name').valid && formulario.get('customer_office_name').touched" class="form-text text-success"><strong><i class="fa fa-check" style="font-size: 20px; color: yellow;"></i></strong></small>
+                                <small *ngIf="!formulario.get('customer_office_name').valid && formulario.get('customer_office_name').touched" class="form-text text-danger"><strong><i class="fa fa-times" style="font-size: 20px; color: red;"></i></strong></small>
+                            </label>
+                            <select class="custom-select mr-sm-2 selectCenter" formControlName="customer_office_name"  (change)="onChangeFilial($event.target.value)" id="filial">
+                                <option selected>SELECIONE NOME DA FILIAL:</option>
+                                <option *ngFor="let customerOffice of customersOffices" [ngValue]="customerOffice.id">{{ customerOffice.customer_office_name }}</option>
+                              </select>
+                        </div>
                     </div>              
                 </div>
                 <div class="row">
@@ -55,7 +54,7 @@
                             </label>
                             <select class="custom-select mr-sm-2 selectCenter" formControlName="business_unit_name" (change)="onChangeUnidadeNegocio($event.target.value)" id="unidadeNegocio">
                                 <option selected>SELECIONE UNIDADE DE NEGÓCIO</option>
-                                <option *ngFor="let businessUnit of areas" [value]="businessUnit.id">{{ businessUnit.business_unit_name }}</option>
+                                <option *ngFor="let businessUnit of businessUnits" [value]="businessUnit.id">{{ businessUnit.business_unit_name }}</option>
                             </select>
                         </div>
                     </div>              
