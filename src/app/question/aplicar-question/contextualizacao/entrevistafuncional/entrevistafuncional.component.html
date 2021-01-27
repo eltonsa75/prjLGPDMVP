@@ -4,16 +4,13 @@
   <div class="container">
     <div class="jumbotron">
       <div class="row">
-        <div class="col">
+        <div class="col-2-3">
           <h6 class="text-uppercase FormName">
             <strong class="text-primary"><option *ngFor="let questionnaireForm of questionnaireForms">{{ questionnaireForm.questionnaire_form_name }}</option></strong>           
           </h6>
         </div>
-        <div class="col">
+        <div>
           <div style="font-size: 12px;"><app-timer-inicio></app-timer-inicio></div>
-        </div>
-        <div class="col">
-          <div style="font-size: 12px;"><app-timer-questionario></app-timer-questionario></div>
         </div>
       </div>
      
