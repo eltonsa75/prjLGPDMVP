@@ -7,7 +7,7 @@ export class QuestionResp {
     public interviewer_id: number
     public respondent_id: number
     public answer_yes_no: number
-    public answer_comments: number
+    public answer_comments: string
     public answer_observation: string
   	
     constructor(data) {     

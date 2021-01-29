@@ -92,9 +92,6 @@ import { cscService } from './../../csc.service';
       this.customers = customers
     })
 
-  
- 
-
              // Método do QuestionnaireForms
              this.route.params.subscribe((parametros: Params) => {
               this.QuestionnaireFormService.questionnaireForm(parametros.id)

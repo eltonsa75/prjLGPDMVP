@@ -38,9 +38,6 @@ export class EntrevistaComponent implements OnInit {
   public customers: Customers
 
 
- //public returnForm: string
-
- 
  fantasy_name: string
  customer_office_name: string
  business_unit_name: string

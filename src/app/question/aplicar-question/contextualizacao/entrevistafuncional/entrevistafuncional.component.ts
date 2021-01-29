@@ -1,10 +1,9 @@
 import { Router, Params } from '@angular/router';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
-
-
+import { QuestionResp } from './../../../../shared/questionResp.model';
 import { QuestionsService } from '../../../../questions.services';
 import { Question } from './../../../../shared/question.model';
 
@@ -34,11 +33,16 @@ export class EntrevistafuncionalComponent implements OnInit {
 
   public rodadaQuestion: Question
 
-  public id: number;
-  public respForm: any;
 
+  public id: number;
+  //public respForm: any;
+
+  respForm: FormGroup
+
+  
   public questionnaireForms : QuestionnaireForm
   public questionnaireVersions: QuestionnaireVersion
+
 
   @Output() public encerrarQuestion: EventEmitter<string> = new EventEmitter()
 
@@ -49,20 +53,9 @@ export class EntrevistafuncionalComponent implements OnInit {
               private route: ActivatedRoute,
               private router: Router) {
               }
+  ngOnInit() {   
 
-  initForm() {
-    this.respForm=this.formBuilder.group({
-      radioAnswer:[null,Validators.required],
-      txtObservations:[null],
-      txtComments:[null]
-    })
-  }
-
-
-
-  // radioAnswer: new FormControl(null, [ Validators.required ]),
-  ngOnInit() {
-
+      this.initForm();
 
       // Método do QuestionnaireForms
       this.route.params.subscribe((parametros: Params) => {
@@ -94,6 +87,27 @@ export class EntrevistafuncionalComponent implements OnInit {
       })
       this.initForm();
   }
+
+  // Método que Inicializa o Formulário
+  initForm() {
+    this.respForm = new FormGroup({
+      'radioAnswer': new FormControl([null,Validators.required]),
+      'txtObservations': new FormControl([null]),
+      'txtComments': new FormControl([null]),
+      'answer_observation': new FormControl([null]),
+      'answer_comments': new FormControl([null])
+    })   
+  }
+
+  //Método Ligado ao formulário
+   obterDadosFormulario(): void {
+    const txtObservations = this.respForm.get('txtObservations').value
+      this.respForm.get('txtComments').value
+    } 
+
+
+
+  
 
   public save(): void {
     if (!this.isFinished()){
@@ -134,13 +148,12 @@ export class EntrevistafuncionalComponent implements OnInit {
         })
       }else{
           alert("Selecione uma opçâo : 'Sim','Nâo' ou 'Nâo se aplica'.");
-          this.respForm.value.radioAnswer.focus();
+          this.respForm.value.radioAnswer;
       }
     }else {
       this.initForm();
       alert("Você alcançou o final do Questionário.");
     }
-
 
     // Rodada da Questão botão Salvar
     this.rodada=16
@@ -152,9 +165,9 @@ export class EntrevistafuncionalComponent implements OnInit {
   public LimparForm(): void {
     this.respForm.reset();
     }
-
+  
   private isFinished(): boolean {
-    if (this.question.if_no === null  && this.question.if_yes === null){
+    if (this.question.if_no === null && this.question.if_yes === null){
       return true;
     }
     return false;
@@ -208,7 +221,7 @@ export class EntrevistafuncionalComponent implements OnInit {
       .catch((param: any) => {
       })
     }else{
-      alert("Início")
+      //alert("Início")
     }
 
     // Rodada da Questão Botão Voltar
