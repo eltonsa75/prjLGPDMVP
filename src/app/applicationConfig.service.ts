@@ -21,7 +21,7 @@ export class ApplicationConfigService {
         return this.http.get(`${URL_API}/showapp?id=${id}`)
         .toPromise()
         .then((resposta: any) => {
-        console.log('Application Service', resposta)
+            debugger
             this.entrevista = resposta
             return resposta
         })

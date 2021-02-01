@@ -4,6 +4,8 @@ import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms'
 import { ActivatedRoute } from '@angular/router';
 
 import { QuestionResp } from './../../../../shared/questionResp.model';
+
+
 import { QuestionsService } from '../../../../questions.services';
 import { Question } from './../../../../shared/question.model';
 
@@ -14,13 +16,20 @@ import { QuestionnaireVersionsService } from './../../../../questionnaireVersion
 import { QuestionnaireVersion } from './../../../../shared/questionnaireVersions.model';
 
 
+import { ApplicationConfigs } from './../../../../shared/applicationConfigs.model';
+import { ApplicationConfigService } from './../../../../applicationConfig.service';
+
+
+
+
 @Component({
   selector: 'app-entrevistafuncional',
   templateUrl: './entrevistafuncional.component.html',
   styleUrls: ['./entrevistafuncional.component.css'],
   providers: [QuestionsService,
               QuestionnaireFormService,
-              QuestionnaireVersionsService]
+              QuestionnaireVersionsService,
+              ApplicationConfigService]
 })
 
 export class EntrevistafuncionalComponent implements OnInit {
@@ -31,17 +40,18 @@ export class EntrevistafuncionalComponent implements OnInit {
   public rodada: number = 0
   public progresso: number = 0
 
-  public rodadaQuestion: Question
-
+  public rodadaQuestion: number = 0
 
   public id: number;
-  //public respForm: any;
+  public respForm: any;
 
-  respForm: FormGroup
+  //respForm: FormGroup
 
   
   public questionnaireForms : QuestionnaireForm
   public questionnaireVersions: QuestionnaireVersion
+
+  
 
 
   @Output() public encerrarQuestion: EventEmitter<string> = new EventEmitter()
@@ -50,13 +60,12 @@ export class EntrevistafuncionalComponent implements OnInit {
               private formBuilder: FormBuilder,
               private questionnaireFormService: QuestionnaireFormService,
               private questionnaireVersionsService: QuestionnaireVersionsService,
+              private applicationConfigService: ApplicationConfigService,
               private route: ActivatedRoute,
               private router: Router) {
               }
   ngOnInit() {   
-
-      this.initForm();
-
+          
       // Método do QuestionnaireForms
       this.route.params.subscribe((parametros: Params) => {
         this.questionnaireFormService.questionnaireForm(parametros.id)
@@ -95,19 +104,9 @@ export class EntrevistafuncionalComponent implements OnInit {
       'txtObservations': new FormControl([null]),
       'txtComments': new FormControl([null]),
       'answer_observation': new FormControl([null]),
-      'answer_comments': new FormControl([null])
+      'answer_comments': new FormControl([null]),
     })   
   }
-
-  //Método Ligado ao formulário
-   obterDadosFormulario(): void {
-    const txtObservations = this.respForm.get('txtObservations').value
-      this.respForm.get('txtComments').value
-    } 
-
-
-
-  
 
   public save(): void {
     if (!this.isFinished()){
@@ -132,9 +131,13 @@ export class EntrevistafuncionalComponent implements OnInit {
           } 
           
         ).then((question: Question) => {
+         
           // AtualizarResposta    
           if (question){
             this.question = question
+            //debugger
+            this.progresso = Math.round(( this.progresso + (question.responses_qtd / question.last_question_number)) * 100)
+            console.log("teste", this.progresso);
             //this.initForm();
             
           }else{
@@ -156,13 +159,10 @@ export class EntrevistafuncionalComponent implements OnInit {
     }
 
     // Rodada da Questão botão Salvar
-    this.rodada=16
-    this.rodadaQuestion = this.question[this.rodada]
-    this.progresso  = Math.round(this.progresso + (100 / this.rodada))
-
+    
   }
 
-  public LimparForm(): void {
+    LimparForm(): void {
     this.respForm.reset();
     }
   

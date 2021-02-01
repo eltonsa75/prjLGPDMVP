@@ -30,11 +30,11 @@ export class QuestionsService {
                 'Content-Type': 'application/x-www-form-urlencoded'
             })
         };
-        return this.http.post(`${URL_API}/save_and_next`,"json=" + JSON.stringify({answer: answer,next: next}),
+        const retorno = this.http.post(`${URL_API}/save_and_next`,"json=" + JSON.stringify({answer: answer,next: next}),
         httpOptions
-        )
-        .toPromise()
-        .then((questions) => questions ? questions[0] : {})
+        ).toPromise()
+        return retorno.then((questions) =>{          
+             return questions ? questions[0] : {}})
     }
     // Método para avançar para próxima Questão
     public getNext(carga: string, question_edited_number:string): Promise<any> {

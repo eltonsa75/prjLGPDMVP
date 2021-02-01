@@ -13,6 +13,7 @@ export class ProgressoComponent implements OnInit  {
   constructor(){}
 
   ngOnInit(){
-
+    console.log('progresso', this.progresso);
+    
   }
 }

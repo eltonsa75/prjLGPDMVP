@@ -20,7 +20,7 @@
       <h6 class=" ajusteAltura text-success" *ngFor="let questionnaireVersion of questionnaireVersions">Evolução da Entrevista: <strong class="text-primary">{{ question.question_edited_number }}</strong></h6>
       
         <h6 class="ajusteTema">Tema: {{question.question_theme}}</h6>        
-        <p class="lead" *ngFor="let questionnaireVersion of questionnaireVersions"><strong>{{ question.question_edited_number }} / {{ questionnaireVersion.last_question_number }} -- {{ question.question_enunciation}} =>Respostas&nbsp;{{ question.answer_yes_no }}&nbsp;Observação:&nbsp;{{question.answer_observation}}&nbsp;Comentários&nbsp;{{question.answer_comments}}</strong></p>
+        <p class="lead" *ngFor="let questionnaireVersion of questionnaireVersions"><strong> {{ question.question_edited_number }} / {{ questionnaireVersion.last_question_number }} -- {{ question.question_enunciation}} =>Respostas&nbsp;{{ question.answer_yes_no }}&nbsp;Observação:&nbsp;{{question.answer_observation}}&nbsp;Comentários&nbsp;{{question.answer_comments}}</strong></p>
         <hr class="my-4">
         
         <form >

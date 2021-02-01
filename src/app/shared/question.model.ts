@@ -13,6 +13,9 @@ export class Question {
     public if_yes: string
     public if_no: string
     public if_back: string
+    public last_question_number: number
+    public responses_qtd: number
+  
 	
     constructor(data) {
         id: data.id
@@ -28,6 +31,8 @@ export class Question {
         if_yes: data.if_yes
         if_no: data.if_no
         if_back: data.if_back
+        last_question_number: data.last_question_number
+        responses_qtd: data.responses_qtd
     }
     
     }
