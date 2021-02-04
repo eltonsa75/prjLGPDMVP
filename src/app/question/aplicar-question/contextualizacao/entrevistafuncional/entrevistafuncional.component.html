@@ -3,14 +3,20 @@
       
   <div class="container" >
     <div class="jumbotron">
-      <div class="row">
-        <div class="col-2-3">
-          <h6 class="text-uppercase FormName">
-            <strong class="text-primary"><option *ngFor="let questionnaireForm of questionnaireForms">{{ questionnaireForm.questionnaire_form_name }}</option></strong>           
-          </h6>
-        </div>
-        <div>
-          <div style="font-size: 12px;">Inicio da Entrevista&nbsp;{{question.interview_total_elapsed_time}}</div>
+     
+      <div class="container">
+        <div class="row">
+          <div class="col-sm">
+            <h6 class="text-uppercase">
+              <strong class="text-primary"><option *ngFor="let questionnaireForm of questionnaireForms">{{ questionnaireForm.questionnaire_form_name }}</option></strong>           
+            </h6>
+          </div>
+          <div class="col-sm">
+            <div style="font-size: 12px;">Inicio da Entrevista&nbsp;{{question.interview_total_elapsed_time}}</div>
+          </div>
+          <div class="col-sm">
+            <div style="font-size: 12px;"><app-timer-questionario></app-timer-questionario></div>
+          </div>
         </div>
       </div>
      
@@ -40,11 +46,11 @@
             <hr class="my-2">
             <div class="form-group">
               <label for="Textarea1">Observação:</label>
-              <textarea type="text" class="form-control txtAjuste" id="txtObservations" rows="2"  formControlName="txtObservations">{{question.answer_observation}}</textarea>
+              <textarea type="text" class="form-control txtAjuste" id="txtObservations" rows="2"  formControlName="txtObservations" [value]="question.answer_observation">{{question.answer_observation}}</textarea>
             </div>
             <div class="form-group">
               <label for="Textarea2">Comentários:</label>
-              <textarea type="text" class="form-control txtAjuste" id="txtComments" rows="2" formControlName="txtComments">{{question.answer_comments}}</textarea>
+              <textarea type="text" class="form-control txtAjuste" id="txtComments" rows="2" formControlName="txtComments" [value]="question.answer_comments">{{question.answer_comments}}</textarea>
             </div>
           </div>
  

@@ -175,7 +175,7 @@ export class EntrevistafuncionalComponent implements OnInit {
         const if_no = this.question.if_no ? this.question.if_no.toString() : null;   
         this.questionsService.getSaveAndNext(
           {
-            application_config_id: "1",
+            application_config_id: this.question.application_config_id,
             question_id: this.question.id,
             phase_id: this.question.phase_id,
             interviewer_id: 1,
@@ -202,8 +202,7 @@ export class EntrevistafuncionalComponent implements OnInit {
 
   }
 
-  public voltarQuestion(): void {
-    
+  public voltarQuestion(): void {    
     if (this.question.if_back){    
       this.questionsService.getNext(
         this.question.questionnaire_version_id_carga.toString(), 
@@ -220,10 +219,6 @@ export class EntrevistafuncionalComponent implements OnInit {
       //alert("Início")
     }
 
-    // Rodada da Questão Botão Voltar
-      this.rodada=16
-      this.rodadaQuestion = this.question[this.rodada]
-      this.progresso  = Math.round(this.progresso - (100 / this.rodada))
   }
  
 }
