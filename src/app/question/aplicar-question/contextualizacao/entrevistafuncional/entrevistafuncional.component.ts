@@ -48,7 +48,6 @@ export class EntrevistafuncionalComponent implements OnInit {
 
   //respForm: FormGroup
 
-   
   public questionnaireForms : QuestionnaireForm
   public questionnaireVersions: QuestionnaireVersion
 
@@ -116,11 +115,11 @@ export class EntrevistafuncionalComponent implements OnInit {
         const if_no = this.question.if_no ? this.question.if_no.toString() : null; 
         this.questionsService.getSaveAndNext(
           {
-            application_config_id: "1",
+            application_config_id: this.question.application_config_id,
             question_id: this.question.id,
             phase_id: this.question.phase_id,
-            interviewer_id: '1',
-            respondent_id: '1',
+            interviewer_id: this.question.user_parameter_id,
+            respondent_id: "1",
             answer_yes_no: this.respForm.value.radioAnswer,
             answer_comments: this.respForm.value.txtComments,
             answer_observation: this.respForm.value.txtObservations
@@ -136,7 +135,6 @@ export class EntrevistafuncionalComponent implements OnInit {
           if (question){
             this.question = question
             this.progresso = (question.responses_qtd / question.last_question_number) * 100
-            debugger
             console.log('Barra de Progresso', this.progresso);
             //this.initForm();
             

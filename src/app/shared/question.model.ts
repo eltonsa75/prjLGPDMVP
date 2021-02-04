@@ -1,3 +1,4 @@
+import { ApplicationConfigs } from './applicationConfigs.model';
 export class Question {
 
     public id: number 
@@ -15,7 +16,12 @@ export class Question {
     public if_back: string
     public last_question_number: number
     public responses_qtd: number
-  
+    public application_config_id: number
+    public user_parameter_id:number
+    public current_session_start_time: string
+    public current_session_end_time: string
+    public current_session_elapsed_time: string
+    public interview_total_elapsed_time: string
 	
     constructor(data) {
         id: data.id
@@ -33,6 +39,13 @@ export class Question {
         if_back: data.if_back
         last_question_number: data.last_question_number
         responses_qtd: data.responses_qtd
+        application_config_id: data.application_config_id
+        user_parameter_id: data.user_parameter_id
+        current_session_start_time: data.current_session_start_time
+        current_session_end_time: data.current_session_end_time
+        current_session_elapsed_time: data.current_session_elapsed_time
+        interview_total_elapsed_time: data.interview_total_elapsed_time /* Tempo decorrido da Entrevista */
+       
     }
     
     }
