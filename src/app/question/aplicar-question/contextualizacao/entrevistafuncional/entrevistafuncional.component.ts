@@ -22,6 +22,7 @@ import { ApplicationConfigService } from './../../../../applicationConfig.servic
 
 
 
+
 @Component({
   selector: 'app-entrevistafuncional',
   templateUrl: './entrevistafuncional.component.html',
@@ -47,7 +48,7 @@ export class EntrevistafuncionalComponent implements OnInit {
 
   //respForm: FormGroup
 
-  
+   
   public questionnaireForms : QuestionnaireForm
   public questionnaireVersions: QuestionnaireVersion
 
@@ -88,7 +89,7 @@ export class EntrevistafuncionalComponent implements OnInit {
     // Chamando o Método do QuestionsService  
        this.questionsService.init()
       .then((question: Question) => {
-        // AtualizarResposta    
+        // AtualizarResposta
         this.question = question
         console.log("Service Questões", this.question)
       })
@@ -131,13 +132,12 @@ export class EntrevistafuncionalComponent implements OnInit {
           } 
           
         ).then((question: Question) => {
-         
           // AtualizarResposta    
           if (question){
             this.question = question
-            //debugger
-            this.progresso = Math.round(( this.progresso + (question.responses_qtd / question.last_question_number)) * 100)
-            console.log("teste", this.progresso);
+            this.progresso = (question.responses_qtd / question.last_question_number) * 100
+            debugger
+            console.log('Barra de Progresso', this.progresso);
             //this.initForm();
             
           }else{
@@ -158,8 +158,6 @@ export class EntrevistafuncionalComponent implements OnInit {
       alert("Você alcançou o final do Questionário.");
     }
 
-    // Rodada da Questão botão Salvar
-    
   }
 
     LimparForm(): void {

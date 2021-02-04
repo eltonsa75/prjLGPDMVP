@@ -1,11 +1,13 @@
 <div class="container">
   <div class="row">
+    <!--
     <div class="col-2-3">
       <button (click)="start()"><i class="fa fa-play"></i></button>
       <button (click)="stop()"><i class="fa fa-pause"></i></button>
       <button (click)="zerar()"><i class="fa fa-stop"></i></button>
     </div>
-    <div class="col-2-3">
+  -->
+    <div class="col-3-3">
       <p>&nbsp;Iniciar Entrevista:&nbsp;{{hora}} : {{minuto}} : {{segundos}}</p>
       <p *ngFor="let cole of coleccion">{{cole.hora}} : {{cole.minuto}} : {{cole.segundos}}</p>
     </div>

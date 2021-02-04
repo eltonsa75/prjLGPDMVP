@@ -32,8 +32,9 @@ export class QuestionsService {
         };
         const retorno = this.http.post(`${URL_API}/save_and_next`,"json=" + JSON.stringify({answer: answer,next: next}),
         httpOptions
-        ).toPromise()
-        return retorno.then((questions) =>{          
+        ).toPromise()        
+        return retorno.then((questions) =>{  
+            debugger       
              return questions ? questions[0] : {}})
     }
     // Método para avançar para próxima Questão
@@ -41,7 +42,6 @@ export class QuestionsService {
         return this.http.get(`${URL_API}/proxima/carga/${carga}/question_edited_number/${question_edited_number}`)
         .toPromise()
         .then((questions) => questions ? questions[0] : {})
-        
     }
 
     public async init(): Promise<any> {

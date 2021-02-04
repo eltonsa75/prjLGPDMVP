@@ -40,11 +40,11 @@
             <hr class="my-2">
             <div class="form-group">
               <label for="Textarea1">Observação:</label>
-              <textarea type="text" class="form-control txtAjuste" id="txtObservations" rows="2"  formControlName="txtObservations" [value]="question.answer_observation"></textarea>
+              <textarea type="text" class="form-control txtAjuste" id="txtObservations" rows="2"  formControlName="txtObservations">{{question.answer_observation}}</textarea>
             </div>
             <div class="form-group">
               <label for="Textarea2">Comentários:</label>
-              <textarea type="text" class="form-control txtAjuste" id="txtComments" rows="2" formControlName="txtComments" [value]="question.answer_comments"></textarea>
+              <textarea type="text" class="form-control txtAjuste" id="txtComments" rows="2" formControlName="txtComments">{{question.answer_comments}}</textarea>
             </div>
           </div>
  
