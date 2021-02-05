@@ -46,6 +46,12 @@ export class EntrevistafuncionalComponent implements OnInit {
   public id: number;
   public respForm: any;
 
+
+  public hora: number = 0;
+  public minuto: number = 0;
+  public segundos: number = 0;
+  public contador:any;
+
   //respForm: FormGroup
 
   public questionnaireForms : QuestionnaireForm
@@ -64,7 +70,9 @@ export class EntrevistafuncionalComponent implements OnInit {
               private route: ActivatedRoute,
               private router: Router) {
               }
-  ngOnInit() {   
+  ngOnInit() { 
+    
+    this.inicio()
           
       // Método do QuestionnaireForms
       this.route.params.subscribe((parametros: Params) => {
@@ -220,5 +228,24 @@ export class EntrevistafuncionalComponent implements OnInit {
     }
 
   }
+  
+  inicio(){
+    if(this.contador == undefined){ 
+      this.contador = setInterval(() =>{
+          this.segundos +=1;
+          if(this.segundos == 60){
+            this.segundos = 0;
+            this.minuto +=1;
+            if(this.minuto == 60){
+              this.minuto = 0;
+              this.hora +=1;
+              if(this.hora == 24){
+                this.hora = 0;
+              }
+            }
+          }
+      }, 1000)
+    }
+    }
  
 }

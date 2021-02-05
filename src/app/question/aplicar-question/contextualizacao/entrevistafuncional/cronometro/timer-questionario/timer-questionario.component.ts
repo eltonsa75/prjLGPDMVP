@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Question } from './../../../../../../shared/question.model';
+
+
 @Component({
   selector: 'app-timer-questionario',
   templateUrl: './timer-questionario.component.html',
@@ -7,10 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TimerQuestionarioComponent implements OnInit {
 
+  public question: Question
+
   public hora: number = 0;
   public minuto: number = 0;
   public segundos: number = 0;
   public contador:any;
+
+  interview_total_elapsed_time: any
 
   constructor() { }
 
@@ -19,8 +26,8 @@ export class TimerQuestionarioComponent implements OnInit {
   }
 
   inicio(){
-    if(this.contador == undefined){ 
-      this.contador = setInterval(() =>{
+    if(this.interview_total_elapsed_time == undefined){ 
+      this.interview_total_elapsed_time = setInterval(() =>{
           this.segundos +=1;
           if(this.segundos == 60){
             this.segundos = 0;

@@ -22,6 +22,7 @@ export class Question {
     public current_session_end_time: string
     public current_session_elapsed_time: string
     public interview_total_elapsed_time: string
+    public status: string
 	
     constructor(data) {
         id: data.id
@@ -45,6 +46,7 @@ export class Question {
         current_session_end_time: data.current_session_end_time
         current_session_elapsed_time: data.current_session_elapsed_time
         interview_total_elapsed_time: data.interview_total_elapsed_time /* Tempo decorrido da Entrevista */
+        status: data.status
        
     }
     

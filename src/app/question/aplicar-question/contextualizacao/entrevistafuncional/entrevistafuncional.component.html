@@ -11,11 +11,14 @@
               <strong class="text-primary"><option *ngFor="let questionnaireForm of questionnaireForms">{{ questionnaireForm.questionnaire_form_name }}</option></strong>           
             </h6>
           </div>
-          <div class="col-sm">
-            <div style="font-size: 12px;">Inicio da Entrevista&nbsp;{{question.interview_total_elapsed_time}}</div>
+          <div class="col-sm" *ngIf="question.status == 1">
+            <div style="font-size: 12px;">Tempo Decorrido &nbsp;{{question.interview_total_elapsed_time}}</div>
+            <div>
+              
+          </div>
           </div>
           <div class="col-sm">
-            <div style="font-size: 12px;"><app-timer-questionario></app-timer-questionario></div>
+            <div style="font-size: 12px;">Tempo da Questão:&nbsp;{{hora}} : {{minuto}} : {{segundos}}</div>
           </div>
         </div>
       </div>
