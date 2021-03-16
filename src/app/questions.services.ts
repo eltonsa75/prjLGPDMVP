@@ -33,11 +33,10 @@ export class QuestionsService {
         const retorno = this.http.post(`${URL_API}/save_and_next`,"json=" + JSON.stringify({answer: answer,next: next}),
         httpOptions
         ).toPromise()        
-        return retorno.then((questions) =>{  
-            debugger       
+        return retorno.then((questions) =>{      
              return questions ? questions[0] : {}})
     }
-    // Método para avançar para próxima Questão
+    // Método para Voltar para próxima Questão
     public getNext(carga: string, question_edited_number:string): Promise<any> {
         return this.http.get(`${URL_API}/proxima/carga/${carga}/question_edited_number/${question_edited_number}`)
         .toPromise()

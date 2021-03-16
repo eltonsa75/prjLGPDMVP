@@ -177,39 +177,57 @@ export class EntrevistafuncionalComponent implements OnInit {
     return false;
   }
 
-    //avançar Question
-  public avancarQuestion(): void {
-       if (!this.isFinished()){ 
-        const if_no = this.question.if_no ? this.question.if_no.toString() : null;   
-        this.questionsService.getSaveAndNext(
-          {
-            application_config_id: this.question.application_config_id,
-            question_id: this.question.id,
-            phase_id: this.question.phase_id,
-            interviewer_id: 1,
-            respondent_id: 1,
-            answer_yes_no: 3,
-            answer_comments: '',
-            answer_observation: ''
-          },
-          {
-            carga: this.question.questionnaire_version_id_carga.toString(), 
-            question_edited_number: if_no
-          } 
-        ).then((question: Question) => {
-          // AtualizarResposta
-          this.question = question
-          //this.initForm();
-        })
-        .catch((param: any) => {
-        })
-      }else{
-        this.initForm();
-        alert("Você alcançou o final do Questionário.");
-      }
+  //   //avançar Question
+  // public avancarQuestion(): void {
+  //      if (!this.isFinished()){ 
+  //       const if_no = this.question.if_no ? this.question.if_no.toString() : null;   
+  //       this.questionsService.getSaveAndNext(
+  //         {
+  //           application_config_id: this.question.application_config_id,
+  //           question_id: this.question.id,
+  //           phase_id: this.question.phase_id,
+  //           interviewer_id: 1,
+  //           respondent_id: 1,
+  //           answer_yes_no: 3,
+  //           answer_comments: '',
+  //           answer_observation: ''
+  //         },
+  //         {
+  //           carga: this.question.questionnaire_version_id_carga.toString(), 
+  //           question_edited_number: if_no
+  //         } 
+  //       ).then((question: Question) => {
+  //         // AtualizarResposta
+  //         this.question = question
+  //         //this.initForm();
+  //       })
+  //       .catch((param: any) => {
+  //       })
+  //     }else{
+  //       this.initForm();
+  //       alert("Você alcançou o final do Questionário.");
+  //     }
+
+  // }
+
+  public avancarQuestion(): void {  
+    if (this.question.if_no){    
+      this.questionsService.getNext(
+        this.question.questionnaire_version_id_carga.toString(), 
+        this.question.if_no.toString()
+      )
+      .then((question: Question) => {
+        // AtualizarResposta    
+        this.question = question
+        //this.initForm();
+      })
+      .catch((param: any) => {
+      })
+    }else{
+      //alert("Início")
+    }
 
   }
-
   public voltarQuestion(): void {    
     if (this.question.if_back){    
       this.questionsService.getNext(
